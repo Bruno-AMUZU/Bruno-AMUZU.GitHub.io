@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio de Bruno AMUZU, développeur web junior passionné par l'innovation technologique.">
+    <link rel="stylesheet" href="style.css">
+    <title>Bruno AMUZU</title>
+</head>
+<body>
+
+    <!-- 🔹 Header -->
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#qui-suis-je">Présentation</a></li>
+                <li><a href="#realisations">Réalisations</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- 🔹 Section Introduction -->
+        <section class="intro">
+            <h1 class="poof">Bruno AMUZU</h1>
+            <h2 class="fioom">Développeur web junior</h2>
+        </section>
+
+        <!-- 🔹 Section "Qui suis-je ?" -->
+        <section id="qui-suis-je">
+            <h2>Qui suis-je ?</h2>
+            <p>
+                Je suis un jeune passionné par le développement web et l'innovation technologique.
+                Bien que je manque encore d'expérience, j'ai une grande soif d'apprendre et de devenir
+                un développeur polyvalent et compétent. Je me forme sur des plateformes comme
+                OpenClassrooms et Grafikart, et je consulte régulièrement la documentation MDN ainsi
+                que d'autres ressources en ligne. Ce site est dédié à partager mon parcours et mes
+                expériences avec vous.
+            </p>
+        </section>
+
+        <!-- 🔹 Section "Mes réalisations" -->
+        <section id="realisations">
+            <h2>Mes réalisations</h2>
+            <div class="realisations-grid">
+                <!-- Projet 1 -->
+                <article>
+                    <img src="images/Portfolio/Robbie-Lens-Photographie.png" alt="Image projet 1">
+                    <h3>Robbie-Lens-Photographie</h3>
+                    <p>Site vitrine pour le photographe Robbie Lens</p>
+                    <label for="modal1-checkbox" class="open-modal">En savoir plus</label>
+                </article>
+
+                <!-- Cartes "À venir" -->
+                <article class="projet-avenir">
+                    <span class="icon">🛠️</span>
+                    <h3>Projet en préparation</h3>
+                    <p>Un futur projet en cours de développement.</p>
+                </article>
+
+                <article class="projet-avenir">
+                    <span class="icon">📌</span>
+                    <h3>Bientôt disponible</h3>
+                    <p>Encore un peu de patience...</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- 🔹 Modale Projet 1 -->
+        <input type="checkbox" id="modal1-checkbox" class="modal-checkbox">
+        <div class="modal">
+            <div class="modal-content">
+                <label for="modal1-checkbox" class="close-modal">&times;</label>
+                <h2>Robbie Lens Photographie</h2>
+                <p>J'ai réaliser ce projet durant mon apprentissage du HTML et du CSS en tant qu'exercice sur le site de OpenClassrooms.</p>
+                <p>Il met donc en valeur mes compétences de base en HTML et en CSS.</p>
+                <p>Vous pouvez consulter son dépôt sur github en cliquant sur le lien ci dessous.</p>
+                <a rel="noopener" href="https://github.com/Bruno-AMUZU/Robbie-Lens-Photographie" target="_blank" class="github-link">Voir sur GitHub</a>
+            </div>
+        </div>
+    </main>
+
+    <!-- 🔹 Footer -->
+    <footer>
+        <div class="footer-container">
+            <section class="footer-section">
+                <h2>Me suivre</h2>
+                <div class="footer-icons">
+                    <a rel="noopener" href="https://github.com/Bruno-AMUZU" target="_blank" aria-label="GitHub">
+                        <img src="images/github.svg" alt="GitHub">
+                    </a>
+                    <a rel="noopener" href="https://www.instagram.com/bruno_amuzu/" target="_blank" aria-label="Instagram">
+                        <img src="images/instagram.png" alt="Instagram">
+                    </a>
+                </div>
+            </section>
+
+            <section class="footer-section">
+                <h2>Contact</h2>
+                <p>Email : <a href="mailto:amuzuelbruno@gmail.com" class="ft-lk">amuzuelbruno@gmail.com</a></p>
+                <p>Téléphone : <a href="tel:+22899520351" class="ft-lk">+228 99520351</a></p>
+            </section>
+
+            <section class="footer-section">
+                <p>© 2025 Bruno AMUZU - Tous droits réservés.</p>
+                <p><a href="mentions-légales.html" target="_blank" class="ft-lk">Mentions légales</a></p>
+            </section>
+        </div>
+    </footer>
+
+</body>
+</html>

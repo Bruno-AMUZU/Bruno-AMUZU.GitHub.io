@@ -1,0 +1,359 @@
+/* 🔹 Réinitialisation des styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 🔹 Déclaration des variables */
+:root {
+    --primary-color: #007BFF;
+    --background-color: #F4F4F4;
+    --white: #FFFFFF;
+    --text-color: #222;
+    --font-family: "Poppins", Arial, sans-serif;
+}
+
+/* 🔹 HTML */
+html {
+    scroll-behavior: smooth;
+}
+
+/* 🔹 Body */
+body {
+    font-family: var(--font-family);
+    background-color: var(--background-color);
+    line-height: 1.6;
+}
+
+/* 🔹 Header */
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: var(--primary-color);
+    padding: 15px 0;
+    text-align: center;
+    z-index: 1000;
+}
+
+/* 🔹 Navbar */
+nav ul {
+    display: flex;
+    justify-content: flex-end;
+    gap: 20px;
+    padding-right: 20px;
+}
+
+nav ul li {
+    display: inline;
+}
+
+nav ul li a {
+    position: relative;
+    text-decoration: none;
+    color: var(--white);
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+nav ul li a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    width: 0;
+    height: 2px;
+    background: var(--white);
+    transition: width 0.3s ease-in-out;
+}
+
+nav ul li a:hover::after {
+    width: 100%;
+}
+
+/* 🔹 Main */
+main {
+    margin: 0 auto;
+    padding: 100px 20px 20px; /* Ajustement du padding-top pour éviter la superposition avec le header */
+}
+
+/* 🔹 Section intro avec animations */
+.intro {
+    position: relative;
+    text-align: center;
+}
+
+/* Effet Poof */
+.poof {
+    font-size: 2.5rem;
+    color: var(--text-color);
+    font-weight: bold;
+    opacity: 0;
+    transform: scale(0.5);
+    animation: poof 0.8s ease-out forwards;
+}
+
+@keyframes poof {
+    0% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    60% {
+        opacity: 1;
+        transform: scale(1.1);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Effet fioom */
+@keyframes fioooum {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fioom {
+    font-size: 1.5rem;
+    color: var(--text-color);
+    opacity: 0;
+    transform: translateY(-20px);
+    animation: fioooum 1s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
+    animation-delay: 0.8s;
+}
+
+/* 🔹 Section Présentation */
+section {
+    margin: 50px 0;
+}
+
+#qui-suis-je {
+    scroll-margin-top: 100px;
+}
+
+h2 {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+p {
+    font-size: 1rem;
+    line-height: 1.5;
+    text-align: justify;
+}
+
+/* 🔹 Section Réalisations */
+#realisations {
+    text-align: center;
+    padding: 50px 20px;
+    scroll-margin-top: 100px;
+}
+
+/* 📌 Grille des réalisations */
+.realisations-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    max-width: 1100px;
+    margin: auto;
+    padding-top: 20px;
+}
+
+/* 📌 Style des cartes projets */
+article {
+    background: var(--white);
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+article:hover {
+    transform: scale(1.03);
+}
+
+article img {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    border-radius: 5px;
+}
+
+/* 📌 Cartes "À venir" */
+.projet-avenir {
+    background: var(--background-color);
+    text-align: center;
+    color: var(--text-color);
+    font-style: italic;
+    padding: 30px;
+    border: 2px dashed var(--primary-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 📌 Icône dans les cartes "À venir" */
+.projet-avenir .icon {
+    font-size: 2.5rem; /* Taille de l'icône */
+    margin-bottom: 10px;
+    opacity: 0.7;
+}
+/* 📌 Case à cocher cachée */
+.modal-checkbox {
+    display: none;
+}
+
+/* 📌 Fenêtre modale cachée par défaut */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Fond assombri */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+}
+
+/* 📌 Afficher la modale quand la case est cochée */
+.modal-checkbox:checked + .modal {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* 📌 Contenu de la modale */
+.modal-content {
+    background: var(--white);
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 500px;
+    text-align: center;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    position: relative;
+}
+
+/* 📌 Bouton de fermeture */
+.close-modal {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--text-color);
+}
+
+/* 📌 Bouton "En savoir plus" */
+.open-modal {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 8px 12px;
+    background: var(--primary-color);
+    color: var(--white);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.open-modal:hover {
+    background: #0056b3;
+}
+/* 📌 Lien GitHub */
+.github-link {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 15px;
+    background: #24292e; /* Couleur de GitHub */
+    color: var(--white);
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 5px;
+    transition: background 0.3s ease-in-out;
+}
+
+.github-link:hover {
+    background: #333; /* Effet au survol */
+}
+
+
+/* 🔹 Footer */
+footer {
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 30px 15px;
+    margin-top: 50px;
+    text-align: center;
+}
+
+/* 📌 Footer Grid */
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+    max-width: 1100px;
+    margin: auto;
+}
+
+/* 📌 Footer Sections */
+.footer-section {
+    flex: 1;
+    min-width: 250px;
+}
+
+/* 📌 Footer Titre */
+.footer-section h2 {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+    color: var(--white);
+    text-transform: uppercase;
+}
+
+/* 📌 Liens Footer */
+.ft-lk {
+    position: relative;
+    margin: 4px 5px;
+    display: inline-block;
+    text-decoration: none;
+    color: var(--white);
+    font-weight: 600;
+}
+
+.ft-lk::after {
+    content: "";
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--white);
+    transition: width 0.3s ease-in-out;
+}
+
+.ft-lk:hover::after {
+    width: 100%;
+}
+
+/* 📌 Responsive Footer */
+@media screen and (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+    }
+}
