@@ -1,11 +1,11 @@
-/*  Réinitialisation des styles */
+/* 🔹 Réinitialisation des styles */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/*  Déclaration des variables - Mode Clair */
+/* 🔹 Déclaration des variables - Mode Clair */
 :root {
     --primary-color: #007BFF;
     --primary-dark: #0056b3;
@@ -22,21 +22,12 @@
     --transition: all 0.3s ease;
 }
 
-/*  Variables Mode Sombre */
-body.dark-mode {
-    --background-color: #0F1419;
-    --surface-color: #1A1F2E;
-    --text-color: #E8E8E8;
-    --text-secondary: #A0A0A0;
-    --border-color: #2A2F3E;
-    --shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-    --shadow-hover: 0 8px 15px rgba(0, 0, 0, 0.4);
-}
-
+/* 🔹 HTML */
 html {
     scroll-behavior: smooth;
 }
 
+/* 🔹 Body */
 body {
     font-family: var(--font-family);
     background-color: var(--background-color);
@@ -45,22 +36,22 @@ body {
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+/* 🔹 Header */
 header {
     position: fixed;
     top: 0;
     width: 100%;
     background-color: var(--surface-color);
-    padding: 15px 0;
     z-index: 1000;
     box-shadow: var(--shadow);
     transition: var(--transition);
-    padding: 0;
 }
 
+/* 🔹 Logo */
 .logo {
     width: 100px;
     height: 100px;
-    padding: 0;
+    display: block;
 }
 
 /* 🔹 Navbar */
@@ -73,12 +64,12 @@ nav {
     padding: 0 20px;
 }
 
-
 /* Menu Navigation */
 .nav-menu {
     display: flex;
     gap: 30px;
     list-style: none;
+    transition: var(--transition);
 }
 
 .nav-menu li a {
@@ -105,12 +96,13 @@ nav {
     width: 100%;
 }
 
-/* Menu Burger (caché par défaut) */
+/* 🔹 Menu Burger (caché par défaut sur desktop) */
 .burger-icon {
     display: none;
     flex-direction: column;
     cursor: pointer;
     gap: 5px;
+    padding: 10px;
 }
 
 .burger-icon div {
@@ -121,10 +113,23 @@ nav {
     transition: var(--transition);
 }
 
+/* Animation du burger en croix (X) */
+.change .bar1 {
+    transform: translate(0, 8px) rotate(-45deg);
+}
+
+.change .bar2 {
+    opacity: 0;
+}
+
+.change .bar3 {
+    transform: translate(0, -8px) rotate(45deg);
+}
+
 /* 🔹 Main */
 main {
     margin: 0 auto;
-    padding-top: 80px;
+    padding-top: 100px;
 }
 
 /* 🔹 Section intro avec animations */
@@ -209,7 +214,8 @@ main {
     flex-wrap: wrap;
     opacity: 0;
     animation: fadeIn 1s ease-out forwards;
-    animation-delay: 2s;
+    animation-delay: 1.5s;
+    margin-top: 30px;
 }
 
 .btn-primary,
@@ -245,30 +251,6 @@ main {
     transform: translateY(-3px);
 }
 
-/* Indicateur de scroll */
-.scroll-indicator {
-    position: absolute;
-    bottom: 30px;
-    animation: bounce 2s infinite;
-}
-
-.scroll-indicator span {
-    font-size: 2rem;
-    color: var(--primary-color);
-}
-
-@keyframes bounce {
-    0%, 20%, 50%, 80%, 100% {
-        transform: translateY(0);
-    }
-    40% {
-        transform: translateY(-10px);
-    }
-    60% {
-        transform: translateY(-5px);
-    }
-}
-
 /* 🔹 Sections de contenu */
 .content-section {
     max-width: 1200px;
@@ -299,6 +281,19 @@ main {
 /* 🔹 Section Présentation */
 #qui-suis-je {
     scroll-margin-top: 100px;
+}
+
+.about-content {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.about-text p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--text-secondary);
+    margin-bottom: 20px;
+    text-align: center;
 }
 
 /* 🔹 Section Compétences */
@@ -360,7 +355,7 @@ main {
 .skill-progress {
     height: 100%;
     background: var(--gradient);
-    width: var(--progress);
+    width: 0;
     border-radius: 10px;
     transition: width 1s ease-out;
 }
@@ -746,7 +741,7 @@ footer {
 
 /* 🔹 Responsive Design */
 
-/* Tablettes */
+/* Tablettes et mobiles */
 @media screen and (max-width: 768px) {
     .burger-icon {
         display: flex;
@@ -755,35 +750,23 @@ footer {
     .nav-menu {
         position: fixed;
         left: -100%;
-        top: 80px;
+        top: 100px;
         flex-direction: column;
         background-color: var(--surface-color);
         width: 100%;
         text-align: center;
-        transition: 0.3s;
+        transition: left 0.3s ease;
         box-shadow: var(--shadow);
         padding: 20px 0;
         gap: 0;
     }
 
-    .nav-menu li {
-        padding: 15px 0;
-    }
-
-    .menu-toggle:checked ~ .nav-menu {
+    .nav-menu.active {
         left: 0;
     }
 
-    .menu-toggle:checked ~ .burger-icon span:nth-child(1) {
-        transform: rotate(45deg) translate(8px, 8px);
-    }
-
-    .menu-toggle:checked ~ .burger-icon span:nth-child(2) {
-        opacity: 0;
-    }
-
-    .menu-toggle:checked ~ .burger-icon span:nth-child(3) {
-        transform: rotate(-45deg) translate(8px, -8px);
+    .nav-menu li {
+        padding: 15px 0;
     }
 
     .poof {
@@ -796,6 +779,14 @@ footer {
 
     .intro-buttons {
         flex-direction: column;
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .btn-primary,
+    .btn-secondary {
+        width: 100%;
+        justify-content: center;
     }
 
     .section-header h2 {
@@ -809,20 +800,30 @@ footer {
     .realisations-grid {
         grid-template-columns: 1fr;
     }
+
+    .footer-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .footer-icons {
+        justify-content: center;
+    }
 }
 
 /* Mobiles */
 @media screen and (max-width: 480px) {
+    .logo {
+        width: 80px;
+        height: 80px;
+    }
+
     .poof {
         font-size: 2rem;
     }
 
     .fioom {
         font-size: 1.1rem;
-    }
-
-    .intro-text {
-        font-size: 1rem;
     }
 
     .section-header h2 {
@@ -833,7 +834,7 @@ footer {
         padding: 25px;
     }
 
-    .about-stats {
+    .contact-methods {
         grid-template-columns: 1fr;
     }
 }
