@@ -5,16 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Portfolio de Bruno AMUZU, développeur web junior passionné par l'innovation technologique.">
     <link rel="stylesheet" href="style.css">
-    <title>Bruno AMUZU</title>
+    <title>Bruno AMUZU | Développeur Web</title>
+    <link rel="icon" type="image/x-icon" href="images/mon_logo.svg">
 </head>
 <body>
-
-    <!-- 🔹 Header -->
     <header>
         <nav>
-            <ul>
+            <div>
+                <a href="index.html"><img src="images/mon_logo.svg" alt="Logo" class="logo"></a>
+            </div>
+            
+            <!-- Menu Burger -->
+             <div class="burger-icon">
+                <div></div>
+                <div></div>
+                <div></div>
+             </div>
+
+            <!-- Menu Navigation -->
+            <ul class="nav-menu">
                 <li><a href="#qui-suis-je">Présentation</a></li>
+                <li><a href="#competences">Compétences</a></li>
                 <li><a href="#realisations">Réalisations</a></li>
+                <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
     </header>
@@ -22,46 +35,148 @@
     <main>
         <!-- 🔹 Section Introduction -->
         <section class="intro">
-            <h1 class="poof">Bruno AMUZU</h1>
-            <h2 class="fioom">Développeur web junior</h2>
+            <div class="intro-content">
+                <h1 class="poof">Bruno AMUZU</h1>
+                <h2 class="fioom">Développeur web junior</h2>
+                <div class="intro-buttons">
+                    <a href="#realisations" class="btn-primary">Voir mes projets</a>
+                    <a href="CV-Bruno-AMUZU.pdf" download class="btn-secondary">
+                        <span>📄</span> Télécharger mon CV
+                    </a>
+                </div>
+            </div>
         </section>
 
-        <!-- 🔹 Section "Qui suis-je ?" -->
-        <section id="qui-suis-je">
-            <h2>Qui suis-je ?</h2>
-            <p>
-                Je suis un jeune passionné par le développement web et l'innovation technologique.
-                Bien que je manque encore d'expérience, j'ai une grande soif d'apprendre et de devenir
-                un développeur polyvalent et compétent. Je me forme sur des plateformes comme
-                OpenClassrooms et Grafikart, et je consulte régulièrement la documentation MDN ainsi
-                que d'autres ressources en ligne. Ce site est dédié à partager mon parcours et mes
-                expériences avec vous.
-            </p>
+        <section id="qui-suis-je" class="content-section">
+            <div class="section-header">
+                <h2>Qui suis-je ?</h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>
+                        Actuellement étudiant en bachelor développement informatique, 
+                        je me forme au métier de dev full-stack.
+                    </p>
+                    <p>
+                        Mon objectif est de créer des expériences web modernes, accessibles et performantes 
+                        qui répondent aux besoins réels des utilisateurs.
+                    </p>
+                    <p>
+                        Je développe mes compétences à travers des projets concrets et un apprentissage continu. 
+                        Ce site présente mon parcours et mes expériences.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 🔹 Section Compétences -->
+        <section id="competences" class="content-section">
+            <div class="section-header">
+                <h2>Mes compétences</h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="skills-grid">
+                <!-- Frontend -->
+                <div class="skill-category">
+                    <h3>🎨 Frontend</h3>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <span class="skill-name">HTML5</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="--progress: 85%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">CSS3 / Sass</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="--progress: 80%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">JavaScript</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="--progress: 65%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Responsive Design</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="--progress: 75%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Outils -->
+                <div class="skill-category">
+                    <h3>🛠️ Outils & Workflow</h3>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <span class="skill-name">Git / GitHub</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="--progress: 70%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">VS Code</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="--progress: 85%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Figma</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="--progress: 60%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Chrome DevTools</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="--progress: 75%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Connaissances -->
+                <div class="skill-category">
+                    <h3>📚 En apprentissage</h3>
+                    <div class="skill-tags">
+                        <span class="tag">React.js</span>
+                        <span class="tag">Node.js</span>
+                        <span class="tag">TypeScript</span>
+                        <span class="tag">APIs REST</span>
+                        <span class="tag">SQL</span>
+                        <span class="tag">Webpack</span>
+                    </div>
+                </div>
+            </div>
         </section>
 
         <!-- 🔹 Section "Mes réalisations" -->
-        <section id="realisations">
-            <h2>Mes réalisations</h2>
+        <section id="realisations" class="content-section">
+            <div class="section-header">
+                <h2>Mes réalisations</h2>
+                <div class="section-line"></div>
+            </div>
             <div class="realisations-grid">
                 <!-- Projet 1 -->
-                <article>
-                    <img src="images/Portfolio/Robbie-Lens-Photographie.png" alt="Image projet 1">
-                    <h3>Robbie-Lens-Photographie</h3>
-                    <p>Site vitrine pour le photographe Robbie Lens</p>
-                    <label for="modal1-checkbox" class="open-modal">En savoir plus</label>
-                </article>
-
-                <!-- Cartes "À venir" -->
-                <article class="projet-avenir">
-                    <span class="icon">🛠️</span>
-                    <h3>Projet en préparation</h3>
-                    <p>Un futur projet en cours de développement.</p>
-                </article>
-
-                <article class="projet-avenir">
-                    <span class="icon">📌</span>
-                    <h3>Bientôt disponible</h3>
-                    <p>Encore un peu de patience...</p>
+                <article class="project-card">
+                    <div class="project-image">
+                        <img src="images/Portfolio/Robbie-Lens-Photographie.png" alt="Site vitrine Robbie Lens">
+                        <div class="project-overlay">
+                            <label for="modal1-checkbox" class="btn-view">Voir les détails</label>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Robbie-Lens-Photographie</h3>
+                        <p>Site vitrine pour le photographe Robbie Lens</p>
+                        <div class="project-tags">
+                            <span class="tag-tech">HTML</span>
+                            <span class="tag-tech">CSS</span>
+                        </div>
+                    </div>
                 </article>
             </div>
         </section>
@@ -72,41 +187,87 @@
             <div class="modal-content">
                 <label for="modal1-checkbox" class="close-modal">&times;</label>
                 <h2>Robbie Lens Photographie</h2>
-                <p>J'ai réaliser ce projet durant mon apprentissage du HTML et du CSS en tant qu'exercice sur le site de OpenClassrooms.</p>
-                <p>Il met donc en valeur mes compétences de base en HTML et en CSS.</p>
-                <p>Vous pouvez consulter son dépôt sur github en cliquant sur le lien ci dessous.</p>
-                <a rel="noopener" href="https://github.com/Bruno-AMUZU/Robbie-Lens-Photographie" target="_blank" class="github-link">Voir sur GitHub</a>
+                <div class="modal-body">
+                    <p>J'ai réalisé ce projet durant mon apprentissage du HTML et du CSS en tant qu'exercice sur le site de OpenClassrooms.</p>
+                    <p>Il met en valeur mes compétences de base en HTML et en CSS, notamment :</p>
+                    <ul>
+                        <li>Utilisation de la sémantique HTML5</li>
+                        <li>Mise en page responsive avec CSS Grid et Flexbox</li>
+                        <li>Optimisation des images</li>
+                        <li>Navigation fluide avec scroll comportement</li>
+                    </ul>
+                    <p>Vous pouvez consulter le code source sur GitHub :</p>
+                    <a rel="noopener" href="https://github.com/Bruno-AMUZU/Robbie-Lens-Photographie" target="_blank" class="github-link">
+                        <img src="images/github.svg" alt="" class="github-icon"> Voir sur GitHub
+                    </a>
+                </div>
             </div>
         </div>
+
+        <!-- 🔹 Section Contact -->
+        <section id="contact" class="content-section contact-section">
+            <div class="section-header">
+                <h2>Travaillons ensemble</h2>
+                <div class="section-line"></div>
+            </div>
+            <p class="contact-text">
+                Je suis actuellement à la recherche d'opportunités pour développer mes compétences. 
+                N'hésitez pas à me contacter !
+            </p>
+            <div class="contact-methods">
+                <a href="mailto:amuzuelbruno@gmail.com" class="contact-card">
+                    <span class="contact-icon">📧</span>
+                    <span class="contact-label">Email</span>
+                    <span class="contact-value">amuzuelbruno@gmail.com</span>
+                </a>
+                <a href="tel:+33628002330" class="contact-card">
+                    <span class="contact-icon">📱</span>
+                    <span class="contact-label">Téléphone</span>
+                    <span class="contact-value">+33 6 28 00 23 30</span>
+                </a>
+            </div>
+        </section>
     </main>
 
     <!-- 🔹 Footer -->
     <footer>
         <div class="footer-container">
             <section class="footer-section">
-                <h2>Me suivre</h2>
+                <h3>Bruno AMUZU</h3>
+                <p>Développeur web junior passionné</p>
+            </section>
+
+            <section class="footer-section">
+                <h3>Navigation</h3>
+                <ul class="footer-links">
+                    <li><a href="#qui-suis-je">Présentation</a></li>
+                    <li><a href="#competences">Compétences</a></li>
+                    <li><a href="#realisations">Réalisations</a></li>
+                </ul>
+            </section>
+
+            <section class="footer-section">
+                <h3>Me suivre</h3>
                 <div class="footer-icons">
                     <a rel="noopener" href="https://github.com/Bruno-AMUZU" target="_blank" aria-label="GitHub">
                         <img src="images/github.svg" alt="GitHub">
+                    </a>
+                    <a rel="noopener" href="https://www.linkedin.com/in/bruno-amuzu" target="_blank" aria-label="LinkedIn">
+                        <img src="images/linkedin.svg" alt="LinkedIn">
                     </a>
                     <a rel="noopener" href="https://www.instagram.com/bruno_amuzu/" target="_blank" aria-label="Instagram">
                         <img src="images/instagram.png" alt="Instagram">
                     </a>
                 </div>
             </section>
+        </div>
 
-            <section class="footer-section">
-                <h2>Contact</h2>
-                <p>Email : <a href="mailto:amuzuelbruno@gmail.com" class="ft-lk">amuzuelbruno@gmail.com</a></p>
-                <p>Téléphone : <a href="tel:+33628002330" class="ft-lk">+33 628002330</a></p>
-            </section>
-
-            <section class="footer-section">
-                <p>© 2025 Bruno AMUZU - Tous droits réservés.</p>
-                <p><a href="mentions-légales.html" target="_blank" class="ft-lk">Mentions légales</a></p>
-            </section>
+        <div class="footer-bottom">
+            <p>© 2025 Bruno AMUZU - Tous droits réservés.</p>
+            <p><a href="mentions-légales.html" target="_blank">Mentions légales</a></p>
         </div>
     </footer>
 
+    <script src="script.js"></script>
 </body>
 </html>
