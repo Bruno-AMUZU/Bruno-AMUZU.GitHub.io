@@ -66,30 +66,16 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// 🔹 Fermer la modale en cliquant en dehors
-document.querySelectorAll('.modal').forEach(modal => {
-    modal.addEventListener('click', function(e) {
-        if (e.target === this) {
-            const checkbox = document.querySelector('.modal-checkbox:checked');
-            if (checkbox) {
-                checkbox.checked = false;
-            }
-        }
+// 🔹 Gestion des fenêtres modales
+document.querySelectorAll(".modal-button-open").forEach((btn) => {
+    btn.addEventListener("click", () => {
+        const id = btn.getAttribute("data-modal-id");
+      document.getElementById(id).classList.add("modal-show");
     });
-});
-
-// 🔹 Animation du header au scroll (optionnel - ajoute une ombre plus prononcée)
-let lastScroll = 0;
-const header = document.querySelector('header');
-
-window.addEventListener('scroll', () => {
-    const currentScroll = window.pageYOffset;
-    
-    if (currentScroll > 50) {
-        header.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.15)';
-    } else {
-        header.style.boxShadow = '0 4px 6px rgba(0, 0, 0, 0.1)';
-    }
-    
-    lastScroll = currentScroll;
-});
+  });
+  
+  document.querySelectorAll(".modal-button-close").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      btn.closest("div.modal-div-wrapper").classList.remove("modal-show");
+    });
+  });

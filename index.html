@@ -139,21 +139,17 @@
                         </div>
                     </div>
                 </div>
-
-                <!-- Connaissances -->
-                <div class="skill-category">
-                    <h3>📚 En apprentissage</h3>
-                    <div class="skill-tags">
-                        <span class="tag">React.js</span>
-                        <span class="tag">Node.js</span>
-                        <span class="tag">TypeScript</span>
-                        <span class="tag">APIs REST</span>
-                        <span class="tag">SQL</span>
-                        <span class="tag">Webpack</span>
-                    </div>
-                </div>
             </div>
         </section>
+
+
+
+
+
+
+
+
+
 
         <!-- 🔹 Section "Mes réalisations" -->
         <section id="realisations" class="content-section">
@@ -167,7 +163,7 @@
                     <div class="project-image">
                         <img src="images/Portfolio/Robbie-Lens-Photographie.png" alt="Site vitrine Robbie Lens">
                         <div class="project-overlay">
-                            <label for="modal1-checkbox" class="btn-view">Voir les détails</label>
+                            <button class="modal-button-open" data-modal-id="modal-1">Voir les détails</button>
                         </div>
                     </div>
                     <div class="project-info">
@@ -184,7 +180,7 @@
                     <div class="project-image">
                         <img src="images/Portfolio/Site-BDIWEAR.png" alt="Site de vente de vêtements BDIWEAR">
                         <div class="project-overlay">
-                            <label for="modal2-checkbox" class="btn-view">Voir les détails</label>
+                            <button class="modal-button-open" data-modal-id="modal-2">Voir les détails</button>
                         </div>
                     </div>
                     <div class="project-info">
@@ -194,17 +190,29 @@
                             <span class="tag-tech">HTML</span>
                             <span class="tag-tech">CSS</span>
                             <span class="tag-tech">JS</span>
+                            <span class="tag-tech">FIGMA</span>
                         </div>
                     </div>
                 </article>
             </div>
         </section>
 
+
+
+
+
+
+
+
+
+
+
+
+
         <!-- 🔹 Modale Projet 1 -->
-        <input type="checkbox" id="modal1-checkbox" class="modal-checkbox">
-        <div class="modal">
-            <div class="modal-content">
-                <label for="modal1-checkbox" class="close-modal">&times;</label>
+        <div class="modal-div-wrapper" id="modal-1">
+            <div class="modal-div-content">
+                <button class="modal-button-close">X</button>
                 <h2>Robbie Lens Photographie</h2>
                 <div class="modal-body">
                     <p>J'ai réalisé ce projet durant mon apprentissage du HTML et du CSS en tant qu'exercice sur le site de OpenClassrooms.</p>
@@ -223,14 +231,14 @@
             </div>
         </div>
 
-        <input type="checkbox" id="modal2-checkbox" class="modal-checkbox">
-        <div class="modal">
-            <div class="modal-content">
-                <label for="modal2-checkbox" class="close-modal">&times;</label>
+        <div class="modal-div-wrapper" id="modal-2">
+            <div class="modal-div-content">
+                <button class="modal-button-close">X</button>
                 <h2>BDI WEAR</h2>
                 <div class="modal-body">
                     <p>J'ai réalisé ce projet durant mon cours de développement web à Metz Numeric School.</p>
                     <p>Il renforce mes bases en HTML et CSS tout en m'introduisant aux bases du JavaScript.</p>
+                    <p>De plus, il est fait à partir d'une maquette FIGMA que j'ai conçu durant mon cours de web design.</p>
                     <p>Vous pouvez consulter le code source sur GitHub :</p>
                     <a rel="noopener" href="https://github.com/Bruno-AMUZU/mon_bdiwear" target="_blank" class="github-link">
                         <img src="images/github.svg" alt="" class="github-icon"> Voir sur GitHub
@@ -238,6 +246,16 @@
                 </div>
             </div>
         </div>
+
+
+
+
+
+
+
+
+
+
 
         <!-- 🔹 Section Contact -->
         <section id="contact" class="content-section contact-section">
@@ -303,6 +321,5 @@
         </div>
     </footer>
 
-    <script src="script.js"></script>
 </body>
 </html>
