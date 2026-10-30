@@ -1,0 +1,519 @@
+{
+  "$note": "EN texts — translations of content.fr.json, status [P] until Bruno reviews them. Same keys as FR. The back-office is French-only, so 'admin' is not translated.",
+  "common": {
+    "logo": "bruno amuzu",
+    "nav": {
+      "services": "Services",
+      "stack": "Stack",
+      "projects": "Projects",
+      "lab": "Lab",
+      "about": "About"
+    },
+    "cta": "Start a project",
+    "lang": {
+      "fr": "FR",
+      "en": "EN"
+    },
+    "theme": {
+      "toLight": "Switch to light theme",
+      "toDark": "Switch to dark theme"
+    },
+    "menu": {
+      "open": "Open menu",
+      "close": "Close menu"
+    },
+    "footer": {
+      "copyright": "© 2026 Bruno Amuzu",
+      "links": [
+        {
+          "label": "GitHub",
+          "url": "https://github.com/Bruno-AMUZU"
+        },
+        {
+          "label": "LinkedIn",
+          "url": "https://www.linkedin.com/in/bruno-amuzu"
+        },
+        {
+          "label": "X",
+          "url": "https://x.com/bruno_amuzu"
+        },
+        {
+          "label": "amuzuelbruno@gmail.com",
+          "url": "mailto:amuzuelbruno@gmail.com"
+        },
+        {
+          "label": "Legal notice",
+          "url": "/en/legal-notice"
+        }
+      ]
+    }
+  },
+  "home": {
+    "hero": {
+      "status": "Available — freelance & opportunities",
+      "title": "Websites and web tools that move your business forward.",
+      "subtitle": "Web developer · PHP · Applied AI",
+      "ctaPrimary": "Start a project",
+      "ctaSecondary": "See projects"
+    },
+    "services": {
+      "title": "Services",
+      "items": [
+        {
+          "illustration": "web",
+          "title": "Websites & custom builds",
+          "text": "Fast, accessible, search-friendly."
+        },
+        {
+          "illustration": "apps",
+          "title": "Apps & back-offices",
+          "text": "Your content, clients and processes, under control."
+        },
+        {
+          "illustration": "ia",
+          "title": "AI & automation",
+          "text": "Agents and workflows connected to your data.",
+          "inverted": true
+        }
+      ]
+    },
+    "stack": {
+      "title": "Stack"
+    },
+    "projects": {
+      "title": "Projects",
+      "link": "All projects →"
+    },
+    "lab": {
+      "title": "AI Lab",
+      "link": "All notes →"
+    }
+  },
+  "form": {
+    "name": "Name",
+    "namePlaceholder": "Your name",
+    "email": "Email",
+    "emailPlaceholder": "you@example.com",
+    "type": "Project type",
+    "types": [
+      "Website",
+      "Application",
+      "AI",
+      "Other"
+    ],
+    "message": "Message",
+    "messagePlaceholder": "Tell me about your project…",
+    "submit": "Send message",
+    "privacy": "[À FOURNIR] Short privacy notice (how form data is used)."
+  },
+  "chat": {
+    "open": "Open the AI assistant",
+    "close": "Close the assistant",
+    "title": "Bruno’s assistant",
+    "subtitle": "Answers from this site’s content",
+    "placeholder": "Your question…",
+    "send": "Send",
+    "demo": [
+      {
+        "from": "assistant",
+        "text": "Hi! Ask me anything about Bruno’s projects, skills or services."
+      },
+      {
+        "from": "visitor",
+        "text": "Has he ever built a back-office in PHP?"
+      },
+      {
+        "from": "assistant",
+        "text": "Yes: for example Pilotis, a site-tracking back-office for a construction SME.",
+        "link": "See the project"
+      }
+    ]
+  },
+  "stack": [
+    {
+      "title": "Front-end",
+      "items": [
+        {
+          "name": "HTML5",
+          "tech": "html"
+        },
+        {
+          "name": "CSS3 / Sass",
+          "tech": "css"
+        },
+        {
+          "name": "JavaScript",
+          "tech": "javascript"
+        },
+        {
+          "name": "Figma",
+          "tech": "figma"
+        }
+      ]
+    },
+    {
+      "title": "Back-end",
+      "items": [
+        {
+          "name": "PHP 8",
+          "tech": "php"
+        },
+        {
+          "name": "PostgreSQL",
+          "tech": "postgresql"
+        },
+        {
+          "name": "MySQL",
+          "tech": "mysql"
+        },
+        {
+          "name": "Python",
+          "tech": "python"
+        }
+      ]
+    },
+    {
+      "title": "Tools & infra",
+      "items": [
+        {
+          "name": "Docker",
+          "tech": "docker"
+        },
+        {
+          "name": "Git",
+          "tech": "git"
+        },
+        {
+          "name": "GitHub",
+          "tech": "github"
+        },
+        {
+          "name": "VS Code",
+          "tech": "vscode"
+        }
+      ]
+    },
+    {
+      "title": "AI",
+      "inverted": true,
+      "items": [
+        {
+          "name": "Claude Code",
+          "tech": "accent"
+        },
+        {
+          "name": "MCP",
+          "tech": "accent"
+        },
+        {
+          "name": "Agents",
+          "tech": "accent"
+        },
+        {
+          "name": "RAG · pgvector",
+          "tech": "accent"
+        }
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "fictional": true,
+      "slug": "atelier-brume",
+      "year": "2026",
+      "type": "Website",
+      "title": "Atelier Brume",
+      "summary": "Showcase site for a ceramic artist, with a shop for one-off pieces.",
+      "stack": [
+        "Figma",
+        "PHP",
+        "PostgreSQL"
+      ],
+      "image": null,
+      "links": {
+        "github": null,
+        "demo": "#"
+      },
+      "caseStudy": {
+        "context": "An artisan sold only at markets and wanted to reach customers online.",
+        "solution": "A custom showcase site with a simple shop, managed from a back-office.",
+        "result": "Fictional example."
+      }
+    },
+    {
+      "fictional": true,
+      "slug": "pilotis",
+      "year": "2026",
+      "type": "Application",
+      "title": "Pilotis",
+      "summary": "Site-tracking back-office for a construction SME.",
+      "stack": [
+        "PHP",
+        "PostgreSQL",
+        "Docker"
+      ],
+      "image": null,
+      "links": {
+        "github": null,
+        "demo": "#"
+      },
+      "caseStudy": {
+        "context": "Site tracking lived in shared spreadsheets, causing errors.",
+        "solution": "A web app with scheduling, reports and role-based access.",
+        "result": "Fictional example."
+      }
+    },
+    {
+      "fictional": true,
+      "slug": "mona",
+      "year": "2026",
+      "type": "AI",
+      "title": "Mona",
+      "summary": "AI assistant answering an accounting firm’s clients from its own documentation.",
+      "stack": [
+        "PHP",
+        "pgvector",
+        "API Claude"
+      ],
+      "image": null,
+      "links": {
+        "github": null,
+        "demo": "#"
+      },
+      "caseStudy": {
+        "context": "The firm got the same questions by email every day.",
+        "solution": "A RAG assistant connected to internal docs, with hand-off to a human.",
+        "result": "Fictional example."
+      }
+    },
+    {
+      "fictional": true,
+      "slug": "fournil-anna",
+      "year": "2025",
+      "type": "Website",
+      "title": "Le Fournil d’Anna",
+      "summary": "Website and click & collect ordering for a bakery.",
+      "stack": [
+        "PHP",
+        "JavaScript",
+        "PostgreSQL"
+      ],
+      "image": null,
+      "links": {
+        "github": null,
+        "demo": "#"
+      },
+      "caseStudy": {
+        "context": "Orders came in by phone at peak hours.",
+        "solution": "A site with a catalogue and online orders for in-store pickup.",
+        "result": "Fictional example."
+      }
+    },
+    {
+      "fictional": true,
+      "slug": "tickety",
+      "year": "2025",
+      "type": "Application",
+      "title": "Tickety",
+      "summary": "Support request management tool for a small team.",
+      "stack": [
+        "PHP",
+        "PostgreSQL",
+        "JavaScript"
+      ],
+      "image": null,
+      "links": {
+        "github": null,
+        "demo": "#"
+      },
+      "caseStudy": {
+        "context": "Requests arrived through several channels and got lost.",
+        "solution": "A single inbox with statuses, priorities and assignment.",
+        "result": "Fictional example."
+      }
+    },
+    {
+      "fictional": true,
+      "slug": "radar",
+      "year": "2025",
+      "type": "AI",
+      "title": "Radar",
+      "summary": "Monitoring agent that summarises competitor news every week.",
+      "stack": [
+        "Python",
+        "Agents",
+        "MCP"
+      ],
+      "image": null,
+      "links": {
+        "github": null,
+        "demo": "#"
+      },
+      "caseStudy": {
+        "context": "A marketing team spent hours tracking competitors.",
+        "solution": "An agent that collects, sorts and summarises news into a weekly report.",
+        "result": "Fictional example."
+      }
+    }
+  ],
+  "lab": [
+    {
+      "slug": "[À FOURNIR]",
+      "category": "Context engineering",
+      "title": "[À FOURNIR]",
+      "date": "[DATE]",
+      "readingTime": "[N] min"
+    },
+    {
+      "slug": "[À FOURNIR]",
+      "category": "Harness engineering",
+      "title": "[À FOURNIR]",
+      "date": "[DATE]",
+      "readingTime": "[N] min"
+    },
+    {
+      "slug": "[À FOURNIR]",
+      "category": "RAG",
+      "title": "[À FOURNIR]",
+      "date": "[DATE]",
+      "readingTime": "[N] min"
+    }
+  ],
+  "about": {
+    "intro": {
+      "title": "[À FOURNIR] Introduction title",
+      "text": "[À FOURNIR] 3-4 sentence introduction.",
+      "cv": "Download my resume",
+      "contact": "Contact me"
+    },
+    "timeline": {
+      "title": "Background"
+    },
+    "skills": {
+      "title": "Skills"
+    },
+    "certifications": {
+      "title": "Certifications",
+      "link": "View certificate →"
+    }
+  },
+  "timeline": [
+    {
+      "kind": "Education",
+      "title": "Bachelor’s in software development",
+      "org": "[À FOURNIR]",
+      "place": "[À FOURNIR]",
+      "period": "[À FOURNIR]",
+      "text": "[À FOURNIR]"
+    },
+    {
+      "kind": "[À FOURNIR]",
+      "title": "[À FOURNIR]",
+      "org": "[À FOURNIR]",
+      "place": "[À FOURNIR]",
+      "period": "[À FOURNIR]",
+      "text": "[À FOURNIR]"
+    }
+  ],
+  "certifications": [
+    {
+      "date": "January 2026",
+      "title": "Apprenez à programmer avec JavaScript",
+      "org": "OpenClassrooms",
+      "file": "data/Certificat-Programmer-JavaScript-openclassrooms.pdf"
+    },
+    {
+      "date": "January 2026",
+      "title": "Apprenez les bases du langage Python",
+      "org": "OpenClassrooms",
+      "file": "data/Certificat-python-openclassrooms.pdf"
+    },
+    {
+      "date": "May 2025",
+      "title": "Apprenez à utiliser la ligne de commande dans un terminal",
+      "org": "OpenClassrooms",
+      "file": "data/Certificat-ligne-de-commande-openclassrooms.pdf"
+    },
+    {
+      "date": "November 2024",
+      "title": "Simplifiez-vous le CSS avec Sass",
+      "org": "OpenClassrooms",
+      "file": "data/Certificat-Sass-openclassrooms.pdf"
+    },
+    {
+      "date": "July 2024",
+      "title": "Créez votre site web avec HTML5 et CSS3",
+      "org": "OpenClassrooms",
+      "file": "data/Certificat-HTML5-et-CSS3-openclassrooms.pdf"
+    },
+    {
+      "date": "September 2023",
+      "title": "Comprendre le Web",
+      "org": "OpenClassrooms",
+      "file": "data/Certificat-Comprendre-le-web-openclassrooms.pdf"
+    }
+  ],
+  "projectsPage": {
+    "title": "Projects",
+    "intro": "[À FOURNIR] One-sentence introduction.",
+    "filters": [
+      "All",
+      "Websites",
+      "Applications",
+      "AI"
+    ]
+  },
+  "projectPage": {
+    "back": "← All projects",
+    "demo": "Visit site",
+    "code": "View code",
+    "context": "Context",
+    "solution": "What I built",
+    "result": "Outcome",
+    "next": "Next project"
+  },
+  "labPage": {
+    "title": "AI Lab",
+    "intro": "[À FOURNIR] One-sentence introduction.",
+    "filters": [
+      "All",
+      "Context engineering",
+      "Harness engineering",
+      "RAG"
+    ]
+  },
+  "articlePage": {
+    "back": "← All notes",
+    "related": "Read next",
+    "sample": "[À FOURNIR] Sample article text."
+  },
+  "contactPage": {
+    "success": {
+      "title": "Message sent.",
+      "text": "[À FOURNIR] Confirmation sentence."
+    },
+    "title": "Got a project in mind? Let’s talk."
+  },
+  "legal": {
+    "title": "Legal notice",
+    "blocks": [
+      {
+        "title": "Publisher",
+        "text": "Bruno Amuzu — amuzuelbruno@gmail.com"
+      },
+      {
+        "title": "Hosting",
+        "text": "[À FOURNIR]"
+      },
+      {
+        "title": "Personal data",
+        "text": "[À FOURNIR]"
+      }
+    ]
+  },
+  "notFound": {
+    "title": "Page not found",
+    "text": "[À FOURNIR] One sentence.",
+    "cta": "Back to home"
+  }
+}

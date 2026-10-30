@@ -1,0 +1,100 @@
+{
+  "$note": "Version machine des fiches pages/*.md, lue par le script de vérification. Toute modification d'une fiche doit être reportée ici.",
+  "conventions": {
+    "frameName": "{page} / {format} / {theme}  — ou, pour un état : {page} ({etat}) / {format} / {theme}",
+    "sectionPrefix": "§ ",
+    "sectionNote": "Chaque section d'un cadre est un calque nommé '§ <id>' ; le script compare la suite des '§' (ordre du document) à la liste ci-dessous.",
+    "componentsPage": "Composants",
+    "colorCollection": "Couleurs",
+    "lang": "fr"
+  },
+  "formats": {
+    "Desktop": { "width": 1440 },
+    "Mobile": { "width": 390 }
+  },
+  "themes": ["Clair", "Sombre"],
+  "forbiddenEverywhere": [
+    { "pattern": "\\+?33\\s?[1-9](?:[\\s.]?\\d{2}){4}|0[1-9](?:[\\s.]?\\d{2}){4}", "reason": "Téléphone [R]" },
+    { "pattern": "Instagram", "reason": "Instagram [R]" },
+    { "pattern": "Robbie|BDI ?WEAR|Portfolio CMS", "reason": "Projet réel : maquette en projets fictifs uniquement" }
+  ],
+  "components": [
+    "Button", "IconButton", "Pill", "Tag", "TechChip", "Field", "ChoiceChips",
+    "Header", "LangSwitch", "SectionHeader", "Footer",
+    "ServiceCard", "StackCard", "ProjectCard", "LabCard", "ContactBlock",
+    "ChatBubble", "ChatPanel",
+    "AdminSidebar", "AdminTopbar", "DataTableRow", "StatusBadge", "LangTabs", "StatCard"
+  ],
+  "pages": {
+    "Accueil": {
+      "spec": "pages/accueil.md",
+      "sections": ["header", "hero", "services", "stack", "projets", "lab", "footer", "chat-bubble"],
+      "states": {
+        "chat ouvert": { "sections": ["header", "hero", "services", "stack", "projets", "lab", "footer", "chat-panel", "chat-bubble"] },
+        "menu ouvert": { "formats": ["Mobile"], "themes": ["Clair"], "sections": ["header", "menu-mobile"] }
+      },
+      "forbiddenText": ["CV", "Pour qui", "Envoyer le message", "Parlons-en"]
+    },
+    "À propos": {
+      "spec": "pages/a-propos.md",
+      "sections": ["header", "presentation", "parcours", "competences", "certifications", "footer", "chat-bubble"],
+      "forbiddenText": ["%"]
+    },
+    "Projets": {
+      "spec": "pages/projets.md",
+      "sections": ["header", "en-tete", "filtres", "grille", "footer", "chat-bubble"]
+    },
+    "Projet": {
+      "spec": "pages/projet.md",
+      "sections": ["header", "retour", "en-tete", "visuel", "etude-de-cas", "galerie", "projet-suivant", "footer", "chat-bubble"]
+    },
+    "Lab": {
+      "spec": "pages/lab.md",
+      "sections": ["header", "en-tete", "filtres", "grille", "footer", "chat-bubble"]
+    },
+    "Article": {
+      "spec": "pages/article.md",
+      "sections": ["header", "retour", "en-tete", "corps", "articles-lies", "footer", "chat-bubble"]
+    },
+    "Contact": {
+      "spec": "pages/contact.md",
+      "sections": ["header", "contact", "footer", "chat-bubble"],
+      "states": {
+        "envoyé": { "sections": ["header", "contact", "footer", "chat-bubble"] }
+      },
+      "forbiddenText": ["CV"]
+    },
+    "Mentions légales": {
+      "spec": "pages/mentions-legales.md",
+      "themes": ["Clair"],
+      "sections": ["header", "titre", "corps", "footer"]
+    },
+    "404": {
+      "spec": "pages/404.md",
+      "sections": ["header", "message", "footer"]
+    },
+    "Admin Connexion": {
+      "spec": "pages/admin-connexion.md",
+      "sections": ["carte"],
+      "states": { "erreur": { "sections": ["carte"] } }
+    },
+    "Admin Tableau de bord": {
+      "spec": "pages/admin-tableau-de-bord.md",
+      "sections": ["sidebar", "topbar", "chiffres", "derniers-messages", "actions-rapides"]
+    },
+    "Admin Liste": {
+      "spec": "pages/admin-liste.md",
+      "sections": ["sidebar", "topbar", "outils", "tableau"],
+      "states": { "vide": { "sections": ["sidebar", "topbar", "outils", "etat-vide"] } }
+    },
+    "Admin Édition": {
+      "spec": "pages/admin-edition.md",
+      "sections": ["sidebar", "topbar", "principal", "lateral"]
+    },
+    "Admin Messages": {
+      "spec": "pages/admin-messages.md",
+      "sections": ["sidebar", "topbar", "liste", "detail"],
+      "sectionsByFormat": { "Mobile": ["sidebar", "topbar", "liste"] }
+    }
+  }
+}
