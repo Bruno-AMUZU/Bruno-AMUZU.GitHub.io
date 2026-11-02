@@ -46,7 +46,7 @@ Chaque composant existe en thème clair et sombre via les variables de couleur, 
 
 ### Header [V]
 - Barre en pilule, fond `surface`, rayon `pill`, padding `space.2` + `space.6` à gauche, dans le conteneur (marge haute `space.5`).
-- Gauche : logo = carré 14 px rayon 4 `accent` + « bruno amuzu » typo `logo`.
+- Gauche : logo = symbole « terminal » 28 px (`images/logo.svg` : carré rayon 7 `#111111`, chevron `>` et curseur `_` `accent`, « b » `#F4F4F2` ; curseur clignotant, figé si `prefers-reduced-motion`) + « bruno amuzu » typo `logo`. En thème sombre, liseré 1 px `line` autour du carré. [V]
 - Droite (desktop) : liens Services, Stack, Projets, Lab, À propos (typo `nav`) · sélecteur FR · EN · IconButton thème · Button `inverse` « Démarrer un projet ».
 - Mobile [V] : logo + IconButton thème + IconButton menu ; le menu ouvre un panneau plein écran (fond `surface`) listant les mêmes liens, le sélecteur de langue et le CTA.
 

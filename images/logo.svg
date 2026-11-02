@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="bruno amuzu">
+  <style>
+    .cursor { animation: blink 1.1s steps(1) infinite; }
+    @keyframes blink { 50% { opacity: 0; } }
+    @media (prefers-reduced-motion: reduce) { .cursor { animation: none; } }
+    @media (prefers-color-scheme: dark) { .edge { stroke: #3A3A40; } }
+  </style>
+  <rect width="32" height="32" rx="7" fill="#111111"/>
+  <rect class="edge" x="0.5" y="0.5" width="31" height="31" rx="6.5" fill="none" stroke="none"/>
+  <path d="M6.5 12 L11.5 17 L6.5 22" fill="none" stroke="#C084FC" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M15.5 8.5 V23.5" stroke="#F4F4F2" stroke-width="2.6" stroke-linecap="round"/>
+  <circle cx="19.2" cy="19.8" r="3.7" fill="none" stroke="#F4F4F2" stroke-width="2.6"/>
+  <rect x="24" y="22.2" width="4" height="2.6" rx="0.6" fill="#C084FC" class="cursor"/>
+</svg>
