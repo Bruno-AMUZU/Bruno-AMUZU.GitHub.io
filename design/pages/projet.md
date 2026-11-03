@@ -8,7 +8,7 @@
 ## Sections — liste fermée, dans cet ordre
 
 1. **Header** [V]
-2. **Retour** [P] : lien `projectPage.back` (« ← Tous les projets »), typo `label`.
+2. **Retour** [V] : lien `projectPage.back` (« ← Tous les projets »), typo `label`.
 3. **En-tête du projet** [V]
    - Pill : `year` · `type`.
    - Titre `display-l` : `title`.

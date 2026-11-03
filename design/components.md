@@ -127,7 +127,7 @@ Chaque composant existe en thème clair et sombre via les variables de couleur, 
 - En-tête fond `inv` : « Assistant IA » (`heading-3`) [V] + sous-titre `caption` `invMuted` + IconButton fermer.
 - Messages : assistant à gauche fond `soft` ; visiteur à droite fond `accent` / texte `onAccent` ; rayon `md` avec coin d'origine à 4 px.
 - Bas : champ arrondi (`pill`) + IconButton envoyer (fond `inv`).
-- En mobile [P] : le panneau occupe toute la largeur moins `space.4` de chaque côté.
+- En mobile [V] : le panneau occupe toute la largeur moins `space.4` de chaque côté.
 
 ## Back-office [V]
 

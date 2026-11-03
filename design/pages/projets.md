@@ -8,7 +8,7 @@
 
 1. **Header** [V]
 2. **En-tête de page** [V]
-   - Titre `display-l` `projectsPage.title` + texte `body-l` `muted` `projectsPage.intro`. Pas de carte autour [P].
+   - Titre `display-l` `projectsPage.title` + texte `body-l` `muted` `projectsPage.intro`. Pas de carte autour [V].
 3. **Filtres** [V]
    - Rangée de ChoiceChips : `projectsPage.filters` (Tous, Sites, Applications, IA). « Tous » sélectionné.
 4. **Grille** [V]
