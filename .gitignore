@@ -1,1 +1,5 @@
+# Outillage Claude Code (local uniquement)
+.claude/
+
+# Maquette : fichiers générés
 design/maquette/generated/
