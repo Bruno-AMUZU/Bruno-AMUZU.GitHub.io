@@ -36,6 +36,10 @@ const addColor = (hex) => allowedColors.add(hex.toUpperCase());
 addColor(tokens.color.accent.value);
 addColor(tokens.color.onAccent.value);
 for (const theme of ['light', 'dark']) for (const v of Object.values(tokens.color[theme])) addColor(v.value);
+for (const [k, v] of Object.entries(tokens.color.brand || {})) {
+  if (k.startsWith('$')) continue;
+  for (const hex of [v.value, v.light, v.dark]) if (hex) addColor(hex.slice(0, 7));
+}
 for (const v of Object.values(tokens.color.status)) addColor(v.value);
 for (const [k, v] of Object.entries(tokens.color.tech)) if (!k.startsWith('$')) addColor(v);
 addColor(tokens.color.overlay.value);
@@ -88,7 +92,18 @@ const pathOf = (n) => {
 
 // ---------- Contrôles par calque ----------
 function checkNode(n, insideInstance) {
+  // Le cadre d'un jeu de variantes est un repère de l'éditeur (pointillés violets), jamais rendu sur une page.
+  if (/^component_?set$/i.test(n.type)) return;
   const where = pathOf(n);
+  // Logos officiels des technologies (composant « Logo ») : couleurs de marque, exception prévue par la spec.
+  let inLogo = false;
+  const isLogoSet = (node) => node && /^component_?set$/i.test(node.type) && node.name === 'Logo';
+  for (let cur = byId(n.parent); cur && cur.type !== 'page'; cur = byId(cur.parent)) {
+    if (isLogoSet(cur)) { inLogo = true; break; }
+    // copie (instance) d'une variante du composant Logo
+    if (cur.type === 'instance' && isLogoSet(byId(byId(cur.component)?.parent))) { inLogo = true; break; }
+  }
+  if (inLogo) return;
   const bound = n.bound || {};
   const boundFill = Object.keys(bound).some((k) => k.startsWith('fill'));
   const boundStroke = Object.keys(bound).some((k) => k.startsWith('stroke'));
@@ -115,7 +130,12 @@ function checkNode(n, insideInstance) {
     if (L.wrap && !allowedSpace.has(L.cross_gap)) err(where, `gap de retour à la ligne ${L.cross_gap} hors échelle`);
     for (const v of L.padding || []) if (!allowedSpace.has(v)) { err(where, `padding ${v} hors échelle`); break; }
   }
-  for (const r of n.corners?.radii || []) if (!allowedRadius.has(r)) { err(where, `arrondi ${r} hors tokens`); break; }
+  // Le symbole du logo (composant « Marque ») garde les proportions de images/logo.svg, hors échelle d'arrondis.
+  let inMarque = n.type === 'component' && n.name === 'Marque';
+  for (let cur = byId(n.parent); !inMarque && cur && cur.type !== 'page'; cur = byId(cur.parent)) {
+    if ((cur.type === 'component' && cur.name === 'Marque') || (cur.type === 'instance' && byId(cur.component)?.name === 'Marque')) inMarque = true;
+  }
+  if (!inMarque) for (const r of n.corners?.radii || []) if (!allowedRadius.has(r)) { err(where, `arrondi ${r} hors tokens`); break; }
 }
 
 // ---------- Cadres attendus ----------
@@ -176,6 +196,12 @@ for (const page of pageNodes) {
     (function scan(id, insideInstance) {
       const n = byId(id);
       if (!n) return;
+      // Calque masqué : absent du rendu. Normal dans une instance (option du composant), suspect ailleurs.
+      if (n.visible === false) {
+        if (n.name?.startsWith(conv.sectionPrefix)) err(pathOf(n), 'section masquée');
+        else if (!insideInstance) warn(pathOf(n), 'calque masqué hors composant');
+        return;
+      }
       checkNode(n, insideInstance);
       if (n.name?.startsWith(conv.sectionPrefix)) sections.push(n.name.slice(conv.sectionPrefix.length).trim());
       if (n.type === 'text') texts.push(n);

@@ -1,4 +1,4 @@
-# Back-office — Liste d'un type de contenu [P]
+# Back-office — Liste d'un type de contenu [V]
 
 - **Route** : `/admin/{type}` — exemple maquetté : **Projets**
 - **Cadres** : Desktop 1440 · Mobile 390 × clair · sombre
@@ -23,6 +23,6 @@ Mobile : chaque ligne devient une carte empilée (miniature, titre, badges, acti
 | Parcours | type (formation/expérience), début, fin, structure, lieu, ordre | intitulé, description |
 | Compétences | catégorie, logo, ordre | nom |
 | Services | illustration (web/apps/ia), ordre | titre, description |
-| Articles du Lab | slug, catégorie, date, temps de lecture, statut | titre, extrait, contenu |
+| Articles du Lab | slug, catégorie, date, temps de lecture, statut, vidéo (facultative : lien YouTube) | titre, extrait, contenu |
 | Messages | (lecture seule) nom, email, type, message, date, statut lu/archivé | — |
 | Réglages | disponibilité (oui/non), email de contact, liens réseaux, CV (PDF), photo | textes du hero |

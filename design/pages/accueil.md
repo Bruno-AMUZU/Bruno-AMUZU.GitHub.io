@@ -28,7 +28,7 @@
    - 3 LabCard en grille 3 colonnes (mobile 1) : les 3 derniers de `lab`.
 7. **Footer** [V]
 
-Le CTA « Démarrer un projet » (header et hero) mène à la page `/contact`.
+Le CTA « Me contacter » (header et hero) mène à la page `/contact`.
 
 ## Éléments flottants
 

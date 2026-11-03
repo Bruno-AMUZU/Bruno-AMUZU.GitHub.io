@@ -9,7 +9,7 @@
       "lab": "Lab",
       "about": "À propos"
     },
-    "cta": "Démarrer un projet",
+    "cta": "Me contacter",
     "lang": {
       "fr": "FR",
       "en": "EN"
@@ -50,10 +50,10 @@
   },
   "home": {
     "hero": {
-      "status": "Disponible — freelance & opportunités",
+      "status": "En recherche d’un stage ou d’une alternance",
       "title": "Des sites et des outils web qui font avancer votre activité.",
       "subtitle": "Développeur web · PHP · IA appliquée",
-      "ctaPrimary": "Démarrer un projet",
+      "ctaPrimary": "Me contacter",
       "ctaSecondary": "Voir les projets"
     },
     "services": {
@@ -75,10 +75,16 @@
           "text": "Agents et workflows branchés sur vos données.",
           "inverted": true
         }
+      ],
+      "diagram": [
+        "Contexte",
+        "Agent",
+        "Résultat"
       ]
     },
     "stack": {
-      "title": "Stack"
+      "title": "Stack",
+      "count": "4 outils"
     },
     "projects": {
       "title": "Projets",
@@ -104,12 +110,16 @@
     "message": "Message",
     "messagePlaceholder": "Parlez-moi de votre projet…",
     "submit": "Envoyer le message",
-    "privacy": "[À FOURNIR] Mention RGPD courte (usage des données du formulaire)."
+    "privacy": "[À FOURNIR] Mention RGPD courte (usage des données du formulaire).",
+    "errors": {
+      "required": "Ce champ est obligatoire.",
+      "email": "Adresse email invalide."
+    }
   },
   "chat": {
     "open": "Ouvrir l’assistant IA",
     "close": "Fermer l’assistant",
-    "title": "Assistant de Bruno",
+    "title": "Assistant IA",
     "subtitle": "Répond à partir du contenu du site",
     "placeholder": "Votre question…",
     "send": "Envoyer",
@@ -199,19 +209,23 @@
       "items": [
         {
           "name": "Claude Code",
-          "tech": "accent"
+          "tech": "accent",
+          "mono": "CC"
         },
         {
           "name": "MCP",
-          "tech": "accent"
+          "tech": "accent",
+          "mono": "MCP"
         },
         {
           "name": "Agents",
-          "tech": "accent"
+          "tech": "accent",
+          "mono": "AG"
         },
         {
           "name": "RAG · pgvector",
-          "tech": "accent"
+          "tech": "accent",
+          "mono": "RAG"
         }
       ]
     }
@@ -485,7 +499,14 @@
   "articlePage": {
     "back": "← Toutes les notes",
     "related": "À lire aussi",
-    "sample": "[À FOURNIR] Texte de démonstration de l’article."
+    "sample": "[À FOURNIR] Texte de démonstration de l’article.",
+    "sampleHeading": "[À FOURNIR] Intertitre",
+    "sampleCode": "[À FOURNIR] Exemple de code",
+    "sampleQuote": "[À FOURNIR] Citation",
+    "video": {
+      "play": "Lire la vidéo",
+      "duration": "[DURÉE]"
+    }
   },
   "contactPage": {
     "success": {
@@ -535,7 +556,9 @@
       "email": "Email",
       "password": "Mot de passe",
       "submit": "Se connecter",
-      "error": "Email ou mot de passe incorrect."
+      "error": "Email ou mot de passe incorrect.",
+      "passwordPlaceholder": "••••••••",
+      "forgot": "Mot de passe oublié ?"
     },
     "dashboard": {
       "title": "Tableau de bord",
@@ -565,7 +588,8 @@
       "empty": "Aucun projet pour l’instant.",
       "status": {
         "published": "Publié",
-        "draft": "Brouillon"
+        "draft": "Brouillon",
+        "unread": "Non lu"
       }
     },
     "edit": {
@@ -579,7 +603,24 @@
         "Stack",
         "Médias"
       ],
-      "incomplete": "Traduction incomplète"
+      "incomplete": "Traduction incomplète",
+      "fields": {
+        "title": "Titre",
+        "summary": "Résumé",
+        "context": "Contexte",
+        "solution": "Solution",
+        "result": "Résultat",
+        "slug": "Slug",
+        "year": "Année",
+        "type": "Type",
+        "github": "Lien GitHub",
+        "demo": "Lien démo",
+        "status": "Statut",
+        "image": "Capture",
+        "updated": "Mis à jour le"
+      },
+      "dropzone": "Glisser une image ou parcourir",
+      "addTech": "Ajouter une techno…"
     },
     "messages": {
       "title": "Messages",
@@ -596,6 +637,24 @@
         "type": "Site vitrine",
         "message": "[Message]",
         "date": "[DATE]"
+      }
+    },
+    "reset": {
+      "back": "← Retour à la connexion",
+      "request": {
+        "title": "Mot de passe oublié",
+        "text": "Saisissez votre email : vous recevrez un lien pour choisir un nouveau mot de passe.",
+        "submit": "Envoyer le lien"
+      },
+      "sent": {
+        "title": "Vérifiez vos emails",
+        "text": "Si l’adresse correspond à un compte, un lien de réinitialisation vient d’être envoyé. Il est valable 30 minutes."
+      },
+      "new": {
+        "title": "Nouveau mot de passe",
+        "password": "Nouveau mot de passe",
+        "confirm": "Confirmer le mot de passe",
+        "submit": "Enregistrer"
       }
     }
   }

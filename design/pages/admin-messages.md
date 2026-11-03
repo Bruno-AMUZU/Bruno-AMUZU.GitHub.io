@@ -1,4 +1,4 @@
-# Back-office — Messages [P]
+# Back-office — Messages [V]
 
 - **Route** : `/admin/messages`
 - **Cadres** : Desktop 1440 · Mobile 390 × clair · sombre

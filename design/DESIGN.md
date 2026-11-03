@@ -30,7 +30,7 @@ Un texte non encore rédigé vaut `[À FOURNIR]` dans les fichiers de contenu et
 ## Brief
 
 - **Qui** : Bruno Amuzu, développeur web. Positionnement professionnel : quelqu'un qui construit des projets, aide des clients et qu'on peut contacter pour des missions. Pas « apprenti qui connaît quelques langages ». [V]
-- **Cibles** : recruteurs et clients freelance, à égalité. [V]
+- **Cibles** : recruteurs en priorité (recherche de **stage ou alternance**, pas de freelance pour l’instant) ; le site reste présentable à de futurs clients (Services conservés). [V]
 - **Différenciation** : IA appliquée — context engineering, harness engineering — prouvée par des réalisations et le Lab, pas par des mots-clés. [V]
 - **Langues** : français et anglais. [V]
 - **Stack du site** : PHP natif, PostgreSQL, Docker. [V]
@@ -123,6 +123,40 @@ Le back-office gère des **types de contenu définis** : projets, certifications
 | 2026-10-30 | Filtres (Projets, Lab), galerie et « Projet suivant » (page projet) | [V] |
 | 2026-10-30 | Liens : GitHub (en premier), LinkedIn, X, email | [V] |
 | 2026-10-30 | Contact = **page dédiée** `/contact` ; plus de section Contact sur l'accueil | [V] |
+| 2026-11-02 | Logo « terminal » `>b_` (images/logo.svg), composant `Marque` dans le Header et le back-office ; couleurs `color.brand.*` | [V] |
+| 2026-11-02 | Logos officiels (Devicon) dans les TechChip, initiales pour la carte IA | [V] |
+| 2026-11-02 | Icônes dessinées sur mesure (lune, soleil, fermer, envoyer, menu, bulle, flèche, modifier, supprimer) | [V] |
+| 2026-11-02 | Pas de styles de texte supplémentaires : « FR » actif distingué par la couleur, titre de l'assistant en `heading-3`, pastille accent en `caption` | [V] |
+| 2026-11-02 | Back-office : entrées inactives en `invMuted`, titre de page `heading-1/mobile` | [V] |
+| 2026-11-02 | États Button (survol, focus, désactivé) et Field (focus, erreur) | [V] |
+| 2026-11-02 | Pas de freelance pour l'instant : recherche de **stage ou alternance** ; pastille du hero « En recherche d'un stage ou d'une alternance » | [V] |
+| 2026-11-02 | Pastille « Disponible — freelance & opportunités » | [R] |
+| 2026-11-02 | CTA principal « Me contacter » (au lieu de « Démarrer un projet ») ; section Services conservée | [V] |
+| 2026-11-02 | Nom de l'assistant : « Assistant IA » (transparence : on sait tout de suite que c'est une IA) | [V] |
+| 2026-11-02 | Nom « Assistant de Bruno » (ambigu : peut évoquer une personne) | [R] |
+| 2026-11-02 | Accueil validé : hero mobile 32 px (pastille sur 2 lignes), Lab mobile 24 px, bulle dans le premier écran, cartes de même hauteur, icône de thème = action, menu mobile plein écran | [V] |
+| 2026-11-02 | Textes conservés tels quels : accroche du hero, page Contact (« Un projet en tête ? », « Type de projet »), message d'accueil de l'assistant | [V] |
+| 2026-11-02 | Page À propos validée : TimelineCard (frise point `accent` + trait `line`), CertCard, hauteurs de cartes libres | [V] |
+| 2026-11-02 | Page Projets validée ; composant PageHeader pour l'en-tête des pages internes | [V] |
+| 2026-11-02 | Page Projet validée ; composant CaseCard (étude de cas) | [V] |
+| 2026-11-02 | Article du Lab : vidéo facultative avant le texte (format cours OpenClassrooms) ; champ vidéo dans le back-office | [V] |
+| 2026-11-02 | Vidéos hébergées sur YouTube ; lecteur VideoPlayer validé tel quel | [V] |
+| 2026-11-02 | Police de code : Consolas (maquette) / pile monospace système (site) ; style `code` | [V] |
+| 2026-11-02 | Footer : variante mobile (copyright puis liens à la ligne) | [V] |
+| 2026-11-02 | Page Contact validée : ContactBlock (formulaire / envoyé × desktop / mobile) ; bulle en bas de page quand la page est plus courte qu'un écran | [V] |
+| 2026-11-02 | Mentions légales : clair **et** sombre (le thème choisi par le visiteur s'applique partout), pas de bulle, titre + carte de blocs | [V] |
+| 2026-11-02 | Mentions légales en clair uniquement | [R] |
+| 2026-11-02 | Page 404 : « 404 » en `onAccent` dans un bloc `accent` | [V] |
+| 2026-11-02 | « 404 » en texte couleur `accent` (contraire au principe 3, contraste insuffisant) | [R] |
+| 2026-11-02 | Back-office : récupération du mot de passe par lien email (usage unique, 30 min) + script serveur en secours ; 3 écrans (demande, lien envoyé, nouveau mot de passe) | [V] |
+| 2026-11-02 | Pas de « mot de passe oublié » sous prétexte d'un seul administrateur | [R] |
+| 2026-11-03 | Tableau de bord validé : MessageRow (extrait masqué sur le tableau de bord, affiché dans Messages), AdminSidebar `Format=mobile` (barre haute + menu), section Actions rapides conservée | [V] |
+| 2026-11-03 | Liste validée : DataTableRow colonne statut 96 px, variante mobile (sans poignée ni date), état vide = carte `surface` texte `body-l` `muted` + Button `primary` | [V] |
+| 2026-11-03 | Édition : libellés des champs repris du tableau « Champs par type » (`admin.edit.fields`), aide « Glisser une image ou parcourir » et « Ajouter une techno… », sélecteur de statut en ChoiceChips | [V] |
+| 2026-11-03 | Renommer le dépôt GitHub `Bruno-AMUZU.GitHub.io` (nom pressenti : `portfolio` ou `brunoamuzu.dev`) **seulement une fois la v2 en ligne sur brunoamuzu.dev**, pour ne pas couper le site actuel ; puis recréer un dépôt `Bruno-AMUZU.github.io` qui redirige vers brunoamuzu.dev | [V] |
+| 2026-11-03 | Édition validée : AdminTopbar `Type=édition`, titres de cartes `heading-3`, « Mis à jour le [DATE] », champ vide si le contenu est absent, lien Supprimer sous le formulaire en mobile | [V] |
+| 2026-11-03 | Messages validée : non lus marqués par le StatusBadge « Non lu », extrait sur sa propre ligne dans la liste étroite, email en `label` sans soulignement, pas de cadre « détail plein écran » mobile. Maquette complète. | [V] |
+| 2026-11-02 | Les contenus `[À FOURNIR]` seront traités dans une discussion dédiée ; la maquette les affiche tels quels d'ici là | [V] |
 | 2026-10-30 | Téléphone affiché | [R] |
 | 2026-10-30 | Instagram | [R] |
 

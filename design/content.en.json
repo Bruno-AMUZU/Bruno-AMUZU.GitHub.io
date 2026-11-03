@@ -9,7 +9,7 @@
       "lab": "Lab",
       "about": "About"
     },
-    "cta": "Start a project",
+    "cta": "Contact me",
     "lang": {
       "fr": "FR",
       "en": "EN"
@@ -50,10 +50,10 @@
   },
   "home": {
     "hero": {
-      "status": "Available — freelance & opportunities",
+      "status": "Looking for an internship or work-study position",
       "title": "Websites and web tools that move your business forward.",
       "subtitle": "Web developer · PHP · Applied AI",
-      "ctaPrimary": "Start a project",
+      "ctaPrimary": "Contact me",
       "ctaSecondary": "See projects"
     },
     "services": {
@@ -75,10 +75,16 @@
           "text": "Agents and workflows connected to your data.",
           "inverted": true
         }
+      ],
+      "diagram": [
+        "Context",
+        "Agent",
+        "Result"
       ]
     },
     "stack": {
-      "title": "Stack"
+      "title": "Stack",
+      "count": "4 tools"
     },
     "projects": {
       "title": "Projects",
@@ -104,12 +110,16 @@
     "message": "Message",
     "messagePlaceholder": "Tell me about your project…",
     "submit": "Send message",
-    "privacy": "[À FOURNIR] Short privacy notice (how form data is used)."
+    "privacy": "[À FOURNIR] Short privacy notice (how form data is used).",
+    "errors": {
+      "required": "This field is required.",
+      "email": "Please enter a valid email address."
+    }
   },
   "chat": {
     "open": "Open the AI assistant",
     "close": "Close the assistant",
-    "title": "Bruno’s assistant",
+    "title": "AI assistant",
     "subtitle": "Answers from this site’s content",
     "placeholder": "Your question…",
     "send": "Send",
@@ -199,19 +209,23 @@
       "items": [
         {
           "name": "Claude Code",
-          "tech": "accent"
+          "tech": "accent",
+          "mono": "CC"
         },
         {
           "name": "MCP",
-          "tech": "accent"
+          "tech": "accent",
+          "mono": "MCP"
         },
         {
           "name": "Agents",
-          "tech": "accent"
+          "tech": "accent",
+          "mono": "AG"
         },
         {
           "name": "RAG · pgvector",
-          "tech": "accent"
+          "tech": "accent",
+          "mono": "RAG"
         }
       ]
     }
@@ -485,7 +499,14 @@
   "articlePage": {
     "back": "← All notes",
     "related": "Read next",
-    "sample": "[À FOURNIR] Sample article text."
+    "sample": "[À FOURNIR] Sample article text.",
+    "sampleHeading": "[À FOURNIR] Subheading",
+    "sampleCode": "[À FOURNIR] Code sample",
+    "sampleQuote": "[À FOURNIR] Quote",
+    "video": {
+      "play": "Play the video",
+      "duration": "[DURÉE]"
+    }
   },
   "contactPage": {
     "success": {

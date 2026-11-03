@@ -1,4 +1,4 @@
-# Back-office — Tableau de bord [P]
+# Back-office — Tableau de bord [V]
 
 - **Route** : `/admin`
 - **Cadres** : Desktop 1440 · Mobile 390 × clair · sombre

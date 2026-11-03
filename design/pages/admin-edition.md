@@ -1,4 +1,4 @@
-# Back-office — Édition d'un contenu [P]
+# Back-office — Édition d'un contenu [V]
 
 - **Route** : `/admin/{type}/{id}` — exemple maquetté : **Projet « Atelier Brume »** (fictif)
 - **Cadres** : Desktop 1440 · Mobile 390 × clair · sombre

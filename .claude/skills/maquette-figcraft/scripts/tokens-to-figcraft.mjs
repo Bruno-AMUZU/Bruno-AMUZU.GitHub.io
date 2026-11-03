@@ -14,8 +14,10 @@ const t = JSON.parse(readFileSync(tokensPath, 'utf8'));
 mkdirSync(outDir, { recursive: true });
 
 const hexToRgba = (hex, a = 1) => {
-  const n = parseInt(hex.replace('#', ''), 16);
-  return { r: ((n >> 16) & 255) / 255, g: ((n >> 8) & 255) / 255, b: (n & 255) / 255, a };
+  const h = hex.replace('#', '');
+  const n = parseInt(h.slice(0, 6), 16);
+  const alpha = h.length === 8 ? parseInt(h.slice(6), 16) / 255 : a;
+  return { r: ((n >> 16) & 255) / 255, g: ((n >> 8) & 255) / 255, b: (n & 255) / 255, a: alpha };
 };
 
 const collections = {};
@@ -49,7 +51,11 @@ variable(colors, 'color/onAccent', 'COLOR', [hexToRgba(t.color.onAccent.value)])
 for (const key of Object.keys(t.color.light)) {
   variable(colors, `color/${key}`, 'COLOR', [hexToRgba(t.color.light[key].value), hexToRgba(t.color.dark[key].value)]);
 }
-for (const [key, v] of Object.entries(t.color.status)) variable(colors, `color/status/${key}`, 'COLOR', [hexToRgba(v.value)]);
+for (const [key, v] of Object.entries(t.color.brand || {})) {
+  if (key.startsWith('$')) continue;
+  variable(colors, `color/brand/${key}`, 'COLOR', v.value ? [hexToRgba(v.value)] : [hexToRgba(v.light), hexToRgba(v.dark)]);
+}
+for (const [key, v] of Object.entries(t.color.status))variable(colors, `color/status/${key}`, 'COLOR', [hexToRgba(v.value)]);
 for (const [key, v] of Object.entries(t.color.tech)) {
   if (!key.startsWith('$')) variable(colors, `color/tech/${key}`, 'COLOR', [hexToRgba(v)]);
 }

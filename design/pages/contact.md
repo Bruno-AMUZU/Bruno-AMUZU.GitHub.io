@@ -12,7 +12,7 @@ Page dédiée ; il n'y a **pas** de section Contact sur l'accueil.
 2. **ContactBlock** [V] : accroche `contactPage.title`, formulaire avec les libellés de `form` (+ mention `form.privacy` sous le bouton, `caption`, `muted`).
 3. **Footer** [V]
 
-## Cadre « Message envoyé » [P]
+## Cadre « Message envoyé » [V]
 
 La carte formulaire est remplacée par une carte `surface` : `contactPage.success.title` (`heading-1`) et `contactPage.success.text` (`body`, `muted`).
 

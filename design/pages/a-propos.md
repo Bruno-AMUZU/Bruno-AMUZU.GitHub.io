@@ -10,9 +10,9 @@
 1. **Header** [V]
 2. **Présentation** [V]
    - Carte `surface`, rayon `2xl`, deux colonnes (mobile : empilées, photo en premier).
-   - Gauche : titre `display-l` `about.intro.title`, texte `body-l` `about.intro.text`, Button `primary` `about.intro.cv` (téléchargement du CV) + Button `secondary` `about.intro.contact` → `#contact` de l'accueil.
+   - Gauche : titre `display-l` `about.intro.title`, texte `body-l` `about.intro.text`, Button `primary` `about.intro.cv` (téléchargement du CV) + Button `secondary` `about.intro.contact` → page `/contact`.
    - Droite : photo de Bruno, rayon `xl`, ratio 4:5. Tant qu'elle n'est pas fournie : bloc `soft` « [Photo à fournir] ». [V]
-3. **Parcours** [P]
+3. **Parcours** [V]
    - SectionHeader `about.timeline.title`.
    - Frise verticale : chaque entrée de `timeline` = carte `surface` rayon `xl` avec période (`small`, `muted`), intitulé (`heading-2`), structure + lieu (`body`), description (`body`, `muted`). Pill indiquant le type (Formation / Expérience).
 4. **Compétences** [V]
