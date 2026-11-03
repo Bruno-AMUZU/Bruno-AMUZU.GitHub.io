@@ -4,3 +4,6 @@
 # Maquette : fichiers générés et rapports de vérification
 design/maquette/generated/
 design/maquette/rapports/
+
+# Fichiers envoyés depuis le dashboard (stockés sur le serveur)
+storage/uploads/
