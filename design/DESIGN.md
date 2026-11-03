@@ -156,6 +156,17 @@ Le back-office gère des **types de contenu définis** : projets, certifications
 | 2026-11-03 | Renommer le dépôt GitHub `Bruno-AMUZU.GitHub.io` (nom pressenti : `portfolio` ou `brunoamuzu.dev`) **seulement une fois la v2 en ligne sur brunoamuzu.dev**, pour ne pas couper le site actuel ; puis recréer un dépôt `Bruno-AMUZU.github.io` qui redirige vers brunoamuzu.dev | [V] |
 | 2026-11-03 | Édition validée : AdminTopbar `Type=édition`, titres de cartes `heading-3`, « Mis à jour le [DATE] », champ vide si le contenu est absent, lien Supprimer sous le formulaire en mobile | [V] |
 | 2026-11-03 | Messages validée : non lus marqués par le StatusBadge « Non lu », extrait sur sa propre ligne dans la liste étroite, email en `label` sans soulignement, pas de cadre « détail plein écran » mobile. Maquette complète. | [V] |
+| 2026-11-03 | Départ à blanc : tout le contenu (CV, certifications, images de projets…) est ajouté depuis le back-office. Fichiers stockés sur le disque du serveur dans `storage/uploads/` (ignoré par git), métadonnées en base. Dossiers `data/` et `images/Portfolio/` supprimés | [V] |
+| 2026-11-03 | Site v1 (`index.html`, `style.css`, `JS/`, `mentions-légales.html`, anciennes icônes) supprimé de la branche `v2` ; il reste en ligne depuis `main` jusqu'à la mise en ligne de la v2 | [V] |
+| 2026-11-03 | `design/` reste dans le dépôt comme spec, mais n'est jamais servi en ligne. `.claude/` et `design/maquette/rapports/` restent en local, non suivis par git | [V] |
+| 2026-11-03 | Architecture **MVC** : `public/` seul dossier exposé (point d'entrée unique `index.php`) ; `src/` ne contient que des classes : `Core/`, `Controller/Site/`, `Controller/Admin/`, `Model/` ; vues à part dans `views/` (`layouts/`, `components/`, `site/`, `admin/`) | [V] |
+| 2026-11-03 | Vues dans `src/View/` | [R] |
+| 2026-11-03 | Modèle séparé en **entités** (`src/Model/Entity/`, uniquement les données) et **repositories** (`src/Model/Repository/`, uniquement le SQL) | [V] |
+| 2026-11-03 | Modèle « Active Record » (une classe qui porte données et SQL) | [R] |
+| 2026-11-03 | **Composer** : chargement automatique PSR-4 (`App\` → `src/`), PHPMailer (envoi SMTP), PHPUnit (tests) ; pas de framework. `vendor/` non suivi par git | [V] |
+| 2026-11-03 | **Docker (dev)** : Apache + PHP (image `php:apache`), PostgreSQL, Mailpit (capture des e-mails), Adminer (interface de la base) | [V] |
+| 2026-11-03 | nginx + php-fpm | [R] |
+| 2026-11-03 | **Production** : Mailpit et Adminer jamais déployés ; envoi des e-mails par un vrai SMTP (hébergeur ou service d'envoi) configuré dans `.env`, avec SPF/DKIM sur le domaine. Le message de contact est d'abord enregistré en base, l'e-mail n'est qu'une notification | [V] |
 | 2026-11-02 | Les contenus `[À FOURNIR]` seront traités dans une discussion dédiée ; la maquette les affiche tels quels d'ici là | [V] |
 | 2026-10-30 | Téléphone affiché | [R] |
 | 2026-10-30 | Instagram | [R] |
