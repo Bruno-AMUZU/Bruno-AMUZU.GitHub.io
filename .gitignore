@@ -5,5 +5,13 @@
 design/maquette/generated/
 design/maquette/rapports/
 
-# Fichiers envoyés depuis le dashboard (stockés sur le serveur)
-storage/uploads/
+# Fichiers envoyés depuis le dashboard et journaux (seul le dossier est suivi)
+storage/uploads/*
+storage/logs/*
+!storage/**/.gitkeep
+
+# Dépendances Composer
+vendor/
+
+# Configuration locale (identifiants) : seul .env.example est suivi
+.env
