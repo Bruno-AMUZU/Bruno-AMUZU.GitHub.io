@@ -1,0 +1,5 @@
+# Toute URL qui ne correspond pas à un vrai fichier (CSS, image…) est confiée à index.php.
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ index.php [QSA,L]
