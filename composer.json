@@ -1,0 +1,30 @@
+{
+    "name": "bruno-amuzu/portfolio",
+    "description": "Portfolio de Bruno Amuzu : PHP natif (MVC), PostgreSQL, bilingue FR/EN.",
+    "type": "project",
+    "license": "proprietary",
+    "require": {
+        "php": ">=8.4",
+        "ext-pdo_pgsql": "*",
+        "phpmailer/phpmailer": "^7.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "test": "phpunit"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^13.4"
+    }
+}
