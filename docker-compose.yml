@@ -1,0 +1,47 @@
+# Environnement de développement. Mailpit et Adminer ne sont jamais déployés en production.
+# Les variables ${...} viennent du fichier .env (copie de .env.example).
+
+services:
+  # Le site : Apache + PHP. http://localhost:8090
+  app:
+    build: docker/php
+    ports:
+      - "127.0.0.1:${APP_PORT:-8090}:80"
+    volumes:
+      - .:/var/www/html
+    env_file: .env
+    depends_on:
+      db:
+        condition: service_healthy
+
+  # La base de données.
+  db:
+    image: postgres:17-alpine
+    environment:
+      POSTGRES_DB: ${DB_NAME}
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${DB_USER} -d ${DB_NAME}"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+  # Attrape les e-mails envoyés par le site. Boîte de réception : http://localhost:8026
+  mailpit:
+    image: axllent/mailpit
+    ports:
+      - "127.0.0.1:${MAILPIT_PORT:-8026}:8025"
+
+  # Interface web de la base. http://localhost:8091 (serveur : db)
+  adminer:
+    image: adminer
+    ports:
+      - "127.0.0.1:${ADMINER_PORT:-8091}:8080"
+    depends_on:
+      - db
+
+volumes:
+  pgdata:
