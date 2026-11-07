@@ -143,9 +143,33 @@ final class Router
             $action = [$this->container->get($class), $method];
         }
 
-        $result = $action(...$params);
+        $result = $action(...$this->acceptedParams($action, $params));
 
         return $result instanceof Response ? $result : Response::html((string) $result);
+    }
+
+    /**
+     * Ne garde que les paramètres que l'action déclare : une page traduite reçoit toujours « lang »,
+     * mais une action qui n'en a pas besoin n'a pas à le déclarer.
+     *
+     * @param array<string, string> $params
+     * @return array<string, string>
+     */
+    private function acceptedParams(callable $action, array $params): array
+    {
+        $reflection = is_array($action)
+            ? new \ReflectionMethod($action[0], $action[1])
+            : new \ReflectionFunction(\Closure::fromCallable($action));
+
+        $names = [];
+        foreach ($reflection->getParameters() as $param) {
+            if ($param->isVariadic()) {
+                return $params;
+            }
+            $names[$param->getName()] = true;
+        }
+
+        return array_intersect_key($params, $names);
     }
 
     /** Transforme '/{lang:fr|en}/projets/{slug}' en expression régulière avec groupes nommés. */
