@@ -10,7 +10,7 @@ use App\Controller\Site\HomeController;
 use App\Core\App;
 use App\Core\Csrf;
 use App\Core\Env;
-use App\Core\HttpException;
+use App\Core\ErrorHandler;
 use App\Core\Request;
 use App\Core\Response;
 use App\Core\Router;
@@ -28,6 +28,9 @@ $request = Request::fromGlobals();
 $container = Services::container($request);
 App::boot($container);
 
+$errors = $container->get(ErrorHandler::class);
+$errors->register();
+
 $router = new Router($container);
 
 // La racine redirige vers la version française.
@@ -38,8 +41,8 @@ $router->get('/{lang:fr|en}', [HomeController::class, 'index']);
 try {
     $container->get(Csrf::class)->check($request); // tout POST doit porter le jeton CSRF
     $response = $router->dispatch($request);
-} catch (HttpException $e) {
-    $response = new Response($e->status === 404 ? 'Page introuvable' : $e->getMessage(), $e->status, $e->headers);
+} catch (Throwable $e) {
+    $response = $errors->handle($e, $request);
 }
 
 $container->get(SecurityHeaders::class)->apply($response)->send();

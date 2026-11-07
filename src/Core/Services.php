@@ -22,6 +22,11 @@ final class Services
         $container->set(Request::class, fn () => $request);
         $container->set(Session::class, fn () => new Session(secureCookie: $request->isSecure()));
         $container->set(SecurityHeaders::class, fn () => new SecurityHeaders(production: Env::get('APP_ENV') === 'prod'));
+        $container->set(Logger::class, fn () => new Logger(ROOT_PATH . '/storage/logs'));
+        $container->set(ErrorHandler::class, fn (Container $c) => new ErrorHandler(
+            $c->get(Logger::class),
+            debug: Env::get('APP_ENV') === 'dev',
+        ));
 
         return $container;
     }
