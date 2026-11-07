@@ -7,11 +7,19 @@ namespace App\Controller\Site;
 use App\Core\Request;
 use App\Core\Response;
 use App\Core\View;
+use App\Model\Repository\ProjectRepository;
+use App\Model\Repository\ServiceRepository;
+use App\Model\Repository\SkillRepository;
 
+/** Accueil (design/pages/accueil.md). */
 final class HomeController
 {
-    public function __construct(private readonly Request $request)
-    {
+    public function __construct(
+        private readonly Request $request,
+        private readonly ServiceRepository $services,
+        private readonly SkillRepository $skills,
+        private readonly ProjectRepository $projects,
+    ) {
     }
 
     /** GET / : redirige vers la langue préférée du navigateur (français par défaut). */
@@ -23,8 +31,20 @@ final class HomeController
     /** GET /fr, /en */
     public function index(string $lang): string
     {
+        // Textes du hero : réglages du back-office, sinon textes par défaut de lang/*.php.
+        $hero = [];
+        foreach (['status', 'title', 'subtitle'] as $key) {
+            $hero[$key] = setting("hero_{$key}.{$lang}", t("home.hero.{$key}"));
+        }
+
         return View::render('site/home', [
             'title' => t('pages.home'),
+            'description' => $hero['title'],
+            'hero' => $hero,
+            'available' => setting('available', '1') === '1',
+            'services' => $this->services->all($lang),
+            'stack' => $this->skills->byCategory($lang),
+            'projects' => $this->projects->published($lang, limit: 3),
         ]);
     }
 

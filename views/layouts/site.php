@@ -5,6 +5,7 @@
  * @var string $title    titre de la page
  * @var string $content  HTML produit par la vue (déjà échappé par elle)
  * @var list<string> $styles feuilles de style propres à la page (facultatif)
+ * @var string|null  $description description de la page pour les moteurs de recherche (facultatif)
  */
 ?>
 <!DOCTYPE html>
@@ -13,6 +14,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title><?= e($title) ?> · Bruno Amuzu</title>
+    <?php if (!empty($description)): ?>
+        <meta name="description" content="<?= e($description) ?>">
+    <?php endif ?>
     <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
     <link rel="icon" href="/assets/img/favicon-32.png" type="image/png" sizes="32x32">
     <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
@@ -23,6 +27,7 @@
     <link rel="stylesheet" href="/assets/css/base.css">
     <link rel="stylesheet" href="/assets/css/components.css">
     <link rel="stylesheet" href="/assets/css/cards.css">
+    <link rel="stylesheet" href="/assets/css/pages.css">
     <?php foreach ($styles ?? [] as $style): ?>
         <link rel="stylesheet" href="<?= e($style) ?>">
     <?php endforeach ?>
