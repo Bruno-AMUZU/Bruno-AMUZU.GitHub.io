@@ -18,15 +18,15 @@
     <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
     <link rel="preload" href="/assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="/assets/fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="stylesheet" href="/assets/css/fonts.css">
-    <link rel="stylesheet" href="/assets/css/tokens.css">
-    <link rel="stylesheet" href="/assets/css/base.css">
-    <link rel="stylesheet" href="/assets/css/components.css">
-    <link rel="stylesheet" href="/assets/css/admin.css">
+    <link rel="stylesheet" href="<?= e(asset('/assets/css/fonts.css')) ?>">
+    <link rel="stylesheet" href="<?= e(asset('/assets/css/tokens.css')) ?>">
+    <link rel="stylesheet" href="<?= e(asset('/assets/css/base.css')) ?>">
+    <link rel="stylesheet" href="<?= e(asset('/assets/css/components.css')) ?>">
+    <link rel="stylesheet" href="<?= e(asset('/assets/css/admin.css')) ?>">
     <script nonce="<?= e(csp_nonce()) ?>">
         try { const t = localStorage.getItem('theme'); if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t; } catch (e) {}
     </script>
-    <script src="/assets/js/admin.js" defer></script>
+    <script src="<?= e(asset('/assets/js/admin.js')) ?>" defer></script>
 </head>
 <body class="admin">
     <a class="skip-link t-label" href="#contenu"><?= e(t('common.skip')) ?></a>

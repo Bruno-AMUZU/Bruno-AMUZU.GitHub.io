@@ -22,23 +22,23 @@
     <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
     <link rel="preload" href="/assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="/assets/fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="stylesheet" href="/assets/css/fonts.css">
-    <link rel="stylesheet" href="/assets/css/tokens.css">
-    <link rel="stylesheet" href="/assets/css/base.css">
-    <link rel="stylesheet" href="/assets/css/components.css">
-    <link rel="stylesheet" href="/assets/css/cards.css">
-    <link rel="stylesheet" href="/assets/css/pages.css">
+    <link rel="stylesheet" href="<?= e(asset('/assets/css/fonts.css')) ?>">
+    <link rel="stylesheet" href="<?= e(asset('/assets/css/tokens.css')) ?>">
+    <link rel="stylesheet" href="<?= e(asset('/assets/css/base.css')) ?>">
+    <link rel="stylesheet" href="<?= e(asset('/assets/css/components.css')) ?>">
+    <link rel="stylesheet" href="<?= e(asset('/assets/css/cards.css')) ?>">
+    <link rel="stylesheet" href="<?= e(asset('/assets/css/pages.css')) ?>">
     <?php foreach ($styles ?? [] as $style): ?>
-        <link rel="stylesheet" href="<?= e($style) ?>">
+        <link rel="stylesheet" href="<?= e(asset($style)) ?>">
     <?php endforeach ?>
     <script nonce="<?= e(csp_nonce()) ?>">
         // Thème choisi par le visiteur, appliqué avant l'affichage pour éviter un flash de l'autre thème.
         try { const t = localStorage.getItem('theme'); if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t; } catch (e) {}
     </script>
-    <script src="/assets/js/theme.js" defer></script>
-    <script src="/assets/js/menu.js" defer></script>
+    <script src="<?= e(asset('/assets/js/theme.js')) ?>" defer></script>
+    <script src="<?= e(asset('/assets/js/menu.js')) ?>" defer></script>
     <?php foreach ($scripts ?? [] as $script): ?>
-        <script src="<?= e($script) ?>" defer></script>
+        <script src="<?= e(asset($script)) ?>" defer></script>
     <?php endforeach ?>
 </head>
 <body>

@@ -25,6 +25,9 @@ final class Markdown
 
     public function toHtml(string $markdown): string
     {
-        return (string) $this->converter->convert($markdown);
+        $html = (string) $this->converter->convert($markdown);
+
+        // Un bloc de code peut défiler horizontalement : il doit pouvoir recevoir le focus clavier.
+        return str_replace('<pre>', '<pre tabindex="0">', $html);
     }
 }

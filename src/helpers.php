@@ -146,6 +146,17 @@ function absolute_url(string $path): string
     return rtrim((string) App\Core\Env::get('APP_URL', ''), '/') . '/' . ltrim($path, '/');
 }
 
+/**
+ * Adresse d'un fichier de public/assets avec sa version (date de modification) :
+ * le navigateur peut le garder en cache un an, et recharge dès que le fichier change.
+ */
+function asset(string $path): string
+{
+    $file = ROOT_PATH . '/public/' . ltrim($path, '/');
+
+    return '/' . ltrim($path, '/') . (is_file($file) ? '?v=' . filemtime($file) : '');
+}
+
 /** La page existe-t-elle ? Pour ne pas afficher de lien vers une page pas encore construite. */
 function has_route(string $name): bool
 {
