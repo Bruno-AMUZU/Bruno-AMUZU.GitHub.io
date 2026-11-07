@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App;
 
+use App\Controller\Admin\ArticleAdminController;
 use App\Controller\Admin\AuthController;
 use App\Controller\Admin\CertificationAdminController;
 use App\Controller\Admin\DashboardController;
@@ -74,6 +75,7 @@ final class Routes
             TimelineAdminController::routes($router);
             SkillAdminController::routes($router);
             ServiceAdminController::routes($router);
+            ArticleAdminController::routes($router);
             $router->get('/admin/messages', [MessagesController::class, 'index'], 'admin.messages');
             $router->get('/admin/messages/{id:\d+}', [MessagesController::class, 'show'], 'admin.messages.show');
             $router->post('/admin/messages/{id:\d+}/archiver', [MessagesController::class, 'archive']);
