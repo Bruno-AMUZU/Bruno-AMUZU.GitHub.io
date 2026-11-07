@@ -246,6 +246,33 @@ abstract class TranslatableRepository implements ResourceRepository
     }
 
     /**
+     * Lignes pour le site, textes dans la langue demandée (repli sur le français), dans l'ordre choisi.
+     *
+     * @param string               $where  condition SQL supplémentaire sur la table principale (alias m)
+     * @param array<string, mixed> $params paramètres de $where
+     * @return list<array<string, mixed>>
+     */
+    protected function localizedRows(string $lang, string $where = '', array $params = []): array
+    {
+        $t = $this->table();
+        $tr = $this->translationTable();
+        $fk = $this->foreignKey();
+        $texts = implode(', ', array_map(fn ($c) => $this->localized($c), $this->translatedColumns()));
+
+        $stmt = $this->db->prepare(
+            "SELECT m.*, {$texts}
+             FROM {$t} m
+             JOIN {$tr} fr ON fr.{$fk} = m.id AND fr.lang = 'fr'
+             LEFT JOIN {$tr} cur ON cur.{$fk} = m.id AND cur.lang = :lang
+             " . ($where !== '' ? "WHERE {$where}" : '') . '
+             ORDER BY m.position, m.id'
+        );
+        $stmt->execute(['lang' => $lang, ...$params]);
+
+        return $stmt->fetchAll();
+    }
+
+    /**
      * Texte traduit avec repli sur le français : une traduction anglaise vide affiche le français.
      * À utiliser dans les requêtes du site : COALESCE(NULLIF(cur.title, ''), fr.title).
      */

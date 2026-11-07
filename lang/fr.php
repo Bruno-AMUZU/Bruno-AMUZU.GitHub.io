@@ -288,6 +288,21 @@ return [
                 'imageHelp' => 'JPEG, PNG ou WebP, 5 Mo maximum. Format conseillé : 16:10.',
                 'gallery' => 'Galerie',
             ],
+            'certifications' => [
+                'title' => 'Certifications',
+                'new' => 'Nouvelle certification',
+                'delete' => 'Supprimer cette certification',
+                'empty' => 'Aucune certification pour l’instant.',
+                'fields' => [
+                    'title' => 'Titre',
+                    'date' => 'Date d’obtention',
+                    'organization' => 'Organisme',
+                    'url' => 'Lien',
+                    'urlHelp' => 'Page du certificat en ligne, si vous n’envoyez pas de PDF.',
+                    'file' => 'Fichier PDF',
+                    'fileHelp' => 'PDF, 10 Mo maximum. Prioritaire sur le lien.',
+                ],
+            ],
         ],
         'form' => [
             'hasErrors' => 'Le contenu n’a pas été enregistré : corrigez les champs signalés.',

@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App;
 
 use App\Controller\Admin\AuthController;
+use App\Controller\Admin\CertificationAdminController;
 use App\Controller\Admin\DashboardController;
 use App\Controller\Admin\PasswordResetController;
 use App\Controller\Admin\ProjectAdminController;
@@ -54,6 +55,7 @@ final class Routes
             $router->post('/admin/deconnexion', [AuthController::class, 'logout'], 'admin.logout');
             $router->get('/admin', [DashboardController::class, 'index'], 'admin.dashboard');
             ProjectAdminController::routes($router);
+            CertificationAdminController::routes($router);
         });
     }
 }

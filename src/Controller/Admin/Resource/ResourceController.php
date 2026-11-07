@@ -52,6 +52,26 @@ abstract class ResourceController extends AdminController
      */
     abstract protected function labels(): array;
 
+    /**
+     * Libellés standard d'un type, lus dans lang/fr.php → admin.types.{type}.
+     *
+     * @return array<string, string>
+     */
+    protected function typeLabels(string $type): array
+    {
+        $key = 'admin.types.' . $type . '.';
+
+        return [
+            'title' => t($key . 'title'),
+            'back' => '← ' . t($key . 'title'),
+            'delete' => t($key . 'delete'),
+            'empty' => t($key . 'empty'),
+            'newTitle' => t($key . 'new'),
+            'saved' => t('admin.form.saved'),
+            'deleted' => t('admin.form.deleted'),
+        ];
+    }
+
     protected function hasStatus(): bool
     {
         return true;
