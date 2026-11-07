@@ -27,6 +27,14 @@ function old(string $field, string $default = ''): string
     return is_string($value) ? $value : $default;
 }
 
+/** Champ caché contenant le jeton CSRF, à placer dans chaque formulaire POST. */
+function csrf_field(): string
+{
+    $token = App\Core\App::get(App\Core\Csrf::class)->token();
+
+    return '<input type="hidden" name="' . App\Core\Csrf::FIELD . '" value="' . e($token) . '">';
+}
+
 /** Clé du message d'erreur d'un champ après un formulaire en erreur, ou null. */
 function error(string $field): ?string
 {

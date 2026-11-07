@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 use App\Controller\Site\HomeController;
 use App\Core\App;
+use App\Core\Csrf;
 use App\Core\Env;
 use App\Core\HttpException;
 use App\Core\Request;
@@ -34,6 +35,7 @@ $router->get('/', fn () => Response::redirect('/fr', 302));
 $router->get('/{lang:fr|en}', [HomeController::class, 'index']);
 
 try {
+    $container->get(Csrf::class)->check($request); // tout POST doit porter le jeton CSRF
     $response = $router->dispatch($request);
 } catch (HttpException $e) {
     $response = new Response($e->status === 404 ? 'Page introuvable' : $e->getMessage(), $e->status, $e->headers);
