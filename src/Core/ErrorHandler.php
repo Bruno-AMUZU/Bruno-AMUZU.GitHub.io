@@ -49,11 +49,11 @@ final class ErrorHandler
             ob_end_clean();
         }
 
-        $lang = str_starts_with($request->path, '/en') ? 'en' : 'fr';
+        // Langue déduite de l'URL (/en/… → anglais), la route n'ayant peut-être pas été trouvée.
+        App::get(Translator::class)->setLang(str_starts_with($request->path, '/en') ? 'en' : 'fr');
 
         try {
             $body = View::render('errors/error', [
-                'lang' => $lang,
                 'status' => $status,
                 'title' => (string) $status,
                 'exception' => $this->debug && $status >= 500 ? $e : null,

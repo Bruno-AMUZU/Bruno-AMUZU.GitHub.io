@@ -2,13 +2,12 @@
 /**
  * Gabarit commun du site public.
  *
- * @var string $lang     'fr' ou 'en'
  * @var string $title    titre de la page
  * @var string $content  HTML produit par la vue (déjà échappé par elle)
  */
 ?>
 <!DOCTYPE html>
-<html lang="<?= e($lang) ?>">
+<html lang="<?= e(lang()) ?>">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
