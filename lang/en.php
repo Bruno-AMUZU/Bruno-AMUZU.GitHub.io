@@ -75,7 +75,7 @@ return [
         ],
         'stack' => [
             'title' => 'Stack',
-            'count' => '4 tools',
+            'count' => '{n} tools',
         ],
         'projects' => [
             'title' => 'Projects',

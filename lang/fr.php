@@ -74,7 +74,7 @@ return [
         ],
         'stack' => [
             'title' => 'Stack',
-            'count' => '4 outils',
+            'count' => '{n} outils',
         ],
         'projects' => [
             'title' => 'Projets',
@@ -174,7 +174,7 @@ return [
             'title' => 'Message envoyé.',
             'text' => '[À FOURNIR] Phrase de confirmation.',
         ],
-        'title' => 'Un projet en tête ? Parlons-en.',
+        'title' => 'Un projet en tête ? Parlons-en.',
     ],
     'legal' => [
         'title' => 'Mentions légales',
@@ -233,7 +233,7 @@ return [
             'submit' => 'Se connecter',
             'error' => 'Email ou mot de passe incorrect.',
             'passwordPlaceholder' => '••••••••',
-            'forgot' => 'Mot de passe oublié ?',
+            'forgot' => 'Mot de passe oublié ?',
         ],
         'dashboard' => [
             'title' => 'Tableau de bord',
@@ -318,7 +318,7 @@ return [
             'back' => '← Retour à la connexion',
             'request' => [
                 'title' => 'Mot de passe oublié',
-                'text' => 'Saisissez votre email : vous recevrez un lien pour choisir un nouveau mot de passe.',
+                'text' => 'Saisissez votre email : vous recevrez un lien pour choisir un nouveau mot de passe.',
                 'submit' => 'Envoyer le lien',
             ],
             'sent' => [
