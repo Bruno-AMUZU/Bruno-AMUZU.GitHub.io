@@ -37,6 +37,9 @@
     </script>
     <script src="/assets/js/theme.js" defer></script>
     <script src="/assets/js/menu.js" defer></script>
+    <?php foreach ($scripts ?? [] as $script): ?>
+        <script src="<?= e($script) ?>" defer></script>
+    <?php endforeach ?>
 </head>
 <body>
     <a class="skip-link t-label" href="#contenu"><?= e(t('common.skip')) ?></a>

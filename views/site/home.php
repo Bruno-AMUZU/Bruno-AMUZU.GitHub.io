@@ -8,6 +8,7 @@
  * @var list<App\Model\Entity\Service> $services
  * @var array<string, list<App\Model\Entity\Skill>> $stack
  * @var list<App\Model\Entity\Project> $projects
+ * @var list<App\Model\Entity\Article> $articles
  */
 ?>
 <section class="container" aria-labelledby="hero-title">
@@ -74,6 +75,22 @@
                     'tags' => $project->technologies,
                 ]) ?>
             <?php endforeach ?>
+        </div>
+    </section>
+<?php endif ?>
+
+<?php if ($articles !== []): ?>
+    <section class="container" id="lab" aria-labelledby="lab-title">
+        <div class="lab-section">
+            <div class="section-header">
+                <h2 class="t-heading-1" id="lab-title"><?= e(t('home.lab.title')) ?></h2>
+                <a class="section-header__link t-label" href="<?= e(url('lab')) ?>"><?= e(t('home.lab.link')) ?></a>
+            </div>
+            <ul class="grid grid--3" role="list">
+                <?php foreach ($articles as $article): ?>
+                    <li><?= component('lab-card', ['article' => $article, 'inverted' => true]) ?></li>
+                <?php endforeach ?>
+            </ul>
         </div>
     </section>
 <?php endif ?>

@@ -18,6 +18,7 @@ use App\Controller\Admin\TimelineAdminController;
 use App\Controller\Site\AboutController;
 use App\Controller\Site\ContactController;
 use App\Controller\Site\HomeController;
+use App\Controller\Site\LabController;
 use App\Controller\Site\LegalController;
 use App\Controller\Site\ProjectController;
 use App\Controller\Site\StyleguideController;
@@ -47,7 +48,9 @@ final class Routes
         $router->page('home', ['fr' => '/fr', 'en' => '/en'], [HomeController::class, 'index']);
         $router->page('projects', ['fr' => '/fr/projets', 'en' => '/en/projects'], [ProjectController::class, 'index']);
         $router->page('project', ['fr' => '/fr/projets/{slug:[a-z0-9-]+}', 'en' => '/en/projects/{slug:[a-z0-9-]+}'], [ProjectController::class, 'show']);
-        $router->page('legal', ['fr' => '/fr/mentions-legales', 'en' => '/en/legal-notice'], [LegalController::class, 'show']);
+        $router->page('lab', ['fr' => '/fr/lab', 'en' => '/en/lab'], [LabController::class, 'index']);
+        $router->page('article', ['fr' => '/fr/lab/{slug:[a-z0-9-]+}', 'en' => '/en/lab/{slug:[a-z0-9-]+}'], [LabController::class, 'show']);
+        $router->page('legal',['fr' => '/fr/mentions-legales', 'en' => '/en/legal-notice'], [LegalController::class, 'show']);
         $router->page('about',['fr' => '/fr/a-propos', 'en' => '/en/about'], [AboutController::class, 'index']);
         $router->page('contact',['fr' => '/fr/contact', 'en' => '/en/contact'], [ContactController::class, 'show']);
         $router->page('contact.send', ['fr' => '/fr/contact', 'en' => '/en/contact'], [ContactController::class, 'send'], 'POST');

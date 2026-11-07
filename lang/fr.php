@@ -168,6 +168,7 @@ return [
             'Harness engineering',
             'RAG',
         ],
+        'empty' => 'Aucun article dans cette catégorie pour l’instant.',
     ],
     'articlePage' => [
         'back' => '← Toutes les notes',

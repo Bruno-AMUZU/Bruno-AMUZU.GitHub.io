@@ -119,6 +119,15 @@ function format_date(?string $date, ?string $lang = null, string $pattern = 'med
     };
 }
 
+/** « 7 nov. 2026 · 6 min » : date et temps de lecture d'un article du Lab. */
+function article_meta(App\Model\Entity\Article $article): string
+{
+    return implode(' · ', array_filter([
+        format_date($article->publishedOn),
+        $article->readingTime !== null ? $article->readingTime . ' min' : null,
+    ]));
+}
+
 /** Nombre de messages non lus (compteur de la barre latérale du back-office). */
 function admin_unread_count(): int
 {

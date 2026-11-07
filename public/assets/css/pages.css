@@ -197,6 +197,120 @@
   }
 }
 
+/* ── Accueil : section Lab IA (carte inv) ──────────────── */
+
+.lab-section {
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-12);
+  border-radius: var(--radius-2xl);
+  background: var(--color-inv);
+  color: var(--color-inv-ink);
+}
+
+.lab-section .section-header {
+  margin-left: 0;
+}
+
+@media (max-width: 767px) {
+  .lab-section {
+    padding: var(--space-6);
+  }
+}
+
+/* ── Article du Lab ────────────────────────────────────── */
+
+.article-page {
+  --stack-gap: var(--space-10);
+  padding-top: var(--space-10);
+}
+
+.article-page__column {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+  width: 100%;
+}
+
+.article-page__head {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.article-page__related {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+/* Corps de l'article : body-l, intertitres heading-2, code sur fond inv, citation sur fond soft (pas de bordure gauche). */
+.prose {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+.prose h2 {
+  margin-top: var(--space-4);
+  font-family: var(--type-heading-2-font);
+  font-size: var(--type-heading-2-size);
+  font-weight: var(--type-heading-2-weight);
+  line-height: var(--type-heading-2-line);
+  letter-spacing: var(--type-heading-2-tracking);
+}
+
+.prose h3 {
+  font-family: var(--type-heading-3-font);
+  font-size: var(--type-heading-3-size);
+  font-weight: var(--type-heading-3-weight);
+  line-height: var(--type-heading-3-line);
+}
+
+.prose a {
+  text-decoration: underline;
+  text-decoration-color: var(--color-accent);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
+}
+
+.prose ul,
+.prose ol {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding-left: var(--space-6);
+}
+
+.prose pre {
+  overflow-x: auto;
+  padding: var(--space-6);
+  border-radius: var(--radius-lg);
+  background: var(--color-inv);
+  color: var(--color-inv-ink);
+  font-family: var(--type-code-font);
+  font-size: var(--type-code-size);
+  line-height: var(--type-code-line);
+}
+
+.prose :not(pre) > code {
+  padding: 0 var(--space-1);
+  border-radius: var(--radius-xs);
+  background: var(--color-soft);
+  font-family: var(--type-code-font);
+  font-size: 0.9em;
+}
+
+.prose blockquote {
+  padding: var(--space-6);
+  border-radius: var(--radius-lg);
+  background: var(--color-soft);
+}
+
+.prose img {
+  border-radius: var(--radius-lg);
+}
+
 /* ── Mentions légales ──────────────────────────────────── */
 
 .legal {

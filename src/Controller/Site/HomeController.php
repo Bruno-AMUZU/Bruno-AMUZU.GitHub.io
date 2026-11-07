@@ -7,6 +7,7 @@ namespace App\Controller\Site;
 use App\Core\Request;
 use App\Core\Response;
 use App\Core\View;
+use App\Model\Repository\ArticleRepository;
 use App\Model\Repository\ProjectRepository;
 use App\Model\Repository\ServiceRepository;
 use App\Model\Repository\SkillRepository;
@@ -19,6 +20,7 @@ final class HomeController
         private readonly ServiceRepository $services,
         private readonly SkillRepository $skills,
         private readonly ProjectRepository $projects,
+        private readonly ArticleRepository $articles,
     ) {
     }
 
@@ -45,6 +47,7 @@ final class HomeController
             'services' => $this->services->all($lang),
             'stack' => $this->skills->byCategory($lang),
             'projects' => $this->projects->published($lang, limit: 3),
+            'articles' => $this->articles->published($lang, limit: 3),
         ]);
     }
 
