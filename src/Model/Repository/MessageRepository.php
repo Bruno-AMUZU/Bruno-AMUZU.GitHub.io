@@ -9,6 +9,9 @@ use PDO;
 
 final class MessageRepository
 {
+    /** Durée de conservation des messages, annoncée dans la mention RGPD et les mentions légales. */
+    public const RETENTION_MONTHS = 12;
+
     public function __construct(private readonly PDO $db)
     {
     }
@@ -57,6 +60,19 @@ final class MessageRepository
     public function delete(int $id): void
     {
         $this->db->prepare('DELETE FROM messages WHERE id = :id')->execute(['id' => $id]);
+    }
+
+    /**
+     * Supprime les messages reçus il y a plus de $months mois (durée annoncée par la mention RGPD).
+     *
+     * @return int nombre de messages supprimés
+     */
+    public function purgeOlderThan(int $months = self::RETENTION_MONTHS): int
+    {
+        $stmt = $this->db->prepare('DELETE FROM messages WHERE created_at < now() - make_interval(months => :months)');
+        $stmt->execute(['months' => $months]);
+
+        return $stmt->rowCount();
     }
 
     public function countUnread(): int

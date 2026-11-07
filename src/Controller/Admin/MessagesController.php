@@ -28,6 +28,8 @@ final class MessagesController extends AdminController
     /** GET /admin/messages */
     public function index(): Response
     {
+        $this->messages->purgeOlderThan(); // conservation limitée à 12 mois (mention RGPD)
+
         return $this->page(null);
     }
 

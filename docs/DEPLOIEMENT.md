@@ -86,6 +86,9 @@ Avec Docker : reconstruire l'image, remplacer le conteneur, puis `docker exec po
 
 - `sh bin/backup.sh` : base + fichiers envoyés dans `backups/AAAA-MM-JJ_HHMMSS/` (14 dernières gardées).
 - Planifier chaque nuit : `0 3 * * * cd /chemin/du/site && sh bin/backup.sh >> storage/logs/backup.log 2>&1`
+- Planifier aussi la suppression des messages de plus de 12 mois (durée annoncée par la mention RGPD) :
+  `30 3 * * * cd /chemin/du/site && php bin/purge-messages.php >> storage/logs/purge.log 2>&1`
+  (le site la fait déjà à chaque message reçu et à l'ouverture des Messages ; la tâche la garantit sans activité).
 - **Copier `backups/` hors du serveur** (autre machine, stockage externe) : une sauvegarde sur le même disque
   ne protège pas d'une panne.
 - Restaurer : `sh bin/restore.sh backups/AAAA-MM-JJ_HHMMSS` (confirmation demandée). Tester une restauration

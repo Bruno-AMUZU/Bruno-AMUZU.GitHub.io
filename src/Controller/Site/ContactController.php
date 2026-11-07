@@ -98,6 +98,7 @@ final class ContactController
         $this->throttle->hit($key);
         $type = Message::TYPES[(int) $input['type']] ?? 'other';
         $this->messages->create($input['name'], $input['email'], $type, $input['message'], $lang);
+        $this->messages->purgeOlderThan(); // conservation limitée à 12 mois (mention RGPD)
         $this->notify($input, $type);
 
         $this->session->flash('contact_sent', true);
