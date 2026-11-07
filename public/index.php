@@ -7,7 +7,11 @@ declare(strict_types=1);
  */
 
 use App\Controller\Site\HomeController;
+use App\Core\App;
 use App\Core\Env;
+use App\Core\HttpException;
+use App\Core\Request;
+use App\Core\Response;
 use App\Core\Router;
 use App\Core\Services;
 
@@ -18,13 +22,21 @@ require ROOT_PATH . '/vendor/autoload.php';
 
 Env::load(ROOT_PATH . '/.env');
 
-$router = new Router(Services::container());
+$request = Request::fromGlobals();
+$container = Services::container($request);
+App::boot($container);
+
+$router = new Router($container);
 
 // La racine redirige vers la version française.
-$router->get('/', function (): void {
-    header('Location: /fr', true, 302);
-});
+$router->get('/', fn () => Response::redirect('/fr', 302));
 
 $router->get('/{lang:fr|en}', [HomeController::class, 'index']);
 
-$router->dispatch($_SERVER['REQUEST_METHOD'], $_SERVER['REQUEST_URI']);
+try {
+    $response = $router->dispatch($request);
+} catch (HttpException $e) {
+    $response = new Response($e->status === 404 ? 'Page introuvable' : $e->getMessage(), $e->status, $e->headers);
+}
+
+$response->send();

@@ -11,12 +11,16 @@ use PDO;
  */
 final class Services
 {
-    public static function container(): Container
+    public static function container(?Request $request = null): Container
     {
         $container = new Container();
 
         // Une seule connexion par requête, ouverte seulement si un repository en a besoin.
         $container->set(PDO::class, fn () => Database::connect());
+
+        $request ??= new Request('GET', '/');
+        $container->set(Request::class, fn () => $request);
+        $container->set(Session::class, fn () => new Session(secureCookie: $request->isSecure()));
 
         return $container;
     }

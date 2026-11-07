@@ -9,9 +9,9 @@ use App\Core\View;
 final class HomeController
 {
     /** GET /{lang} */
-    public function index(string $lang): void
+    public function index(string $lang): string
     {
-        echo View::render('site/home', [
+        return View::render('site/home', [
             'lang' => $lang,
             'title' => $lang === 'fr' ? 'Accueil' : 'Home', // provisoire, en attendant les fichiers lang/
         ]);

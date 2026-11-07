@@ -15,3 +15,20 @@ function e(string|int|float|null $value): string
 {
     return htmlspecialchars((string) $value, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');
 }
+
+/**
+ * Ancienne valeur d'un champ après un formulaire en erreur, sinon $default.
+ * <input name="email" value="<?= e(old('email')) ?>">
+ */
+function old(string $field, string $default = ''): string
+{
+    $value = App\Core\App::get(App\Core\Session::class)->getFlash('old', [])[$field] ?? $default;
+
+    return is_string($value) ? $value : $default;
+}
+
+/** Clé du message d'erreur d'un champ après un formulaire en erreur, ou null. */
+function error(string $field): ?string
+{
+    return App\Core\App::get(App\Core\Session::class)->getFlash('errors', [])[$field] ?? null;
+}

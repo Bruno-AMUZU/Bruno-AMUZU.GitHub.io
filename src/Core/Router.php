@@ -12,7 +12,8 @@ namespace App\Core;
  *   '/{lang:fr|en}'            → valeur limitée par une expression régulière
  *
  * L'action est soit [NomDuControleur::class, 'methode'], soit une fonction.
- * Les paramètres de l'URL lui sont passés par leur nom.
+ * Les paramètres de l'URL lui sont passés par leur nom. Elle renvoie une Response,
+ * ou une chaîne (HTML) transformée en Response.
  */
 final class Router
 {
@@ -34,30 +35,25 @@ final class Router
         $this->add('POST', $path, $action);
     }
 
-    public function dispatch(string $method, string $uri): void
+    public function dispatch(Request $request): Response
     {
-        $method = $method === 'HEAD' ? 'GET' : $method;
-        $path = $this->normalize(parse_url($uri, PHP_URL_PATH) ?: '/');
+        $path = $this->normalize($request->path);
 
-        foreach ($this->routes[$method] ?? [] as $regex => $action) {
+        foreach ($this->routes[$request->method] ?? [] as $regex => $action) {
             if (preg_match($regex, $path, $matches)) {
                 $params = array_filter($matches, 'is_string', ARRAY_FILTER_USE_KEY);
-                $this->call($action, $params);
-                return;
+
+                return $this->call($action, $params);
             }
         }
 
         // L'URL existe avec une autre méthode (ex. GET sur un formulaire POST) : 405, sinon 404.
         $allowed = $this->allowedMethods($path);
         if ($allowed !== []) {
-            http_response_code(405);
-            header('Allow: ' . implode(', ', $allowed));
-            echo 'Méthode non autorisée';
-            return;
+            throw new HttpException(405, ['Allow' => implode(', ', $allowed)]);
         }
 
-        http_response_code(404);
-        echo 'Page introuvable';
+        throw new HttpException(404);
     }
 
     private function add(string $method, string $path, callable|array $action): void
@@ -74,7 +70,7 @@ final class Router
             $path,
         );
 
-        return '#^' . $regex . '$#';
+        return '#^' . $regex . '$#u';
     }
 
     /** '/fr/projets/' et '/fr/projets' désignent la même page. */
@@ -84,14 +80,16 @@ final class Router
     }
 
     /** @param array<string, string> $params */
-    private function call(callable|array $action, array $params): void
+    private function call(callable|array $action, array $params): Response
     {
         if (is_array($action)) {
             [$class, $method] = $action;
             $action = [$this->container->get($class), $method];
         }
 
-        $action(...$params);
+        $result = $action(...$params);
+
+        return $result instanceof Response ? $result : Response::html((string) $result);
     }
 
     /** @return list<string> */
