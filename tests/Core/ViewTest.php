@@ -11,17 +11,24 @@ use RuntimeException;
 
 final class ViewTest extends TestCase
 {
+    /** La page d'erreur ne dépend d'aucune donnée de la base : elle sert de vue de test. */
+    private function renderErrorPage(string $title): string
+    {
+        return View::render('errors/error', ['title' => $title, 'status' => 404, 'exception' => null]);
+    }
+
     public function testRendersTheViewInsideTheLayout(): void
     {
-        $html = View::render('site/home', ['title' => 'Essai']);
+        $html = $this->renderErrorPage('Essai');
 
         self::assertStringContainsString('<title>Essai · Bruno Amuzu</title>', $html);
         self::assertStringContainsString('<main', $html);
+        self::assertStringContainsString('class="site-header', $html);
     }
 
     public function testEscapesData(): void
     {
-        $html = View::render('site/home', ['title' => '<script>alert(1)</script>']);
+        $html = $this->renderErrorPage('<script>alert(1)</script>');
 
         self::assertStringNotContainsString('<script>alert(1)</script>', $html);
         self::assertStringContainsString('&lt;script&gt;', $html);
