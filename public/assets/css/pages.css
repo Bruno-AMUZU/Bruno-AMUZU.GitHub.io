@@ -113,6 +113,90 @@
   }
 }
 
+/* ── Projet : étude de cas ─────────────────────────────── */
+
+.project-page {
+  --stack-gap: var(--space-8);
+  padding-top: var(--space-10);
+}
+
+.project-page__back {
+  align-self: flex-start;
+}
+
+.project-page__back:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.project-page__head {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+.project-page__summary {
+  max-width: 720px;
+}
+
+/* Visuel principal pleine largeur, rayon 2xl ; sans capture : bloc inv de 560 px. */
+.project-page__visual {
+  display: grid;
+  place-items: center;
+  min-height: 560px;
+  overflow: hidden;
+  border-radius: var(--radius-2xl);
+  background: var(--color-inv);
+  color: var(--color-inv-muted);
+}
+
+.project-page__visual img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.project-page__gallery {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--card-gap);
+}
+
+.project-page__gallery img {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  border-radius: var(--radius-xl);
+}
+
+.project-page__next {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  margin-top: var(--space-8);
+}
+
+.preview-banner {
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  box-shadow: inset 4px 0 0 var(--color-accent);
+}
+
+@media (max-width: 767px) {
+  .project-page {
+    padding-top: var(--space-6);
+  }
+
+  .project-page__visual {
+    min-height: 240px;
+  }
+
+  .project-page__gallery {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
 /* ── Mentions légales ──────────────────────────────────── */
 
 .legal {

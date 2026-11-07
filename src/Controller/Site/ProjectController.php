@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace App\Controller\Site;
 
+use App\Core\Auth;
+use App\Core\HttpException;
 use App\Core\Request;
 use App\Core\View;
 use App\Model\Entity\Project;
@@ -15,6 +17,7 @@ final class ProjectController
     public function __construct(
         private readonly Request $request,
         private readonly ProjectRepository $projects,
+        private readonly Auth $auth,
     ) {
     }
 
@@ -35,6 +38,25 @@ final class ProjectController
             'description' => t('projectsPage.intro'),
             'projects' => $this->projects->published($lang, $type),
             'filters' => $filters,
+        ]);
+    }
+
+    /**
+     * GET /fr/projets/{slug}, /en/projects/{slug} : étude de cas.
+     * ?apercu=1 affiche aussi un brouillon, uniquement à un admin connecté (bouton « Prévisualiser »).
+     */
+    public function show(string $lang, string $slug): string
+    {
+        $preview = $this->request->query('apercu') === '1' && $this->auth->check();
+        $project = $this->projects->findBySlug($slug, $lang, withDrafts: $preview) ?? throw new HttpException(404);
+
+        return View::render('site/project', [
+            'title' => $project->title,
+            'description' => $project->summary,
+            'project' => $project,
+            'next' => $project->isPublished() ? $this->projects->next($project, $lang) : null,
+            'preview' => !$project->isPublished(),
+            'image' => $project->imageUrl,
         ]);
     }
 }
