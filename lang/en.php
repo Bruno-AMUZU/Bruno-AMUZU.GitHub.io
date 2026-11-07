@@ -116,6 +116,10 @@ return [
         'send' => 'Send',
     ],
     'about' => [
+        'kinds' => [
+            'education' => 'Education',
+            'experience' => 'Experience',
+        ],
         'intro' => [
             'title' => '[À FOURNIR] Introduction title',
             'text' => '[À FOURNIR] 3-4 sentence introduction.',

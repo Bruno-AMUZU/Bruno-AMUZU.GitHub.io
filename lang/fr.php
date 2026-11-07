@@ -115,6 +115,10 @@ return [
         'send' => 'Envoyer',
     ],
     'about' => [
+        'kinds' => [
+            'education' => 'Formation',
+            'experience' => 'Expérience',
+        ],
         'intro' => [
             'title' => '[À FOURNIR] Titre de présentation',
             'text' => '[À FOURNIR] Présentation en 3-4 phrases.',
@@ -301,6 +305,23 @@ return [
                     'urlHelp' => 'Page du certificat en ligne, si vous n’envoyez pas de PDF.',
                     'file' => 'Fichier PDF',
                     'fileHelp' => 'PDF, 10 Mo maximum. Prioritaire sur le lien.',
+                ],
+            ],
+            'timeline' => [
+                'title' => 'Parcours',
+                'new' => 'Nouvelle entrée',
+                'delete' => 'Supprimer cette entrée',
+                'empty' => 'Aucune entrée de parcours pour l’instant.',
+                'fields' => [
+                    'title' => 'Intitulé',
+                    'description' => 'Description',
+                    'kind' => 'Type',
+                    'start' => 'Début',
+                    'end' => 'Fin',
+                    'endHelp' => 'Laisser vide si en cours.',
+                    'endBeforeStart' => 'La fin doit être après le début.',
+                    'organization' => 'Structure',
+                    'place' => 'Lieu',
                 ],
             ],
         ],
