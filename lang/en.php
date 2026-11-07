@@ -202,6 +202,11 @@ return [
     'pages' => [
         'home' => 'Home',
     ],
+    'upload' => [
+        'type' => 'This file type is not allowed.',
+        'tooBig' => 'File too large.',
+        'failed' => 'The upload failed.',
+    ],
     'errors' => [
         '403' => 'Access denied.',
         '405' => 'Method not allowed.',

@@ -1,0 +1,2 @@
+# Sécurité de secours : si la racine web pointait par erreur sur le projet, rien ici ne serait servi.
+Require all denied

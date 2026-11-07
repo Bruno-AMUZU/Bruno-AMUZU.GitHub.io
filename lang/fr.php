@@ -201,6 +201,11 @@ return [
     'pages' => [
         'home' => 'Accueil',
     ],
+    'upload' => [
+        'type' => 'Ce type de fichier n’est pas accepté.',
+        'tooBig' => 'Fichier trop lourd.',
+        'failed' => 'L’envoi du fichier a échoué.',
+    ],
     'errors' => [
         '403' => 'Accès refusé.',
         '405' => 'Méthode non autorisée.',

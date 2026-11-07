@@ -21,8 +21,8 @@ RUN sed -ri 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/sites-avail
 # Réglages PHP de développement (erreurs affichées).
 RUN mv "$PHP_INI_DIR/php.ini-development" "$PHP_INI_DIR/php.ini"
 
-# Ne pas annoncer les versions de PHP et d'Apache dans les réponses.
-RUN echo "expose_php = Off" > "$PHP_INI_DIR/conf.d/security.ini" \
+# Ne pas annoncer les versions de PHP et d'Apache ; fichiers jusqu'à 10 Mo (PDF), plusieurs par formulaire.
+RUN printf 'expose_php = Off\nupload_max_filesize = 12M\npost_max_size = 40M\n' > "$PHP_INI_DIR/conf.d/portfolio.ini" \
     && sed -ri 's/^ServerTokens .*/ServerTokens Prod/; s/^ServerSignature .*/ServerSignature Off/' /etc/apache2/conf-available/security.conf
 
 WORKDIR /var/www/html
