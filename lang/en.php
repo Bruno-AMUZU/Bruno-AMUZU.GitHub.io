@@ -146,6 +146,7 @@ return [
             'Applications',
             'AI',
         ],
+        'empty' => 'No project in this category yet.',
     ],
     'projectPage' => [
         'back' => '← All projects',

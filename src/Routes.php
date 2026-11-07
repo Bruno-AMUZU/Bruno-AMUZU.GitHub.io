@@ -15,6 +15,7 @@ use App\Controller\Admin\SettingsController;
 use App\Controller\Admin\SkillAdminController;
 use App\Controller\Admin\TimelineAdminController;
 use App\Controller\Site\HomeController;
+use App\Controller\Site\ProjectController;
 use App\Controller\Site\StyleguideController;
 use App\Controller\Site\UploadController;
 use App\Core\RequireAdmin;
@@ -40,6 +41,7 @@ final class Routes
         $router->get('/uploads/{year:\d{4}}/{month:\d{2}}/{name:[a-f0-9]{32}\.[a-z0-9]+}', [UploadController::class, 'show']);
 
         $router->page('home', ['fr' => '/fr', 'en' => '/en'], [HomeController::class, 'index']);
+        $router->page('projects', ['fr' => '/fr/projets', 'en' => '/en/projects'], [ProjectController::class, 'index']);
 
         // Développement uniquement (404 ailleurs) : galerie des composants.
         $router->page('dev.styleguide', ['fr' => '/dev/composants'], [StyleguideController::class, 'index']);

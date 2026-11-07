@@ -145,6 +145,7 @@ return [
             'Applications',
             'IA',
         ],
+        'empty' => 'Aucun projet dans cette catégorie pour l’instant.',
     ],
     'projectPage' => [
         'back' => '← Tous les projets',

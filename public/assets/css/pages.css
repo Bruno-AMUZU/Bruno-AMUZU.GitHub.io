@@ -47,6 +47,21 @@
   }
 }
 
+/* ── Pages internes : en-tête, filtres, grille ─────────── */
+
+.page-stack {
+  --stack-gap: var(--space-8);
+}
+
+.grid > li {
+  display: flex;
+  flex-direction: column;
+}
+
+.grid > li > * {
+  flex: 1;
+}
+
 /* ── Stack : 4 colonnes, 2 sur tablette, 1 en mobile ───── */
 
 .grid--stack {
