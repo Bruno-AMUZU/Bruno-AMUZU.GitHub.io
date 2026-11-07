@@ -1,0 +1,20 @@
+# Fichiers exclus de l'image de production (docker build).
+
+# Secrets et configuration locale : fournis au conteneur par l'hébergeur, jamais copiés dans l'image.
+.env
+
+# Données : vivent dans des volumes (base, fichiers envoyés, journaux), pas dans l'image.
+storage/uploads/*
+storage/logs/*
+!storage/**/.gitkeep
+
+# Développement uniquement.
+.git
+.claude
+design
+tests
+phpunit.xml
+.phpunit.cache
+.phpunit.result.cache
+vendor
+docker-compose.yml

@@ -1,11 +1,15 @@
-# Image de développement : Apache + PHP dans un seul conteneur.
-FROM php:8.4-apache
+# Image du site : Apache + PHP dans un seul conteneur.
+#   target dev  : développement (docker-compose.yml), code monté depuis la machine, erreurs affichées.
+#   target prod : production, code copié dans l'image, dépendances de dev absentes, OPcache.
 
-# Extensions PHP : pdo_pgsql pour PostgreSQL.
+# ── Base commune ─────────────────────────────────────────────
+FROM php:8.4-apache AS base
+
+# Extensions PHP : pdo_pgsql pour PostgreSQL, opcache pour la production.
 # git et unzip servent à Composer pour télécharger les dépendances.
 RUN apt-get update \
     && apt-get install -y --no-install-recommends libpq-dev git unzip \
-    && docker-php-ext-install pdo_pgsql \
+    && docker-php-ext-install pdo_pgsql opcache \
     && rm -rf /var/lib/apt/lists/*
 
 # Composer, copié depuis son image officielle.
@@ -16,13 +20,30 @@ COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 ENV APACHE_DOCUMENT_ROOT=/var/www/html/public
 RUN sed -ri 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/sites-available/*.conf \
     && sed -ri 's!/var/www/!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/apache2.conf /etc/apache2/conf-available/*.conf \
-    && a2enmod rewrite headers
-
-# Réglages PHP de développement (erreurs affichées).
-RUN mv "$PHP_INI_DIR/php.ini-development" "$PHP_INI_DIR/php.ini"
-
-# Ne pas annoncer les versions de PHP et d'Apache ; fichiers jusqu'à 10 Mo (PDF), plusieurs par formulaire.
-RUN printf 'expose_php = Off\nupload_max_filesize = 12M\npost_max_size = 40M\n' > "$PHP_INI_DIR/conf.d/portfolio.ini" \
+    && a2enmod rewrite headers \
     && sed -ri 's/^ServerTokens .*/ServerTokens Prod/; s/^ServerSignature .*/ServerSignature Off/' /etc/apache2/conf-available/security.conf
 
 WORKDIR /var/www/html
+
+# ── Développement ────────────────────────────────────────────
+FROM base AS dev
+
+# Réglages PHP de développement (erreurs affichées) ; versions masquées ; fichiers jusqu'à 10 Mo.
+RUN mv "$PHP_INI_DIR/php.ini-development" "$PHP_INI_DIR/php.ini" \
+    && printf 'expose_php = Off\nupload_max_filesize = 12M\npost_max_size = 40M\n' > "$PHP_INI_DIR/conf.d/portfolio.ini"
+
+# ── Production ───────────────────────────────────────────────
+FROM base AS prod
+
+RUN mv "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini"
+COPY docker/php/php.prod.ini "$PHP_INI_DIR/conf.d/portfolio.ini"
+
+# Dépendances d'abord (couche mise en cache tant que composer.lock ne change pas), sans PHPUnit.
+COPY composer.json composer.lock ./
+RUN composer install --no-dev --no-scripts --no-autoloader --prefer-dist --no-interaction
+
+# Code du site (voir .dockerignore : ni .env, ni storage/uploads, ni design/).
+COPY . .
+RUN composer dump-autoload --no-dev --optimize --classmap-authoritative \
+    && mkdir -p storage/uploads storage/logs \
+    && chown -R www-data:www-data storage

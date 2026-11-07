@@ -4,7 +4,10 @@
 services:
   # Le site : Apache + PHP. http://localhost:8090
   app:
-    build: docker/php
+    build:
+      context: .
+      dockerfile: docker/php/Dockerfile
+      target: dev
     ports:
       - "127.0.0.1:${APP_PORT:-8090}:80"
     volumes:
