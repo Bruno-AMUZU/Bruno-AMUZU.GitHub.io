@@ -19,6 +19,11 @@ final class Router
     /** @var array<string, array<string, callable|array{class-string, string}>> méthode → [regex → action] */
     private array $routes = [];
 
+    /** Le conteneur fabrique les contrôleurs avec leurs dépendances (repositories…). */
+    public function __construct(private readonly Container $container = new Container())
+    {
+    }
+
     public function get(string $path, callable|array $action): void
     {
         $this->add('GET', $path, $action);
@@ -83,7 +88,7 @@ final class Router
     {
         if (is_array($action)) {
             [$class, $method] = $action;
-            $action = [new $class(), $method];
+            $action = [$this->container->get($class), $method];
         }
 
         $action(...$params);

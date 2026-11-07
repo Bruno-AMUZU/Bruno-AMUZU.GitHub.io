@@ -7,14 +7,18 @@ declare(strict_types=1);
  */
 
 use App\Controller\Site\HomeController;
+use App\Core\Env;
 use App\Core\Router;
+use App\Core\Services;
 
 // Racine du projet, pour construire les chemins (views/, lang/, storage/…) sans dépendre de l'emplacement du fichier.
 define('ROOT_PATH', dirname(__DIR__));
 
 require ROOT_PATH . '/vendor/autoload.php';
 
-$router = new Router();
+Env::load(ROOT_PATH . '/.env');
+
+$router = new Router(Services::container());
 
 // La racine redirige vers la version française.
 $router->get('/', function (): void {
