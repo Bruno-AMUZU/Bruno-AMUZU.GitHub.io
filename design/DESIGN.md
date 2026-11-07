@@ -163,6 +163,10 @@ Le back-office gère des **types de contenu définis** : projets, certifications
 | 2026-11-03 | Vues dans `src/View/` | [R] |
 | 2026-11-07 | Exception à « `src/` = classes uniquement » : `src/helpers.php` regroupe les petites fonctions globales des vues (dont `e()` pour l'échappement), chargé par Composer (`autoload.files`) | [V] |
 | 2026-11-07 | Fonctions utilitaires déplacées hors de `src/` (ex. `bootstrap/helpers.php`) | [R] |
+| 2026-11-07 | Textes d'interface validés : titre À propos « Développeur full‑stack, je construis des outils qui vous simplifient la vie. », intros Projets et Lab, confirmation du contact, mention RGPD (conservation 12 mois), phrase de la 404, bloc « Données personnelles » des mentions légales. Le bloc « Hébergement » attend le choix de l'hébergeur | [V] |
+| 2026-11-07 | À propos : la présentation devient un récit de 14 paragraphes écrit par Bruno (la tablette, la découverte du code, l'IA), au lieu de 3-4 phrases ; première phrase en `heading-3`, photo qui reste visible pendant la lecture (desktop). Écart assumé à la maquette | [V] |
+| 2026-11-07 | Lab : ne traite plus seulement d'IA. Catégories Back-end, Front-end, IA, Outils (au lieu de Context engineering, Harness engineering, RAG) ; intro « Je vous montre ce que j'expérimente. » | [V] |
+| 2026-11-07 | Messages de contact supprimés automatiquement après 12 mois, comme l'annonce la mention RGPD | [V] |
 | 2026-11-03 | Modèle séparé en **entités** (`src/Model/Entity/`, uniquement les données) et **repositories** (`src/Model/Repository/`, uniquement le SQL) | [V] |
 | 2026-11-03 | Modèle « Active Record » (une classe qui porte données et SQL) | [R] |
 | 2026-11-03 | **Composer** : chargement automatique PSR-4 (`App\` → `src/`), PHPMailer (envoi SMTP), PHPUnit (tests) ; pas de framework. `vendor/` non suivi par git | [V] |
