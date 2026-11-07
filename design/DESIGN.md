@@ -161,6 +161,8 @@ Le back-office gère des **types de contenu définis** : projets, certifications
 | 2026-11-03 | `design/` reste dans le dépôt comme spec, mais n'est jamais servi en ligne. `.claude/` et `design/maquette/rapports/` restent en local, non suivis par git | [V] |
 | 2026-11-03 | Architecture **MVC** : `public/` seul dossier exposé (point d'entrée unique `index.php`) ; `src/` ne contient que des classes : `Core/`, `Controller/Site/`, `Controller/Admin/`, `Model/` ; vues à part dans `views/` (`layouts/`, `components/`, `site/`, `admin/`) | [V] |
 | 2026-11-03 | Vues dans `src/View/` | [R] |
+| 2026-11-07 | Exception à « `src/` = classes uniquement » : `src/helpers.php` regroupe les petites fonctions globales des vues (dont `e()` pour l'échappement), chargé par Composer (`autoload.files`) | [V] |
+| 2026-11-07 | Fonctions utilitaires déplacées hors de `src/` (ex. `bootstrap/helpers.php`) | [R] |
 | 2026-11-03 | Modèle séparé en **entités** (`src/Model/Entity/`, uniquement les données) et **repositories** (`src/Model/Repository/`, uniquement le SQL) | [V] |
 | 2026-11-03 | Modèle « Active Record » (une classe qui porte données et SQL) | [R] |
 | 2026-11-03 | **Composer** : chargement automatique PSR-4 (`App\` → `src/`), PHPMailer (envoi SMTP), PHPUnit (tests) ; pas de framework. `vendor/` non suivi par git | [V] |
