@@ -160,7 +160,7 @@ function tech_logo(string $tech, int $size = 24): string
         return preg_replace('/^<svg/', sprintf('<svg width="%1$d" height="%1$d" aria-hidden="true" focusable="false"', $size), $svg, 1) ?? '';
     }
 
-    return sprintf('<img src="/assets/img/tech/%s.svg" width="%2$d" height="%2$d" alt="" loading="lazy">', $tech, $size);
+    return sprintf('<img src="/assets/img/tech/%s.svg" width="%2$d" height="%2$d" alt="">', $tech, $size);
 }
 
 /** Champ caché contenant le jeton CSRF, à placer dans chaque formulaire POST. */

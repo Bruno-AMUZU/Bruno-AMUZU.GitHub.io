@@ -22,6 +22,7 @@
     <link rel="stylesheet" href="/assets/css/tokens.css">
     <link rel="stylesheet" href="/assets/css/base.css">
     <link rel="stylesheet" href="/assets/css/components.css">
+    <link rel="stylesheet" href="/assets/css/cards.css">
     <?php foreach ($styles ?? [] as $style): ?>
         <link rel="stylesheet" href="<?= e($style) ?>">
     <?php endforeach ?>

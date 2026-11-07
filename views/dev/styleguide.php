@@ -67,3 +67,26 @@ $section = fn (string $title) => '<h2 class="t-heading-2">' . e($title) . '</h2>
     <?= component('section-header', ['title' => t('home.projects.title'), 'linkLabel' => t('home.projects.link'), 'linkHref' => '#']) ?>
     <div class="sg-row"><?= component('lang-switch') ?> <?= component('marque') ?></div>
 </div>
+
+<div class="container sg stack">
+    <h2 class="t-heading-2">Cartes</h2>
+    <div class="grid grid--3">
+        <?= component('service-card', ['illustration' => 'web', 'title' => 'Sites vitrines & sur mesure', 'text' => 'Rapides, accessibles, bien référencés.']) ?>
+        <?= component('service-card', ['illustration' => 'apps', 'title' => 'Applications & back-offices', 'text' => 'Vos contenus, clients et process, sous contrôle.']) ?>
+        <?= component('service-card', ['illustration' => 'ia', 'title' => 'IA & automatisation', 'text' => 'Agents et workflows branchés sur vos données.', 'inverted' => true]) ?>
+    </div>
+    <div class="grid grid--4">
+        <?= component('stack-card', ['title' => 'Back-end', 'items' => [['name' => 'PHP 8', 'tech' => 'php'], ['name' => 'PostgreSQL', 'tech' => 'postgresql'], ['name' => 'GitHub', 'tech' => 'github']]]) ?>
+        <?= component('stack-card', ['title' => 'IA', 'inverted' => true, 'items' => [['name' => 'Claude Code', 'mono' => 'CC'], ['name' => 'MCP', 'mono' => 'MCP']]]) ?>
+    </div>
+    <div class="grid grid--3">
+        <?= component('project-card', ['title' => 'Atelier Brume', 'href' => '#', 'tags' => ['Figma', 'PHP', 'PostgreSQL']]) ?>
+        <?= component('cert-card', ['date' => 'Janvier 2026', 'title' => 'Apprenez à programmer avec JavaScript', 'org' => 'OpenClassrooms', 'href' => '#']) ?>
+    </div>
+    <ol class="timeline sg-narrow" role="list">
+        <?= component('timeline-card', ['kind' => 'Formation', 'period' => '2024 — 2026', 'title' => 'Bachelor développement informatique', 'org' => 'École', 'place' => 'Metz', 'text' => 'Description.']) ?>
+        <?= component('timeline-card', ['kind' => 'Expérience', 'period' => '2023', 'title' => 'Stage', 'org' => 'Entreprise']) ?>
+    </ol>
+    <?= component('contact-block', ['action' => '#', 'errors' => ['email' => t('form.errors.email')], 'old' => ['name' => 'Ada']]) ?>
+    <?= component('contact-block', ['action' => '#', 'sent' => true]) ?>
+</div>

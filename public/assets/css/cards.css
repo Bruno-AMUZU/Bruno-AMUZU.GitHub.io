@@ -1,0 +1,415 @@
+/*
+ * Cartes (design/components.md → Cartes). Valeurs issues uniquement de tokens.css.
+ */
+
+/* ── Base commune ──────────────────────────────────────── */
+
+.service-card,
+.stack-card,
+.project-card,
+.timeline-card__card,
+.cert-card,
+.case-card {
+  border-radius: var(--radius-xl);
+  background: var(--color-surface);
+  color: var(--color-ink);
+}
+
+/* ── ServiceCard ───────────────────────────────────────── */
+
+.service-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  padding: var(--space-4) var(--space-4) var(--space-8);
+}
+
+.service-card--inv {
+  background: var(--color-inv);
+  color: var(--color-inv-ink);
+}
+
+.service-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding-inline: var(--space-4);
+}
+
+.service-card__text {
+  color: var(--color-muted);
+}
+
+.service-card--inv .service-card__text {
+  color: var(--color-inv-muted);
+}
+
+/* Illustrations dessinées en formes simples (couleurs du thème + accent) */
+.service-art {
+  display: grid;
+  place-items: center;
+  height: 190px;
+  padding: var(--space-6);
+  border-radius: var(--radius-lg);
+  background: var(--color-soft);
+  --art-ink: var(--color-ink);
+  --art-line: var(--color-line);
+  --art-surface: var(--color-surface);
+}
+
+.service-card--inv .service-art {
+  background: var(--color-inv-soft);
+  --art-ink: var(--color-inv-ink);
+  --art-line: var(--color-inv-line);
+  --art-surface: var(--color-inv);
+}
+
+.service-art__window {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  width: 100%;
+  max-width: 260px;
+  padding: var(--space-4);
+  border-radius: var(--radius-md);
+  background: var(--art-surface);
+}
+
+.service-art__dots {
+  display: flex;
+  gap: var(--space-1);
+}
+
+.service-art__dots span {
+  width: 8px;
+  height: 8px;
+  border-radius: var(--radius-pill);
+  background: var(--art-line);
+}
+
+.service-art__title {
+  width: 60%;
+  height: 10px;
+  border-radius: var(--radius-pill);
+  background: var(--art-ink);
+}
+
+.service-art__line {
+  height: 8px;
+  border-radius: var(--radius-pill);
+  background: var(--art-line);
+}
+
+.service-art__line--short {
+  width: 75%;
+}
+
+.service-art__button {
+  width: 72px;
+  height: 20px;
+  border-radius: var(--radius-pill);
+  background: var(--color-accent);
+}
+
+.service-art__bars {
+  display: flex;
+  align-items: flex-end;
+  gap: var(--space-3);
+  height: 100%;
+}
+
+.service-art__bars span {
+  width: 28px;
+  border-radius: var(--radius-sm) var(--radius-sm) var(--radius-xs) var(--radius-xs);
+  background: var(--art-line);
+}
+
+.service-art__bars span:nth-child(1) { height: 40%; }
+.service-art__bars span:nth-child(2) { height: 65%; }
+.service-art__bars span:nth-child(3) { height: 50%; }
+.service-art__bars span:nth-child(4) { height: 90%; }
+.service-art__bars span:nth-child(5) { height: 30%; }
+.service-art__bars .is-ink { background: var(--art-ink); }
+.service-art__bars .is-accent { background: var(--color-accent); }
+
+.service-art__flow {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  color: var(--art-ink);
+}
+
+.service-art__node {
+  flex: none;
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-pill);
+  background: var(--art-surface);
+}
+
+.service-art__link {
+  flex: 1;
+  min-width: var(--space-2);
+  height: 2px;
+  background: var(--art-line);
+}
+
+.service-art__agent {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 72px;
+  height: 72px;
+  border-radius: var(--radius-pill);
+  background: var(--color-accent);
+  color: var(--color-on-accent);
+}
+
+/* ── StackCard ─────────────────────────────────────────── */
+
+.stack-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  padding: var(--space-7);
+}
+
+.stack-card--inv {
+  background: var(--color-inv);
+  color: var(--color-inv-ink);
+}
+
+.stack-card__head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+
+.stack-card__count {
+  color: var(--color-muted);
+}
+
+.stack-card--inv .stack-card__count {
+  color: var(--color-inv-muted);
+}
+
+.stack-card__list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+/* ── ProjectCard ───────────────────────────────────────── */
+
+.project-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  padding: var(--space-3);
+  transition: transform 0.2s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-2px);
+}
+
+.project-card__visual {
+  display: grid;
+  place-items: center;
+  height: 240px;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  background: var(--color-inv);
+  color: var(--color-inv-muted);
+}
+
+.project-card__visual img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.project-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  padding: var(--space-3);
+}
+
+.project-card__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+
+/* Toute la carte est cliquable : le lien du titre s'étend sur la carte. */
+.project-card__link::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius-xl);
+}
+
+.project-card__link:focus-visible {
+  box-shadow: none;
+}
+
+.project-card:has(.project-card__link:focus-visible) {
+  box-shadow: 0 0 0 2px var(--color-bg), 0 0 0 4px var(--color-accent);
+}
+
+.project-card__arrow {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-pill);
+  background: var(--color-soft);
+}
+
+/* ── TimelineCard ──────────────────────────────────────── */
+
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: var(--card-gap);
+  padding: 0;
+  list-style: none;
+}
+
+.timeline-card {
+  display: grid;
+  grid-template-columns: 12px minmax(0, 1fr);
+  gap: var(--space-5);
+}
+
+.timeline-card__marker {
+  position: relative;
+}
+
+/* Point 12 px accent, puis trait 2 px line jusqu'à l'entrée suivante. */
+.timeline-card__marker::before {
+  content: "";
+  position: absolute;
+  top: var(--space-8);
+  left: 0;
+  width: 12px;
+  height: 12px;
+  border-radius: var(--radius-pill);
+  background: var(--color-accent);
+}
+
+.timeline-card__marker::after {
+  content: "";
+  position: absolute;
+  top: calc(var(--space-8) + 16px);
+  bottom: calc(-1 * var(--card-gap) - var(--space-8) + 4px);
+  left: 5px;
+  width: 2px;
+  background: var(--color-line);
+}
+
+.timeline-card:last-child .timeline-card__marker::after {
+  display: none;
+}
+
+.timeline-card__card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding: var(--space-7);
+}
+
+/* ── CertCard ──────────────────────────────────────────── */
+
+.cert-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  height: 100%;
+  padding: var(--space-6);
+}
+
+.cert-card__link {
+  margin-top: auto;
+  padding-top: var(--space-2);
+}
+
+.cert-card__link:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+/* ── CaseCard (page Projet) ────────────────────────────── */
+
+.case-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  height: 100%;
+  padding: var(--space-7);
+}
+
+/* ── ContactBlock ──────────────────────────────────────── */
+
+.contact-block {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-4);
+}
+
+.contact-block__pitch {
+  display: flex;
+  align-items: flex-end;
+  padding: var(--space-12);
+  border-radius: var(--radius-2xl);
+  background: var(--color-accent);
+  color: var(--color-on-accent);
+}
+
+.contact-block__card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  padding: var(--space-10);
+  border-radius: var(--radius-2xl);
+  background: var(--color-surface);
+}
+
+.contact-block__card--sent {
+  justify-content: center;
+  gap: var(--space-3);
+}
+
+.contact-block__row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-4);
+}
+
+.contact-block__trap {
+  position: absolute;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+@media (max-width: 767px) {
+  .contact-block,
+  .contact-block__row {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .contact-block__pitch,
+  .contact-block__card {
+    padding: var(--space-6);
+  }
+
+  .contact-block__pitch {
+    min-height: 220px;
+  }
+}
