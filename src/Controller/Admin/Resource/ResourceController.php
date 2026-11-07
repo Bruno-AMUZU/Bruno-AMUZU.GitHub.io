@@ -346,7 +346,10 @@ abstract class ResourceController extends AdminController
 
         $value = (string) $this->request->input($field->name);
         if ($value === '') {
-            return [null, $field->required ? 'required' : null];
+            // Texte vide = chaîne vide (colonnes NOT NULL DEFAULT '') ; autres types vides = NULL.
+            $empty = in_array($field->type, ['text', 'textarea', 'markdown'], true) ? '' : null;
+
+            return [$empty, $field->required ? 'required' : null];
         }
         if ($field->max !== null && mb_strlen($value) > $field->max) {
             return [$value, 'max'];
