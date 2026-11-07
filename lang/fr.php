@@ -443,6 +443,17 @@ return [
             ],
             'reply' => 'Répondre',
             'archive' => 'Archiver',
+            // Ajouté pour le site (absent de la spec)
+            'unarchive' => 'Désarchiver',
+            'markUnread' => 'Marquer non lu',
+            'delete' => 'Supprimer le message',
+            'confirmDelete' => 'Supprimer définitivement ce message ?',
+            'archived' => 'Message archivé.',
+            'unarchived' => 'Message désarchivé.',
+            'deleted' => 'Message supprimé.',
+            'empty' => 'Aucun message ici.',
+            'select' => 'Sélectionnez un message pour le lire.',
+            'subject' => 'Votre message sur brunoamuzu.dev',
             'demo' => [
                 'name' => '[Nom]',
                 'email' => '[email]',

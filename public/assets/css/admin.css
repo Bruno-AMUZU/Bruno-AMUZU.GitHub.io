@@ -160,6 +160,7 @@
 @media (max-width: 767px) {
   .admin {
     grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto 1fr; /* la barre haute garde sa hauteur, la zone principale prend le reste */
     background: var(--color-bg);
   }
 
@@ -526,4 +527,108 @@
 
 select.field__input {
   appearance: auto;
+}
+
+/* ── Messages : liste (1/3) + détail (2/3) ─────────────── */
+
+.messages {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+  align-items: start;
+  gap: var(--space-4);
+}
+
+.messages__list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.messages__rows {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.message-row {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+}
+
+/* Ligne non lue : point accent ; ligne sélectionnée : fond soft. */
+.message-row.is-unread::before {
+  content: "";
+  position: absolute;
+  top: var(--space-4);
+  right: var(--space-4);
+  width: 8px;
+  height: 8px;
+  border-radius: var(--radius-pill);
+  background: var(--color-accent);
+}
+
+.message-row.is-selected,
+.message-row:hover {
+  background: var(--color-soft);
+}
+
+.message-row__head,
+.message-row__meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.message-row__excerpt {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.messages__detail {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+.messages__head {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.messages__email {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.messages__meta,
+.messages__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.messages__body {
+  max-width: 70ch;
+  white-space: normal;
+}
+
+@media (max-width: 1023px) {
+  .messages {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  /* Mobile : la liste seule ; un message ouvert s'affiche en plein écran. */
+  .messages:not(.messages--has-selection) .messages__detail,
+  .messages--has-selection .messages__list {
+    display: none;
+  }
 }
