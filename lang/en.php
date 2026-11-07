@@ -180,9 +180,10 @@ return [
         'intro' => 'Here’s what I’m experimenting with.',
         'filters' => [
             'All',
-            'Context engineering',
-            'Harness engineering',
-            'RAG',
+            'Back-end',
+            'Front-end',
+            'AI',
+            'Tools',
         ],
         'empty' => 'No article in this category yet.',
     ],

@@ -7,8 +7,8 @@ namespace App\Model\Entity;
 /** Article du Lab, avec ses textes dans la langue demandée. */
 final class Article
 {
-    /** Catégories, dans l'ordre des filtres du Lab (Context engineering, Harness engineering, RAG). */
-    public const CATEGORIES = ['context', 'harness', 'rag'];
+    /** Catégories, dans l'ordre des filtres du Lab (Back-end, Front-end, IA, Outils). */
+    public const CATEGORIES = ['back', 'front', 'ia', 'tools'];
 
     public function __construct(
         public readonly int $id,

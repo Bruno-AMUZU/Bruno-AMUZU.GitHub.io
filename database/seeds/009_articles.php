@@ -10,7 +10,7 @@ declare(strict_types=1);
 
 return function (PDO $db): void {
     $content = seed_content();
-    $categories = ['Context engineering' => 'context', 'Harness engineering' => 'harness', 'RAG' => 'rag'];
+    $categories = ['Context engineering' => 'ia', 'Harness engineering' => 'ia', 'RAG' => 'ia']; // sujets IA de la spec
 
     $body = function (array $page): string {
         return implode("\n\n", [
@@ -26,7 +26,7 @@ return function (PDO $db): void {
         $en = $content['en']['lab'][$i] ?? $fr;
         $id = seed_insert($db, 'articles', [
             'slug' => 'article-demo-' . ($i + 1),
-            'category' => $categories[$fr['category']] ?? 'context',
+            'category' => $categories[$fr['category']] ?? 'ia',
             'status' => 'published',
             'position' => $i + 1,
         ]);

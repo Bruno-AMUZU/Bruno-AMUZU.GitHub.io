@@ -59,7 +59,7 @@ final class ArticleAdminController extends ResourceController
 
     protected function defaults(): array
     {
-        return [...parent::defaults(), 'category' => 'context', 'published_on' => date('Y-m-d')];
+        return [...parent::defaults(), 'category' => 'back', 'published_on' => date('Y-m-d')];
     }
 
     protected function previewUrl(array $values): ?string

@@ -179,9 +179,10 @@ return [
         'intro' => 'Je vous montre ce que j’expérimente.',
         'filters' => [
             'Tout',
-            'Context engineering',
-            'Harness engineering',
-            'RAG',
+            'Back-end',
+            'Front-end',
+            'IA',
+            'Outils',
         ],
         'empty' => 'Aucun article dans cette catégorie pour l’instant.',
     ],
