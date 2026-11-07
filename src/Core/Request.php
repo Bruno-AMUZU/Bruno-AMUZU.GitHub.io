@@ -26,6 +26,18 @@ final class Request
     ) {
     }
 
+    /**
+     * Texte saisi nettoyé : UTF-8 invalide remplacé, caractères de contrôle retirés (sauf retours
+     * à la ligne et tabulations), espaces de début et de fin supprimés.
+     */
+    public static function clean(string $value): string
+    {
+        $value = mb_scrub($value, 'UTF-8');
+        $value = (string) preg_replace('/[\x00-\x08\x0B\x0C\x0E-\x1F\x7F]/u', '', $value);
+
+        return trim(str_replace("\r\n", "\n", $value));
+    }
+
     public static function fromGlobals(): self
     {
         $method = strtoupper($_SERVER['REQUEST_METHOD'] ?? 'GET');
@@ -58,7 +70,7 @@ final class Request
     {
         $value = $this->body[$key] ?? null;
 
-        return is_string($value) ? trim($value) : $default;
+        return is_string($value) ? self::clean($value) : $default;
     }
 
     /** @return list<string> champ de formulaire multiple (name="tags[]") */
@@ -66,7 +78,7 @@ final class Request
     {
         $value = $this->body[$key] ?? [];
 
-        return is_array($value) ? array_values(array_map('trim', array_filter($value, 'is_string'))) : [];
+        return is_array($value) ? array_values(array_map([self::class, 'clean'], array_filter($value, 'is_string'))) : [];
     }
 
     /** @return array<string, mixed> toutes les données du formulaire */
@@ -88,7 +100,7 @@ final class Request
             $value = $value[$key];
         }
 
-        return is_string($value) ? trim($value) : null;
+        return is_string($value) ? self::clean($value) : null;
     }
 
     /**
@@ -106,7 +118,7 @@ final class Request
             $value = $value[$key];
         }
 
-        return is_array($value) ? array_values(array_map('trim', array_filter($value, 'is_string'))) : [];
+        return is_array($value) ? array_values(array_map([self::class, 'clean'], array_filter($value, 'is_string'))) : [];
     }
 
     /**

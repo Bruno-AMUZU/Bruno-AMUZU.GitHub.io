@@ -79,10 +79,17 @@ function setting(string $key, string $default = ''): string
 /** « Atelier Brume & Cie » → « atelier-brume-cie » (adresse d'une page). */
 function slugify(string $text): string
 {
-    $ascii = iconv('UTF-8', 'ASCII//TRANSLIT//IGNORE', $text) ?: $text;
-    $slug = strtolower(trim((string) preg_replace('/[^a-zA-Z0-9]+/', '-', $ascii), '-'));
+    // Table de translittération explicite : ne dépend pas de la bibliothèque iconv du système.
+    static $map = [
+        'à' => 'a', 'â' => 'a', 'ä' => 'a', 'á' => 'a', 'ã' => 'a', 'å' => 'a', 'æ' => 'ae', 'ç' => 'c',
+        'é' => 'e', 'è' => 'e', 'ê' => 'e', 'ë' => 'e', 'î' => 'i', 'ï' => 'i', 'í' => 'i', 'ì' => 'i',
+        'ô' => 'o', 'ö' => 'o', 'ó' => 'o', 'ò' => 'o', 'õ' => 'o', 'ø' => 'o', 'œ' => 'oe',
+        'ù' => 'u', 'û' => 'u', 'ü' => 'u', 'ú' => 'u', 'ÿ' => 'y', 'ñ' => 'n', 'ß' => 'ss',
+    ];
+    $text = strtr(mb_strtolower(mb_scrub($text, 'UTF-8'), 'UTF-8'), $map);
+    $slug = trim((string) preg_replace('/[^a-z0-9]+/', '-', $text), '-');
 
-    return substr($slug, 0, 80);
+    return rtrim(substr($slug, 0, 80), '-');
 }
 
 /** Date lisible : « 7 nov. 2026 » / « Nov 7, 2026 ». */
