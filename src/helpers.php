@@ -67,6 +67,42 @@ function switch_lang_url(string $lang): string
     return App\Core\App::get(App\Core\UrlGenerator::class)->switchTo($lang);
 }
 
+/**
+ * Icône dessinée sur mesure (views/components/icons/), en SVG dans la page, couleur = texte autour.
+ * Sans $label, l'icône est décorative (ignorée par les lecteurs d'écran) : le libellé est porté par le bouton.
+ */
+function icon(string $name, ?string $label = null, int $size = 20): string
+{
+    static $cache = [];
+    if (!preg_match('/^[a-z-]+$/', $name)) {
+        throw new InvalidArgumentException("Nom d'icône invalide : {$name}");
+    }
+    $svg = $cache[$name] ??= trim((string) file_get_contents(ROOT_PATH . "/views/components/icons/{$name}.svg"));
+
+    $attributes = sprintf(' class="icon" width="%1$d" height="%1$d" focusable="false"', $size)
+        . ($label === null ? ' aria-hidden="true"' : ' role="img" aria-label="' . e($label) . '"');
+
+    return preg_replace('/^<svg/', '<svg' . $attributes, $svg, 1) ?? $svg;
+}
+
+/**
+ * Logo officiel d'une techno (Devicon), pour les TechChip.
+ * Le logo GitHub est intégré à la page pour prendre la couleur du texte (lisible en thème sombre).
+ */
+function tech_logo(string $tech, int $size = 24): string
+{
+    if (!preg_match('/^[a-z0-9-]+$/', $tech) || !is_file(ROOT_PATH . "/public/assets/img/tech/{$tech}.svg")) {
+        return '';
+    }
+    if ($tech === 'github') {
+        $svg = (string) file_get_contents(ROOT_PATH . '/public/assets/img/tech/github.svg');
+
+        return preg_replace('/^<svg/', sprintf('<svg width="%1$d" height="%1$d" aria-hidden="true" focusable="false"', $size), $svg, 1) ?? '';
+    }
+
+    return sprintf('<img src="/assets/img/tech/%s.svg" width="%2$d" height="%2$d" alt="" loading="lazy">', $tech, $size);
+}
+
 /** Champ caché contenant le jeton CSRF, à placer dans chaque formulaire POST. */
 function csrf_field(): string
 {
