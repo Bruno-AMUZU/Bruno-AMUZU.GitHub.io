@@ -27,6 +27,16 @@ final class View
         return self::capture(self::path('layouts/' . $layout), [...$data, 'content' => $content]);
     }
 
+    /**
+     * Morceau de page sans gabarit : un composant de views/components/ (bouton, carte…).
+     *
+     * @param array<string, mixed> $data
+     */
+    public static function partial(string $view, array $data = []): string
+    {
+        return self::capture(self::path($view), $data);
+    }
+
     /** 'site/home' → chemin absolu de views/site/home.php */
     private static function path(string $name): string
     {

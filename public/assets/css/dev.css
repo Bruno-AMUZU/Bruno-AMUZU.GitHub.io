@@ -1,0 +1,31 @@
+/* Galerie des composants (développement uniquement). */
+.sg {
+  padding-block: var(--space-10);
+}
+
+.sg h2 {
+  margin-top: var(--space-10);
+}
+
+.sg-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.sg-narrow {
+  max-width: 720px;
+}
+
+.sg-chips {
+  max-width: 360px;
+  --stack-gap: var(--space-2);
+}
+
+.sg-cards {
+  max-width: 1192px;
+}
+.sg h2 {
+  margin-bottom: var(--space-4);
+}

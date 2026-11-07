@@ -68,6 +68,45 @@ function switch_lang_url(string $lang): string
 }
 
 /**
+ * Affiche un composant de views/components/ : <?= component('button', ['label' => 'Envoyer']) ?>
+ * Les propriétés deviennent des variables dans le composant.
+ *
+ * @param array<string, mixed> $props
+ */
+function component(string $name, array $props = []): string
+{
+    return App\Core\View::partial('components/' . $name, ['props' => $props, ...$props]);
+}
+
+/**
+ * Attributs HTML échappés à partir d'un tableau : attrs(['href' => $url, 'hidden' => true]).
+ * true = attribut sans valeur, false / null = attribut absent.
+ *
+ * @param array<string, string|int|bool|null> $attributes
+ */
+function attrs(array $attributes): string
+{
+    $html = '';
+    foreach ($attributes as $name => $value) {
+        if ($value === null || $value === false) {
+            continue;
+        }
+        if (!preg_match('/^[a-zA-Z_:][a-zA-Z0-9_:.-]*$/', (string) $name)) {
+            throw new InvalidArgumentException("Nom d'attribut invalide : {$name}");
+        }
+        $html .= $value === true ? " {$name}" : ' ' . $name . '="' . e($value) . '"';
+    }
+
+    return $html;
+}
+
+/** Classes CSS à partir d'une liste, les valeurs vides étant ignorées. */
+function classes(string|false|null ...$names): string
+{
+    return implode(' ', array_filter($names, fn ($n) => is_string($n) && $n !== ''));
+}
+
+/**
  * Icône dessinée sur mesure (views/components/icons/), en SVG dans la page, couleur = texte autour.
  * Sans $label, l'icône est décorative (ignorée par les lecteurs d'écran) : le libellé est porté par le bouton.
  */

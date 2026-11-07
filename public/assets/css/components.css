@@ -1,0 +1,273 @@
+/*
+ * Composants (design/components.md). Une section par composant, valeurs uniquement issues de tokens.css.
+ */
+
+/* ── Icônes ────────────────────────────────────────────── */
+
+.icon {
+  flex: none;
+}
+
+/* ── Button ────────────────────────────────────────────── */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  min-height: var(--size-touch-min);
+  padding: var(--space-4) var(--space-6);
+  border-radius: var(--radius-pill);
+  white-space: nowrap;
+  transition: opacity 0.15s ease;
+}
+
+.btn--primary {
+  background: var(--color-accent);
+  color: var(--color-on-accent);
+}
+
+.btn--secondary {
+  background: var(--color-soft);
+  color: var(--color-ink);
+}
+
+.btn--inverse {
+  background: var(--color-inv);
+  color: var(--color-inv-ink);
+}
+
+.btn--full {
+  width: 100%;
+}
+
+.btn:hover {
+  opacity: 0.85;
+}
+
+.btn:focus-visible {
+  border-radius: var(--radius-pill);
+}
+
+.btn:disabled,
+.btn[aria-disabled="true"] {
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+/* ── IconButton ────────────────────────────────────────── */
+
+.icon-btn {
+  display: inline-grid;
+  place-items: center;
+  flex: none;
+  width: var(--size-icon-button);
+  height: var(--size-icon-button);
+  border-radius: var(--radius-pill);
+  background: var(--color-soft);
+  color: var(--color-ink);
+  transition: opacity 0.15s ease;
+}
+
+.icon-btn--inv {
+  background: var(--color-inv);
+  color: var(--color-inv-ink);
+}
+
+.icon-btn--inv-soft {
+  background: var(--color-inv-soft);
+  color: var(--color-inv-ink);
+}
+
+.icon-btn--accent {
+  background: var(--color-accent);
+  color: var(--color-on-accent);
+}
+
+.icon-btn:hover {
+  opacity: 0.85;
+}
+
+.icon-btn:focus-visible {
+  border-radius: var(--radius-pill);
+}
+
+/* Bascule de thème : l'icône montre l'action (lune = passer en sombre, soleil = passer en clair). */
+.theme-toggle .icon-sun,
+.theme-toggle[data-state="dark"] .icon-moon {
+  display: none;
+}
+
+.theme-toggle[data-state="dark"] .icon-sun {
+  display: block;
+}
+
+/* ── Pill ──────────────────────────────────────────────── */
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  width: fit-content;
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-pill);
+  background: var(--color-soft);
+  color: var(--color-ink);
+}
+
+.pill--accent {
+  background: var(--color-accent);
+  color: var(--color-on-accent);
+}
+
+.pill__dot {
+  width: 8px;
+  height: 8px;
+  flex: none;
+  border-radius: var(--radius-pill);
+  background: var(--color-accent);
+}
+
+/* ── Tag ───────────────────────────────────────────────── */
+
+.tag {
+  display: inline-flex;
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-pill);
+  background: var(--color-soft);
+  color: var(--color-ink);
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+/* ── TechChip ──────────────────────────────────────────── */
+
+.tech-chip {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3);
+  border-radius: var(--radius-md);
+  background: var(--color-soft);
+  color: var(--color-ink);
+}
+
+.tech-chip--inv {
+  background: var(--color-inv-soft);
+  color: var(--color-inv-ink);
+}
+
+.tech-chip__logo {
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+}
+
+.tech-chip__mono {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 34px;
+  height: 34px;
+  border-radius: var(--radius-sm);
+  background: var(--color-accent);
+  color: var(--color-on-accent);
+}
+
+/* ── Field ─────────────────────────────────────────────── */
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  min-width: 0;
+}
+
+.field__input {
+  width: 100%;
+  min-height: var(--size-touch-min);
+  padding: var(--space-4);
+  border: 0;
+  border-radius: var(--radius-md);
+  background: var(--color-soft);
+  color: var(--color-ink);
+}
+
+.field__input::placeholder {
+  color: var(--color-muted);
+}
+
+.field__input--area {
+  resize: vertical;
+}
+
+.field__input:focus,
+.field__input:focus-visible {
+  outline: none;
+  box-shadow: inset 0 0 0 2px var(--color-accent);
+}
+
+.field--error .field__input {
+  box-shadow: inset 0 0 0 2px var(--color-danger);
+}
+
+.field__error {
+  color: var(--color-danger);
+}
+
+/* ── ChoiceChips ───────────────────────────────────────── */
+
+.chips {
+  border: 0;
+  padding: 0;
+  min-width: 0;
+}
+
+.chips legend {
+  margin-bottom: var(--space-2);
+}
+
+.chips__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--size-touch-min);
+  padding: var(--space-3) var(--space-5);
+  border-radius: var(--radius-pill);
+  background: var(--color-soft);
+  color: var(--color-ink);
+  cursor: pointer;
+  transition: opacity 0.15s ease;
+}
+
+.chip:hover {
+  opacity: 0.85;
+}
+
+.chip[aria-current="true"],
+.chip:has(.chip__input:checked) {
+  background: var(--color-inv);
+  color: var(--color-inv-ink);
+}
+
+/* Le bouton radio reste accessible au clavier mais invisible : c'est la pastille qui le représente. */
+.chip__input {
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+}
+
+.chip:has(.chip__input:focus-visible) {
+  box-shadow: 0 0 0 2px var(--color-bg), 0 0 0 4px var(--color-accent);
+}

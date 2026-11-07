@@ -4,6 +4,7 @@
  *
  * @var string $title    titre de la page
  * @var string $content  HTML produit par la vue (déjà échappé par elle)
+ * @var list<string> $styles feuilles de style propres à la page (facultatif)
  */
 ?>
 <!DOCTYPE html>
@@ -20,6 +21,10 @@
     <link rel="stylesheet" href="/assets/css/fonts.css">
     <link rel="stylesheet" href="/assets/css/tokens.css">
     <link rel="stylesheet" href="/assets/css/base.css">
+    <link rel="stylesheet" href="/assets/css/components.css">
+    <?php foreach ($styles ?? [] as $style): ?>
+        <link rel="stylesheet" href="<?= e($style) ?>">
+    <?php endforeach ?>
     <script nonce="<?= e(csp_nonce()) ?>">
         // Thème choisi par le visiteur, appliqué avant l'affichage pour éviter un flash de l'autre thème.
         try { const t = localStorage.getItem('theme'); if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t; } catch (e) {}

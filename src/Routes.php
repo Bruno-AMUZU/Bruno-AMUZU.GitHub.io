@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App;
 
 use App\Controller\Site\HomeController;
+use App\Controller\Site\StyleguideController;
 use App\Controller\Site\UploadController;
 use App\Core\Router;
 
@@ -20,5 +21,8 @@ final class Routes
         $router->get('/uploads/{year:\d{4}}/{month:\d{2}}/{name:[a-f0-9]{32}\.[a-z0-9]+}', [UploadController::class, 'show']);
 
         $router->page('home', ['fr' => '/fr', 'en' => '/en'], [HomeController::class, 'index']);
+
+        // Développement uniquement (404 ailleurs) : galerie des composants.
+        $router->page('dev.styleguide', ['fr' => '/dev/composants'], [StyleguideController::class, 'index']);
     }
 }
