@@ -1,0 +1,192 @@
+/*
+ * Généré par bin/tokens.php à partir de design/tokens.json — ne pas modifier à la main.
+ *
+ * Thème : clair par défaut, sombre si le système le demande, sauf choix explicite du visiteur
+ * (attribut data-theme="light" ou "dark" sur <html>).
+ */
+
+:root {
+  --color-accent: #C084FC;
+  --color-on-accent: #111111;
+  --color-brand-bg: #111111;
+  --color-brand-fg: #F4F4F2;
+  --color-success: #1E9E5A;
+  --color-danger: #D93A3A;
+  --color-overlay: rgb(0 0 0 / 0.5);
+  --color-tech-html: #E44D26;
+  --color-tech-css: #264DE4;
+  --color-tech-javascript: #F0DB4F;
+  --color-tech-figma: #A259FF;
+  --color-tech-php: #777BB3;
+  --color-tech-postgresql: #336791;
+  --color-tech-mysql: #00758F;
+  --color-tech-python: #3776AB;
+  --color-tech-docker: #1D63ED;
+  --color-tech-git: #F05032;
+  --color-tech-github: #24292F;
+  --color-tech-vscode: #007ACC;
+  --font-display: "Space Grotesk", system-ui, sans-serif;
+  --font-body: "Inter", system-ui, sans-serif;
+  --font-mono: ui-monospace, Consolas, Menlo, monospace;
+  --type-display-xl-font: var(--font-display);
+  --type-display-xl-weight: 700;
+  --type-display-xl-size: 96px;
+  --type-display-xl-line: 91px;
+  --type-display-xl-tracking: -0.05em;
+  --type-display-l-font: var(--font-display);
+  --type-display-l-weight: 700;
+  --type-display-l-size: 72px;
+  --type-display-l-line: 69px;
+  --type-display-l-tracking: -0.045em;
+  --type-heading-1-font: var(--font-display);
+  --type-heading-1-weight: 700;
+  --type-heading-1-size: 56px;
+  --type-heading-1-line: 60px;
+  --type-heading-1-tracking: -0.04em;
+  --type-heading-2-font: var(--font-display);
+  --type-heading-2-weight: 700;
+  --type-heading-2-size: 26px;
+  --type-heading-2-line: 32px;
+  --type-heading-2-tracking: -0.02em;
+  --type-heading-3-font: var(--font-display);
+  --type-heading-3-weight: 500;
+  --type-heading-3-size: 22px;
+  --type-heading-3-line: 29px;
+  --type-heading-3-tracking: 0;
+  --type-body-l-font: var(--font-body);
+  --type-body-l-weight: 400;
+  --type-body-l-size: 18px;
+  --type-body-l-line: 28px;
+  --type-body-l-tracking: 0;
+  --type-body-font: var(--font-body);
+  --type-body-weight: 400;
+  --type-body-size: 16px;
+  --type-body-line: 25px;
+  --type-body-tracking: 0;
+  --type-label-font: var(--font-body);
+  --type-label-weight: 600;
+  --type-label-size: 16px;
+  --type-label-line: 20px;
+  --type-label-tracking: 0;
+  --type-nav-font: var(--font-body);
+  --type-nav-weight: 500;
+  --type-nav-size: 15px;
+  --type-nav-line: 20px;
+  --type-nav-tracking: 0;
+  --type-small-font: var(--font-body);
+  --type-small-weight: 500;
+  --type-small-size: 14px;
+  --type-small-line: 20px;
+  --type-small-tracking: 0;
+  --type-caption-font: var(--font-body);
+  --type-caption-weight: 500;
+  --type-caption-size: 13px;
+  --type-caption-line: 18px;
+  --type-caption-tracking: 0;
+  --type-code-font: var(--font-mono);
+  --type-code-weight: 400;
+  --type-code-size: 14px;
+  --type-code-line: 22px;
+  --type-code-tracking: 0;
+  --type-logo-font: var(--font-display);
+  --type-logo-weight: 700;
+  --type-logo-size: 21px;
+  --type-logo-line: 24px;
+  --type-logo-tracking: -0.02em;
+  --space-0: 0;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-7: 28px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-14: 56px;
+  --space-16: 64px;
+  --space-22: 88px;
+  --space-24: 96px;
+  --space-30: 120px;
+  --radius-xs: 4px;
+  --radius-sm: 10px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+  --radius-2xl: 32px;
+  --radius-pill: 999px;
+  --shadow-float: 0 8px 24px rgb(0 0 0 / 0.22);
+  --size-touch-min: 44px;
+  --size-icon-button: 44px;
+  --size-chat-bubble: 60px;
+  --size-chat-panel-width: 360px;
+  --container-max: 1240px;
+  --gutter: 24px;
+  --section-gap: 88px;
+  --card-gap: 16px;
+  --color-bg: #F2F2EE;
+  --color-surface: #FFFFFF;
+  --color-ink: #111111;
+  --color-muted: #4A4A4A;
+  --color-soft: #ECECE6;
+  --color-line: #D9D9D1;
+  --color-inv: #111111;
+  --color-inv-ink: #FFFFFF;
+  --color-inv-muted: #BDBDBD;
+  --color-inv-soft: #222222;
+  --color-inv-line: #3A3A3A;
+  --color-brand-edge: #00000000;
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --color-bg: #0C0C0D;
+    --color-surface: #18181B;
+    --color-ink: #F4F4F2;
+    --color-muted: #A8A8AE;
+    --color-soft: #242428;
+    --color-line: #34343A;
+    --color-inv: #F2F2EE;
+    --color-inv-ink: #111111;
+    --color-inv-muted: #4A4A4A;
+    --color-inv-soft: #E4E4DC;
+    --color-inv-line: #C9C9C0;
+    --color-brand-edge: #34343A;
+    color-scheme: dark;
+  }
+}
+
+:root[data-theme="dark"] {
+  --color-bg: #0C0C0D;
+  --color-surface: #18181B;
+  --color-ink: #F4F4F2;
+  --color-muted: #A8A8AE;
+  --color-soft: #242428;
+  --color-line: #34343A;
+  --color-inv: #F2F2EE;
+  --color-inv-ink: #111111;
+  --color-inv-muted: #4A4A4A;
+  --color-inv-soft: #E4E4DC;
+  --color-inv-line: #C9C9C0;
+  --color-brand-edge: #34343A;
+  color-scheme: dark;
+}
+
+/* Mobile : sous 768 px */
+@media (max-width: 767px) {
+  :root {
+    --type-display-xl-size: 48px;
+    --type-display-xl-line: 48px;
+    --type-display-l-size: 40px;
+    --type-display-l-line: 40px;
+    --type-heading-1-size: 36px;
+    --type-heading-1-line: 40px;
+    --type-heading-2-size: 22px;
+    --type-heading-2-line: 28px;
+    --gutter: 16px;
+    --section-gap: 56px;
+    --card-gap: 12px;
+  }
+}
