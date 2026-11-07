@@ -3,3 +3,11 @@ RewriteEngine On
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^ index.php [QSA,L]
+
+# Fichiers statiques : le navigateur respecte le type annoncé (pas de « devinette » du type).
+<IfModule mod_headers.c>
+    Header setifempty X-Content-Type-Options "nosniff"
+</IfModule>
+
+# Pas de liste des fichiers d'un dossier sans index.
+Options -Indexes

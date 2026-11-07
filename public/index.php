@@ -14,6 +14,7 @@ use App\Core\HttpException;
 use App\Core\Request;
 use App\Core\Response;
 use App\Core\Router;
+use App\Core\SecurityHeaders;
 use App\Core\Services;
 
 // Racine du projet, pour construire les chemins (views/, lang/, storage/…) sans dépendre de l'emplacement du fichier.
@@ -41,4 +42,4 @@ try {
     $response = new Response($e->status === 404 ? 'Page introuvable' : $e->getMessage(), $e->status, $e->headers);
 }
 
-$response->send();
+$container->get(SecurityHeaders::class)->apply($response)->send();

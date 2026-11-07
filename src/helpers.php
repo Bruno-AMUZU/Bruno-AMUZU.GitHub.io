@@ -35,6 +35,12 @@ function csrf_field(): string
     return '<input type="hidden" name="' . App\Core\Csrf::FIELD . '" value="' . e($token) . '">';
 }
 
+/** Nonce CSP de la requête, pour autoriser un <script> écrit dans la page. */
+function csp_nonce(): string
+{
+    return App\Core\App::get(App\Core\SecurityHeaders::class)->nonce();
+}
+
 /** Clé du message d'erreur d'un champ après un formulaire en erreur, ou null. */
 function error(string $field): ?string
 {

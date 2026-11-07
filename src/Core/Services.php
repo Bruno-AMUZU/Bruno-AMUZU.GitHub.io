@@ -21,6 +21,7 @@ final class Services
         $request ??= new Request('GET', '/');
         $container->set(Request::class, fn () => $request);
         $container->set(Session::class, fn () => new Session(secureCookie: $request->isSecure()));
+        $container->set(SecurityHeaders::class, fn () => new SecurityHeaders(production: Env::get('APP_ENV') === 'prod'));
 
         return $container;
     }
