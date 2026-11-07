@@ -362,6 +362,26 @@ return [
                 ],
             ],
         ],
+        'settings' => [
+            'title' => 'Réglages',
+            'intro' => 'Informations générales du site. Les textes du hero laissés vides affichent les textes par défaut.',
+            'panels' => [
+                'availability' => 'Disponibilité',
+                'contact' => 'Contact et réseaux',
+                'files' => 'CV et photo',
+            ],
+            'fields' => [
+                'heroStatus' => 'Pastille du hero',
+                'heroTitle' => 'Titre du hero',
+                'heroSubtitle' => 'Sous-titre du hero',
+                'available' => 'En recherche (afficher la pastille)',
+                'availableHelp' => 'Décoché : la pastille du hero est masquée.',
+                'email' => 'Email de contact',
+                'cv' => 'CV (PDF)',
+                'photo' => 'Photo',
+                'photoHelp' => 'Affichée sur la page À propos. Format carré conseillé.',
+            ],
+        ],
         'form' => [
             'hasErrors' => 'Le contenu n’a pas été enregistré : corrigez les champs signalés.',
             'confirmDelete' => 'Supprimer « {title} » ? Cette action est définitive.',

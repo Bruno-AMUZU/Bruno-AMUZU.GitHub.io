@@ -51,6 +51,10 @@ $actions = ($previewUrl ? component('button', ['label' => t('admin.edit.preview'
 ?>
 <?= component('admin-topbar', ['title' => $title, 'backLabel' => $labels['back'], 'backHref' => $base, 'actions' => $actions]) ?>
 
+<?php if (!empty($intro)): ?>
+    <p class="t-body muted"><?= e($intro) ?></p>
+<?php endif ?>
+
 <?php if ($errors !== []): ?>
     <div class="admin-alert t-small" role="alert">
         <?= e(t('admin.form.hasErrors')) ?>

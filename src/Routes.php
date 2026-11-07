@@ -10,6 +10,7 @@ use App\Controller\Admin\DashboardController;
 use App\Controller\Admin\PasswordResetController;
 use App\Controller\Admin\ProjectAdminController;
 use App\Controller\Admin\ServiceAdminController;
+use App\Controller\Admin\SettingsController;
 use App\Controller\Admin\SkillAdminController;
 use App\Controller\Admin\TimelineAdminController;
 use App\Controller\Site\HomeController;
@@ -62,6 +63,8 @@ final class Routes
             TimelineAdminController::routes($router);
             SkillAdminController::routes($router);
             ServiceAdminController::routes($router);
+            $router->get('/admin/reglages', [SettingsController::class, 'edit'], 'admin.settings');
+            $router->post('/admin/reglages', [SettingsController::class, 'update']);
         });
     }
 }
