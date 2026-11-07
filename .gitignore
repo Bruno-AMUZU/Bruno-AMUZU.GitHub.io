@@ -15,3 +15,7 @@ vendor/
 
 # Configuration locale (identifiants) : seul .env.example est suivi
 .env
+
+# Cache de PHPUnit
+.phpunit.cache/
+.phpunit.result.cache
