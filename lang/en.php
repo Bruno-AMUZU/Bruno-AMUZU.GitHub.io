@@ -214,6 +214,14 @@ return [
             'ia' => 'AI',
         ],
     ],
+    'skills' => [
+        'categories' => [
+            'front' => 'Front-end',
+            'back' => 'Back-end',
+            'tools' => 'Tools & infra',
+            'ai' => 'AI',
+        ],
+    ],
     'upload' => [
         'type' => 'This file type is not allowed.',
         'tooBig' => 'File too large.',

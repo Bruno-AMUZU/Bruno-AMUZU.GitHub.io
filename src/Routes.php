@@ -9,6 +9,7 @@ use App\Controller\Admin\CertificationAdminController;
 use App\Controller\Admin\DashboardController;
 use App\Controller\Admin\PasswordResetController;
 use App\Controller\Admin\ProjectAdminController;
+use App\Controller\Admin\SkillAdminController;
 use App\Controller\Admin\TimelineAdminController;
 use App\Controller\Site\HomeController;
 use App\Controller\Site\StyleguideController;
@@ -58,6 +59,7 @@ final class Routes
             ProjectAdminController::routes($router);
             CertificationAdminController::routes($router);
             TimelineAdminController::routes($router);
+            SkillAdminController::routes($router);
         });
     }
 }
