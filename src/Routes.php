@@ -14,6 +14,7 @@ use App\Controller\Admin\ServiceAdminController;
 use App\Controller\Admin\SettingsController;
 use App\Controller\Admin\SkillAdminController;
 use App\Controller\Admin\TimelineAdminController;
+use App\Controller\Site\AboutController;
 use App\Controller\Site\ContactController;
 use App\Controller\Site\HomeController;
 use App\Controller\Site\ProjectController;
@@ -43,7 +44,8 @@ final class Routes
 
         $router->page('home', ['fr' => '/fr', 'en' => '/en'], [HomeController::class, 'index']);
         $router->page('projects', ['fr' => '/fr/projets', 'en' => '/en/projects'], [ProjectController::class, 'index']);
-        $router->page('contact', ['fr' => '/fr/contact', 'en' => '/en/contact'], [ContactController::class, 'show']);
+        $router->page('about', ['fr' => '/fr/a-propos', 'en' => '/en/about'], [AboutController::class, 'index']);
+        $router->page('contact',['fr' => '/fr/contact', 'en' => '/en/contact'], [ContactController::class, 'show']);
         $router->page('contact.send', ['fr' => '/fr/contact', 'en' => '/en/contact'], [ContactController::class, 'send'], 'POST');
 
         // Développement uniquement (404 ailleurs) : galerie des composants.

@@ -67,6 +67,52 @@
   flex: 1;
 }
 
+/* ── À propos : présentation ───────────────────────────── */
+
+.about-intro {
+  display: grid;
+  grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+  align-items: center;
+  gap: var(--space-10);
+  padding: var(--space-12);
+  border-radius: var(--radius-2xl);
+  background: var(--color-surface);
+}
+
+.about-intro__text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+/* Photo : rayon xl, ratio 4:5 ; bloc soft tant qu'elle n'est pas fournie. */
+.about-intro__photo {
+  display: grid;
+  place-items: center;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  border-radius: var(--radius-xl);
+  background: var(--color-soft);
+}
+
+.about-intro__photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media (max-width: 767px) {
+  .about-intro {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-6);
+    padding: var(--space-6);
+  }
+
+  .about-intro__photo {
+    order: -1; /* photo en premier en mobile */
+  }
+}
+
 /* ── Stack : 4 colonnes, 2 sur tablette, 1 en mobile ───── */
 
 .grid--stack {
