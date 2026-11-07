@@ -9,6 +9,7 @@
 return [
     'common' => [
         'logo' => 'bruno amuzu',
+        'skip' => 'Aller au contenu',
         'nav' => [
             'services' => 'Services',
             'stack' => 'Stack',
