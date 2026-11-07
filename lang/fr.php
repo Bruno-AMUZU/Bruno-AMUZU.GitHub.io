@@ -101,7 +101,7 @@ return [
         'message' => 'Message',
         'messagePlaceholder' => 'Parlez-moi de votre projet…',
         'submit' => 'Envoyer le message',
-        'privacy' => '[À FOURNIR] Mention RGPD courte (usage des données du formulaire).',
+        'privacy' => 'Vos nom, e-mail et message servent uniquement à vous répondre. Ils sont conservés 12 mois au maximum et ne sont jamais transmis à des tiers. Vous pouvez demander leur suppression à tout moment.',
         'errors' => [
             'required' => 'Ce champ est obligatoire.',
             'email' => 'Adresse email invalide.',
@@ -123,8 +123,23 @@ return [
             'experience' => 'Expérience',
         ],
         'intro' => [
-            'title' => '[À FOURNIR] Titre de présentation',
-            'text' => '[À FOURNIR] Présentation en 3-4 phrases.',
+            'title' => 'Développeur full‑stack, je construis des outils qui vous simplifient la vie.',
+            'text' => [
+                'Tout a commencé avec une tablette et beaucoup de curiosité.',
+                'Quand j’étais petit, j’adorais jouer aux jeux mobiles. Mais au-delà du plaisir de jouer, une question revenait souvent : comment est-ce qu’on fait pour créer un jeu comme celui-là ? Je voulais comprendre ce qui se cachait derrière l’écran et, surtout, savoir si je pouvais un jour en créer un moi-même.',
+                'C’est comme ça que j’ai découvert la programmation.',
+                'Au début, je ne savais pas vraiment par où commencer. Quel langage apprendre ? Comment fonctionnait le développement ? J’ai passé des heures à regarder des vidéos, à découvrir différents langages et à explorer cet univers. Petit à petit, j’ai compris que le développement était bien plus qu’une question de code.',
+                'J’y ai découvert un monde de personnes passionnées par la création, la résolution de problèmes et le dépassement de soi. Un monde où un simple bug peut parfois mobiliser des heures de réflexion, où l’on peut tourner en rond sur un problème avant de trouver enfin la solution. Et où cette petite victoire procure une satisfaction immense.',
+                'C’est précisément ce qui m’a séduit : un métier où l’on apprend constamment, où chaque problème est un nouveau défi et où l’on peut transformer une idée en quelque chose de concret.',
+                'J’ai alors commencé à me former en autodidacte, grâce à des plateformes comme OpenClassrooms, Grafikart et de nombreuses ressources disponibles en ligne. Après le lycée, j’ai décidé de franchir une nouvelle étape en intégrant une formation en développement informatique pour faire de cette passion mon métier.',
+                'Aujourd’hui, je ne suis plus seulement celui qui se demande comment les choses sont faites. Je suis celui qui les construit.',
+                'Je développe des projets pour répondre à des problèmes concrets, je cherche à consolider mes compétences et j’accorde une importance particulière aux bonnes pratiques, à la qualité du code et à la compréhension de ce que je construis.',
+                'Mais le métier évolue. Et il évolue vite.',
+                'L’arrivée de l’intelligence artificielle bouleverse nos habitudes, nos outils et notre manière de travailler. Certains y voient une menace, d’autres une formidable opportunité. Pour ma part, je préfère apprendre à comprendre cette évolution et à en tirer parti. Je me forme aux nouvelles technologies, j’expérimente et j’intègre déjà l’IA dans certains de mes projets.',
+                'Je ne prétends pas savoir exactement à quoi ressemblera le métier de développeur demain. Personne ne le sait vraiment.',
+                'Mais je sais pourquoi j’ai commencé, et je sais ce qui me donne envie de continuer : créer, comprendre, résoudre et apprendre.',
+                'Finalement, je suis toujours ce gamin curieux qui voulait savoir comment fonctionnaient les jeux sur sa tablette. À la différence près qu’aujourd’hui, j’en ai fait mon métier.',
+            ],
             'cv' => 'Télécharger mon CV',
             'contact' => 'Me contacter',
         ],
@@ -141,7 +156,7 @@ return [
     ],
     'projectsPage' => [
         'title' => 'Projets',
-        'intro' => '[À FOURNIR] Une phrase d’introduction.',
+        'intro' => 'Chaque projet raconte un problème et la façon dont je l’ai résolu.',
         'filters' => [
             'Tous',
             'Sites',
@@ -161,7 +176,7 @@ return [
     ],
     'labPage' => [
         'title' => 'Lab IA',
-        'intro' => '[À FOURNIR] Une phrase d’introduction.',
+        'intro' => 'Je vous montre ce que j’expérimente.',
         'filters' => [
             'Tout',
             'Context engineering',
@@ -181,7 +196,7 @@ return [
     'contactPage' => [
         'success' => [
             'title' => 'Message envoyé.',
-            'text' => '[À FOURNIR] Phrase de confirmation.',
+            'text' => 'Merci pour votre message, je vous réponds au plus vite.',
         ],
         'title' => 'Un projet en tête ? Parlons‑en.',
     ],
@@ -198,13 +213,13 @@ return [
             ],
             [
                 'title' => 'Données personnelles',
-                'text' => '[À FOURNIR]',
+                'text' => 'Les seules données collectées sont celles du formulaire de contact (nom, e-mail, type de projet, message). Elles servent uniquement à répondre à votre demande, sont conservées 12 mois au maximum et ne sont transmises à personne. Le site n’utilise ni cookie publicitaire ni outil de mesure d’audience ; seul un cookie technique est déposé lors de l’envoi d’un formulaire. Conformément au RGPD, vous pouvez demander l’accès à vos données ou leur suppression en écrivant à amuzuelbruno@gmail.com.',
             ],
         ],
     ],
     'notFound' => [
         'title' => 'Page introuvable',
-        'text' => '[À FOURNIR] Une phrase.',
+        'text' => 'Cette page s’est perdue en chemin. Retournons à quelque chose qui existe.',
         'cta' => 'Retour à l’accueil',
     ],
     // Ajouté pour le site (absent de la spec) : titres et messages techniques.
@@ -301,8 +316,8 @@ return [
         'types' => [
             'projects' => [
                 'new' => 'Nouveau projet',
-                'slugHelp' => 'Adresse de la page (laisser vide : déduit du titre).',
-                'imageHelp' => 'JPEG, PNG ou WebP, 5 Mo maximum. Format conseillé : 16:10.',
+                'slugHelp' => 'Adresse de la page (laisser vide : déduit du titre).',
+                'imageHelp' => 'JPEG, PNG ou WebP, 5 Mo maximum. Format conseillé : 16:10.',
                 'gallery' => 'Galerie',
             ],
             'certifications' => [
@@ -348,7 +363,7 @@ return [
                     'logo' => 'Logo',
                     'logoHelp' => 'Logo officiel de la techno. Sans logo, le monogramme s’affiche.',
                     'mono' => 'Monogramme',
-                    'monoHelp' => '4 caractères maximum (ex. MCP). Par défaut : les 2 premières lettres du nom.',
+                    'monoHelp' => '4 caractères maximum (ex. MCP). Par défaut : les 2 premières lettres du nom.',
                 ],
             ],
             'services' => [
@@ -360,7 +375,7 @@ return [
                     'title' => 'Titre',
                     'description' => 'Description',
                     'illustration' => 'Illustration',
-                    'illustrationHelp' => 'L’illustration « IA » affiche la carte en version inversée.',
+                    'illustrationHelp' => 'L’illustration « IA » affiche la carte en version inversée.',
                     'web' => 'Navigateur (web)',
                     'apps' => 'Histogramme (applications)',
                     'ia' => 'Schéma agent (IA)',
@@ -376,7 +391,7 @@ return [
                 'title' => 'Titre',
                 'excerpt' => 'Extrait',
                 'content' => 'Contenu',
-                'contentHelp' => 'Markdown : ## intertitre, **gras**, *italique*, [lien](https://…), > citation, ```bloc de code```. Le HTML n’est pas interprété.',
+                'contentHelp' => 'Markdown : ## intertitre, **gras**, *italique*, [lien](https://…), > citation, ```bloc de code```. Le HTML n’est pas interprété.',
                 'category' => 'Catégorie',
                 'date' => 'Date de publication',
                 'readingTime' => 'Temps de lecture (minutes)',
@@ -399,7 +414,7 @@ return [
                 'heroTitle' => 'Titre du hero',
                 'heroSubtitle' => 'Sous-titre du hero',
                 'available' => 'En recherche (afficher la pastille)',
-                'availableHelp' => 'Décoché : la pastille du hero est masquée.',
+                'availableHelp' => 'Décoché : la pastille du hero est masquée.',
                 'email' => 'Email de contact',
                 'cv' => 'CV (PDF)',
                 'photo' => 'Photo',
@@ -407,8 +422,8 @@ return [
             ],
         ],
         'form' => [
-            'hasErrors' => 'Le contenu n’a pas été enregistré : corrigez les champs signalés.',
-            'confirmDelete' => 'Supprimer « {title} » ? Cette action est définitive.',
+            'hasErrors' => 'Le contenu n’a pas été enregistré : corrigez les champs signalés.',
+            'confirmDelete' => 'Supprimer « {title} » ? Cette action est définitive.',
             'tagsHelp' => 'Entrée ou virgule pour ajouter.',
             'dropPdf' => 'Glisser un PDF ou parcourir',
             'removeFile' => 'Retirer le fichier',
@@ -471,7 +486,7 @@ return [
             'unarchive' => 'Désarchiver',
             'markUnread' => 'Marquer non lu',
             'delete' => 'Supprimer le message',
-            'confirmDelete' => 'Supprimer définitivement ce message ?',
+            'confirmDelete' => 'Supprimer définitivement ce message ?',
             'archived' => 'Message archivé.',
             'unarchived' => 'Message désarchivé.',
             'deleted' => 'Message supprimé.',

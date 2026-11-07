@@ -102,7 +102,7 @@ return [
         'message' => 'Message',
         'messagePlaceholder' => 'Tell me about your project…',
         'submit' => 'Send message',
-        'privacy' => '[À FOURNIR] Short privacy notice (how form data is used).',
+        'privacy' => 'Your name, email and message are only used to reply to you. They are kept for 12 months at most and never shared with third parties. You can ask for their deletion at any time.',
         'errors' => [
             'required' => 'This field is required.',
             'email' => 'Please enter a valid email address.',
@@ -124,8 +124,23 @@ return [
             'experience' => 'Experience',
         ],
         'intro' => [
-            'title' => '[À FOURNIR] Introduction title',
-            'text' => '[À FOURNIR] 3-4 sentence introduction.',
+            'title' => 'Full‑stack developer, I build tools that make your life easier.',
+            'text' => [
+                'It all started with a tablet and a lot of curiosity.',
+                'As a kid, I loved playing mobile games. But beyond the fun of playing, one question kept coming back: how do you make a game like this? I wanted to understand what was hiding behind the screen and, above all, whether I could one day build one myself.',
+                'That’s how I discovered programming.',
+                'At first, I didn’t really know where to start. Which language should I learn? How did development work? I spent hours watching videos, trying different languages and exploring this world. Little by little, I understood that development was about much more than code.',
+                'I found a world of people driven by creating, solving problems and pushing their limits. A world where a single bug can take hours of thinking, where you can go round in circles before finally finding the answer. And where that small victory feels huge.',
+                'That’s exactly what won me over: a job where you never stop learning, where every problem is a new challenge and where you can turn an idea into something real.',
+                'So I started teaching myself, with platforms like OpenClassrooms, Grafikart and countless online resources. After high school, I took the next step and joined a software development program to turn this passion into my career.',
+                'Today, I’m no longer just the one wondering how things are made. I’m the one building them.',
+                'I build projects that solve real problems, keep strengthening my skills, and care deeply about good practices, code quality and understanding what I build.',
+                'But the job is changing. And it’s changing fast.',
+                'Artificial intelligence is reshaping our habits, our tools and the way we work. Some see it as a threat, others as a great opportunity. As for me, I’d rather understand this shift and make the most of it. I keep learning new technologies, I experiment, and I already use AI in some of my projects.',
+                'I don’t claim to know exactly what being a developer will look like tomorrow. No one really does.',
+                'But I know why I started, and I know what makes me want to keep going: creating, understanding, solving and learning.',
+                'In the end, I’m still that curious kid who wanted to know how the games on his tablet worked. The only difference is that today, I’ve made it my job.',
+            ],
             'cv' => 'Download my resume',
             'contact' => 'Contact me',
         ],
@@ -142,7 +157,7 @@ return [
     ],
     'projectsPage' => [
         'title' => 'Projects',
-        'intro' => '[À FOURNIR] One-sentence introduction.',
+        'intro' => 'Each project tells a problem and how I solved it.',
         'filters' => [
             'All',
             'Websites',
@@ -162,7 +177,7 @@ return [
     ],
     'labPage' => [
         'title' => 'AI Lab',
-        'intro' => '[À FOURNIR] One-sentence introduction.',
+        'intro' => 'Here’s what I’m experimenting with.',
         'filters' => [
             'All',
             'Context engineering',
@@ -182,7 +197,7 @@ return [
     'contactPage' => [
         'success' => [
             'title' => 'Message sent.',
-            'text' => '[À FOURNIR] Confirmation sentence.',
+            'text' => 'Thanks for your message, I’ll get back to you as soon as possible.',
         ],
         'title' => 'Got a project in mind? Let’s talk.',
     ],
@@ -199,13 +214,13 @@ return [
             ],
             [
                 'title' => 'Personal data',
-                'text' => '[À FOURNIR]',
+                'text' => 'The only data collected comes from the contact form (name, email, project type, message). It is used only to reply to your request, kept for 12 months at most and shared with no one. The site uses no advertising cookies or analytics; only a technical cookie is set when a form is submitted. Under the GDPR, you can request access to or deletion of your data by writing to amuzuelbruno@gmail.com.',
             ],
         ],
     ],
     'notFound' => [
         'title' => 'Page not found',
-        'text' => '[À FOURNIR] One sentence.',
+        'text' => 'This page got lost along the way. Let’s go back to something that exists.',
         'cta' => 'Back to home',
     ],
     // Ajouté pour le site (absent de la spec) : titres et messages techniques.

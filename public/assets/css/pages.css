@@ -85,8 +85,19 @@
   gap: var(--space-6);
 }
 
-/* Photo : rayon xl, ratio 4:5 ; bloc soft tant qu'elle n'est pas fournie. */
+/* Récit de présentation : paragraphes espacés, largeur de lecture confortable. */
+.about-intro__story {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  max-width: 65ch;
+}
+
+/* Photo : rayon xl, ratio 4:5 ; bloc soft tant qu'elle n'est pas fournie. Reste visible pendant la lecture. */
 .about-intro__photo {
+  position: sticky;
+  top: var(--space-6);
+  align-self: start;
   display: grid;
   place-items: center;
   aspect-ratio: 4 / 5;
@@ -109,6 +120,7 @@
   }
 
   .about-intro__photo {
+    position: static;
     order: -1; /* photo en premier en mobile */
   }
 }

@@ -31,7 +31,7 @@ final class AboutController
 
         return View::render('site/about', [
             'title' => t('common.nav.about'),
-            'description' => t('about.intro.text'),
+            'description' => t('about.intro.title'),
             'photo' => $this->settings->fileUrl('photo_file_id'),
             'cv' => $this->settings->fileUrl('cv_file_id'),
             'timeline' => $this->timeline->all($lang),

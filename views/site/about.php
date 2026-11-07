@@ -13,7 +13,11 @@
     <div class="about-intro">
         <div class="about-intro__text">
             <h1 class="t-display-l" id="about-title"><?= e(t('about.intro.title')) ?></h1>
-            <p class="t-body-l"><?= e(t('about.intro.text')) ?></p>
+            <div class="about-intro__story">
+                <?php foreach (t_list('about.intro.text') as $i => $paragraph): ?>
+                    <p class="<?= $i === 0 ? 't-heading-3' : 't-body-l' ?>"><?= e($paragraph) ?></p>
+                <?php endforeach ?>
+            </div>
             <div class="hero__actions">
                 <?php if ($cv): ?>
                     <?= component('button', ['label' => t('about.intro.cv'), 'variant' => 'primary', 'href' => $cv, 'attributes' => ['download' => 'Bruno-Amuzu-CV.pdf']]) ?>
