@@ -17,6 +17,7 @@ use App\Controller\Admin\TimelineAdminController;
 use App\Controller\Site\AboutController;
 use App\Controller\Site\ContactController;
 use App\Controller\Site\HomeController;
+use App\Controller\Site\LegalController;
 use App\Controller\Site\ProjectController;
 use App\Controller\Site\StyleguideController;
 use App\Controller\Site\UploadController;
@@ -44,7 +45,8 @@ final class Routes
 
         $router->page('home', ['fr' => '/fr', 'en' => '/en'], [HomeController::class, 'index']);
         $router->page('projects', ['fr' => '/fr/projets', 'en' => '/en/projects'], [ProjectController::class, 'index']);
-        $router->page('about', ['fr' => '/fr/a-propos', 'en' => '/en/about'], [AboutController::class, 'index']);
+        $router->page('legal', ['fr' => '/fr/mentions-legales', 'en' => '/en/legal-notice'], [LegalController::class, 'show']);
+        $router->page('about',['fr' => '/fr/a-propos', 'en' => '/en/about'], [AboutController::class, 'index']);
         $router->page('contact',['fr' => '/fr/contact', 'en' => '/en/contact'], [ContactController::class, 'show']);
         $router->page('contact.send', ['fr' => '/fr/contact', 'en' => '/en/contact'], [ContactController::class, 'send'], 'POST');
 

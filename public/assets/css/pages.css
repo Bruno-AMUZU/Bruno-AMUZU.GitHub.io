@@ -113,6 +113,36 @@
   }
 }
 
+/* ── Mentions légales ──────────────────────────────────── */
+
+.legal {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+  width: 100%;
+  padding: var(--space-10);
+  border-radius: var(--radius-2xl);
+  background: var(--color-surface);
+}
+
+.legal__block {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+/* Le titre suit la colonne de lecture : pas de retrait latéral du PageHeader. */
+.page-header.reading {
+  width: 100%;
+  padding-inline: 0;
+}
+
+@media (max-width: 767px) {
+  .legal {
+    padding: var(--space-6);
+  }
+}
+
 /* ── Stack : 4 colonnes, 2 sur tablette, 1 en mobile ───── */
 
 .grid--stack {
