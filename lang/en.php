@@ -17,6 +17,7 @@ return [
             'projects' => 'Projects',
             'lab' => 'Lab',
             'about' => 'About',
+            'contact' => 'Contact',
         ],
         'cta' => 'Contact me',
         'lang' => [
@@ -105,6 +106,8 @@ return [
         'errors' => [
             'required' => 'This field is required.',
             'email' => 'Please enter a valid email address.',
+            'tooLong' => 'This text is too long.',
+            'throttled' => 'Too many messages sent. Please try again in an hour.',
         ],
     ],
     'chat' => [

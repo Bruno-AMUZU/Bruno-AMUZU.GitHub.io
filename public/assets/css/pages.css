@@ -49,6 +49,11 @@
 
 /* ── Pages internes : en-tête, filtres, grille ─────────── */
 
+/* Page dont le premier bloc est une carte (Contact, 404) : même écart sous le header que le hero. */
+.page-top {
+  margin-top: var(--space-4);
+}
+
 .page-stack {
   --stack-gap: var(--space-8);
 }

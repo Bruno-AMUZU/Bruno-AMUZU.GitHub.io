@@ -16,6 +16,7 @@ return [
             'projects' => 'Projets',
             'lab' => 'Lab',
             'about' => 'À propos',
+            'contact' => 'Contact',
         ],
         'cta' => 'Me contacter',
         'lang' => [
@@ -104,6 +105,8 @@ return [
         'errors' => [
             'required' => 'Ce champ est obligatoire.',
             'email' => 'Adresse email invalide.',
+            'tooLong' => 'Texte trop long.',
+            'throttled' => 'Trop de messages envoyés. Réessayez dans une heure.',
         ],
     ],
     'chat' => [
@@ -179,7 +182,7 @@ return [
             'title' => 'Message envoyé.',
             'text' => '[À FOURNIR] Phrase de confirmation.',
         ],
-        'title' => 'Un projet en tête ? Parlons-en.',
+        'title' => 'Un projet en tête ? Parlons‑en.',
     ],
     'legal' => [
         'title' => 'Mentions légales',
