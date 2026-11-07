@@ -15,7 +15,8 @@ $common = ['help' => $field->help, 'placeholder' => $field->placeholder, 'requir
     case 'textarea':
     case 'markdown': ?>
         <?= component('field', [...$common, 'name' => $inputName, 'label' => $field->label, 'type' => 'textarea', 'value' => (string) $value,
-            'attributes' => ['rows' => $field->type === 'markdown' ? 16 : 4, 'maxlength' => $field->max, 'class' => $field->type === 'markdown' ? 'field__input t-code field__input--area' : null]]) ?>
+            'attributes' => ['rows' => $field->type === 'markdown' ? 16 : 4, 'maxlength' => $field->max]
+                + ($field->type === 'markdown' ? ['class' => 'field__input t-code field__input--area'] : [])]) ?>
         <?php break ?>
 
     <?php case 'select': ?>

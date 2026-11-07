@@ -203,6 +203,13 @@ return [
     'pages' => [
         'home' => 'Home',
     ],
+    'projects' => [
+        'types' => [
+            'site' => 'Website',
+            'app' => 'Application',
+            'ia' => 'AI',
+        ],
+    ],
     'upload' => [
         'type' => 'This file type is not allowed.',
         'tooBig' => 'File too large.',

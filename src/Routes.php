@@ -7,6 +7,7 @@ namespace App;
 use App\Controller\Admin\AuthController;
 use App\Controller\Admin\DashboardController;
 use App\Controller\Admin\PasswordResetController;
+use App\Controller\Admin\ProjectAdminController;
 use App\Controller\Site\HomeController;
 use App\Controller\Site\StyleguideController;
 use App\Controller\Site\UploadController;
@@ -52,6 +53,7 @@ final class Routes
         $router->group([RequireAdmin::class], function (Router $router): void {
             $router->post('/admin/deconnexion', [AuthController::class, 'logout'], 'admin.logout');
             $router->get('/admin', [DashboardController::class, 'index'], 'admin.dashboard');
+            ProjectAdminController::routes($router);
         });
     }
 }

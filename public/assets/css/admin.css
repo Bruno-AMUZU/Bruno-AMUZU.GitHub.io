@@ -63,6 +63,8 @@
   display: grid;
   grid-template-columns: 240px minmax(0, 1fr);
   min-height: 100vh;
+  /* La colonne de la barre latérale reste inv sur toute la hauteur, même quand la page est longue. */
+  background: linear-gradient(90deg, var(--color-inv) 240px, var(--color-bg) 240px);
 }
 
 .admin-main {
@@ -158,6 +160,7 @@
 @media (max-width: 767px) {
   .admin {
     grid-template-columns: minmax(0, 1fr);
+    background: var(--color-bg);
   }
 
   /* Barre haute fond inv ; le menu déplie les mêmes entrées. */
@@ -377,6 +380,17 @@
   grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
   align-items: start;
   gap: var(--space-4);
+}
+
+.admin-edit__main {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-5);
+}
+
+.admin-edit__main > .admin-card {
+  align-self: stretch;
 }
 
 .admin-edit__side {

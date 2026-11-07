@@ -202,6 +202,13 @@ return [
     'pages' => [
         'home' => 'Accueil',
     ],
+    'projects' => [
+        'types' => [
+            'site' => 'Site',
+            'app' => 'Application',
+            'ia' => 'IA',
+        ],
+    ],
     'upload' => [
         'type' => 'Ce type de fichier n’est pas accepté.',
         'tooBig' => 'Fichier trop lourd.',
@@ -274,6 +281,14 @@ return [
             'reorderHelp' => 'Glissez les lignes par la poignée pour changer l’ordre d’affichage sur le site.',
         ],
         // Ajouté pour le site (absent de la spec) : formulaires génériques du back-office
+        'types' => [
+            'projects' => [
+                'new' => 'Nouveau projet',
+                'slugHelp' => 'Adresse de la page (laisser vide : déduit du titre).',
+                'imageHelp' => 'JPEG, PNG ou WebP, 5 Mo maximum. Format conseillé : 16:10.',
+                'gallery' => 'Galerie',
+            ],
+        ],
         'form' => [
             'hasErrors' => 'Le contenu n’a pas été enregistré : corrigez les champs signalés.',
             'confirmDelete' => 'Supprimer « {title} » ? Cette action est définitive.',

@@ -82,6 +82,10 @@ $actions = ($previewUrl ? component('button', ['label' => t('admin.edit.preview'
                 </div>
             <?php endforeach ?>
         </section>
+        <?php if ($deleteAction): ?>
+            <?php // Bouton dans la colonne principale, rattaché au formulaire de suppression (attribut form) : deux formulaires ne s'imbriquent pas. ?>
+            <button type="submit" form="delete-form" class="admin-delete__button t-label"><?= e($labels['delete']) ?></button>
+        <?php endif ?>
     </div>
 
     <div class="admin-edit__side">
@@ -113,8 +117,7 @@ $actions = ($previewUrl ? component('button', ['label' => t('admin.edit.preview'
 </form>
 
 <?php if ($deleteAction): ?>
-    <form class="admin-delete" method="post" action="<?= e($deleteAction) ?>" data-confirm="<?= e(t('admin.form.confirmDelete', ['title' => $title])) ?>">
+    <form id="delete-form" method="post" action="<?= e($deleteAction) ?>" data-confirm="<?= e(t('admin.form.confirmDelete', ['title' => $title])) ?>" hidden>
         <?= csrf_field() ?>
-        <button type="submit" class="admin-delete__button t-label"><?= e($labels['delete']) ?></button>
     </form>
 <?php endif ?>
