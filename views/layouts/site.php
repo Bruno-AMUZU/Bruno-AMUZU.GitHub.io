@@ -20,6 +20,11 @@
     <link rel="stylesheet" href="/assets/css/fonts.css">
     <link rel="stylesheet" href="/assets/css/tokens.css">
     <link rel="stylesheet" href="/assets/css/base.css">
+    <script nonce="<?= e(csp_nonce()) ?>">
+        // Thème choisi par le visiteur, appliqué avant l'affichage pour éviter un flash de l'autre thème.
+        try { const t = localStorage.getItem('theme'); if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t; } catch (e) {}
+    </script>
+    <script src="/assets/js/theme.js" defer></script>
 </head>
 <body>
     <a class="skip-link t-label" href="#contenu"><?= e(t('common.skip')) ?></a>
