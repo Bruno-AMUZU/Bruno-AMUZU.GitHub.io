@@ -529,6 +529,32 @@ select.field__input {
   appearance: auto;
 }
 
+/* ── Tableau de bord ───────────────────────────────────── */
+
+.stat-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding: var(--space-6);
+  border-radius: var(--radius-xl);
+  background: var(--color-surface);
+}
+
+a.stat-card:hover {
+  box-shadow: inset 0 0 0 2px var(--color-accent);
+}
+
+.admin-quick {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+/* Derniers messages du tableau de bord : lignes sur fond soft dans la carte surface. */
+.admin-card .message-row {
+  background: var(--color-soft);
+}
+
 /* ── Messages : liste (1/3) + détail (2/3) ─────────────── */
 
 .messages {
