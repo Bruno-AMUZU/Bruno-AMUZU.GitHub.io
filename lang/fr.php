@@ -233,6 +233,7 @@ return [
             'submit' => 'Se connecter',
             'error' => 'Email ou mot de passe incorrect.',
             'passwordPlaceholder' => '••••••••',
+            'throttled' => 'Trop de tentatives. Réessayez dans quelques minutes.',
             'forgot' => 'Mot de passe oublié ?',
         ],
         'dashboard' => [

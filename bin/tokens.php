@@ -71,6 +71,9 @@ foreach ($tokens['type'] as $name => $style) {
     $common["type-{$name}-line"] = $px($style['lineHeight']);
     $common["type-{$name}-tracking"] = $style['letterSpacing'] == 0 ? '0' : $style['letterSpacing'] . 'em';
     if (isset($style['mobile'])) {
+        // Taille mobile aussi disponible partout (le back-office utilise « heading-1/mobile » sur desktop).
+        $common["type-{$name}-mobile-size"] = $px($style['mobile']['size']);
+        $common["type-{$name}-mobile-line"] = $px($style['mobile']['lineHeight']);
         $mobileType["type-{$name}-size"] = $px($style['mobile']['size']);
         $mobileType["type-{$name}-line"] = $px($style['mobile']['lineHeight']);
     }

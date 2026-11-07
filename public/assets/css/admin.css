@@ -1,0 +1,58 @@
+/*
+ * Back-office (design/pages/admin-*.md, components.md → Back-office). Mêmes tokens que le site public.
+ */
+
+/* ── Écrans de connexion ───────────────────────────────── */
+
+.auth-page {
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  padding: var(--space-4);
+}
+
+.auth-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+  width: 100%;
+  max-width: 440px;
+  padding: var(--space-10);
+  border-radius: var(--radius-2xl);
+  background: var(--color-surface);
+}
+
+/* « heading-1/mobile » de la spec, quel que soit l'écran. */
+.t-heading-1-mobile,
+.auth-card__title {
+  font-size: var(--type-heading-1-mobile-size);
+  line-height: var(--type-heading-1-mobile-line);
+}
+
+.auth-card__form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+.auth-card__link {
+  align-self: center;
+}
+
+.auth-card__link:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.auth-card__notice {
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-md);
+  background: var(--color-soft);
+}
+
+@media (max-width: 767px) {
+  .auth-card {
+    max-width: 358px;
+    padding: var(--space-6);
+  }
+}
