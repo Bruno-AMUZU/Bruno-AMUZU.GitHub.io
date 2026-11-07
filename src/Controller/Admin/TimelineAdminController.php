@@ -6,18 +6,18 @@ namespace App\Controller\Admin;
 
 use App\Controller\Admin\Resource\Field;
 use App\Controller\Admin\Resource\ResourceController;
+use App\Controller\Admin\Resource\ResourceForm;
 use App\Core\Request;
 use App\Core\Session;
-use App\Core\Uploader;
 use App\Model\Repository\ResourceRepository;
 use App\Model\Repository\TimelineRepository;
 
 /** Parcours : type, début, fin, structure, lieu, ordre ; intitulé et description FR/EN. */
 final class TimelineAdminController extends ResourceController
 {
-    public function __construct(Request $request, Session $session, Uploader $uploader, private readonly TimelineRepository $timeline)
+    public function __construct(Request $request, Session $session, ResourceForm $form, private readonly TimelineRepository $timeline)
     {
-        parent::__construct($request, $session, $uploader);
+        parent::__construct($request, $session, $form);
     }
 
     public static function basePath(): string { return '/admin/parcours'; }
