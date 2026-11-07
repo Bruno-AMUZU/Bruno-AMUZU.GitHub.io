@@ -136,6 +136,16 @@ function admin_unread_count(): int
     return class_exists($class) ? App\Core\App::get($class)->countUnread() : 0;
 }
 
+/** Adresse complète (https://brunoamuzu.dev/fr/projets) à partir d'un chemin, pour le SEO et les e-mails. */
+function absolute_url(string $path): string
+{
+    if (preg_match('#^https?://#', $path)) {
+        return $path; // déjà complète (miniature YouTube…)
+    }
+
+    return rtrim((string) App\Core\Env::get('APP_URL', ''), '/') . '/' . ltrim($path, '/');
+}
+
 /** La page existe-t-elle ? Pour ne pas afficher de lien vers une page pas encore construite. */
 function has_route(string $name): bool
 {

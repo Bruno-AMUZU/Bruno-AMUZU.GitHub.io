@@ -21,6 +21,7 @@ use App\Controller\Site\HomeController;
 use App\Controller\Site\LabController;
 use App\Controller\Site\LegalController;
 use App\Controller\Site\ProjectController;
+use App\Controller\Site\SeoController;
 use App\Controller\Site\StyleguideController;
 use App\Controller\Site\UploadController;
 use App\Core\RequireAdmin;
@@ -43,6 +44,8 @@ final class Routes
     private static function site(Router $router): void
     {
         $router->get('/', [HomeController::class, 'root']);
+        $router->get('/sitemap.xml', [SeoController::class, 'sitemap']);
+        $router->get('/robots.txt', [SeoController::class, 'robots']);
         $router->get('/uploads/{year:\d{4}}/{month:\d{2}}/{name:[a-f0-9]{32}\.[a-z0-9]+}', [UploadController::class, 'show']);
 
         $router->page('home', ['fr' => '/fr', 'en' => '/en'], [HomeController::class, 'index']);

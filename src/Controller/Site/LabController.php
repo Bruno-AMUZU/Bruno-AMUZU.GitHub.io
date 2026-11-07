@@ -56,6 +56,8 @@ final class LabController
             'html' => $this->markdown->toHtml($article->content),
             'related' => $this->articles->related($article, $lang),
             'preview' => !$article->isPublished(),
+            'ogType' => 'article',
+            'image' => $article->youtubeId() !== null ? 'https://i.ytimg.com/vi/' . $article->youtubeId() . '/hqdefault.jpg' : null,
             'scripts' => $article->youtubeId() !== null ? ['/assets/js/video.js'] : [],
         ]);
     }
