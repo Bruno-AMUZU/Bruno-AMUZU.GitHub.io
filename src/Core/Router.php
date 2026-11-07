@@ -23,6 +23,9 @@ namespace App\Core;
  */
 final class Router
 {
+    /** {nom} ou {nom:regex} ; la regex peut elle-même contenir des accolades ({nom:\d{4}}). */
+    public const PLACEHOLDER = '#\{(\w+)(?::((?:[^{}]|\{[^{}]*\})+))?\}#';
+
     /** @var list<array{method: string, regex: string, action: callable|array, defaults: array<string, string>, name: ?string, middleware: list<class-string>}> */
     private array $routes = [];
 
@@ -149,7 +152,7 @@ final class Router
     private function compile(string $path): string
     {
         $regex = preg_replace_callback(
-            '#\{(\w+)(?::([^}]+))?\}#',
+            self::PLACEHOLDER,
             fn (array $m): string => '(?P<' . $m[1] . '>' . ($m[2] ?? '[^/]+') . ')',
             $path,
         );

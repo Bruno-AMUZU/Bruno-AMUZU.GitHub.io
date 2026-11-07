@@ -48,7 +48,7 @@ final class UrlGenerator
             ?? throw new InvalidArgumentException("Page inconnue : {$name} ({$lang})");
 
         $url = preg_replace_callback(
-            '#\{(\w+)(?::[^}]+)?\}#',
+            Router::PLACEHOLDER,
             fn (array $m): string => isset($params[$m[1]])
                 ? rawurlencode((string) $params[$m[1]])
                 : throw new InvalidArgumentException("Paramètre manquant pour {$name} : {$m[1]}"),
