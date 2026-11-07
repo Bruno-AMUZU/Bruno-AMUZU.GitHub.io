@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App;
 
 use App\Controller\Admin\AuthController;
+use App\Controller\Admin\PasswordResetController;
 use App\Controller\Site\HomeController;
 use App\Controller\Site\StyleguideController;
 use App\Controller\Site\UploadController;
@@ -41,6 +42,11 @@ final class Routes
         // Accessibles sans être connecté.
         $router->get('/admin/connexion', [AuthController::class, 'showLogin'], 'admin.login');
         $router->post('/admin/connexion', [AuthController::class, 'login']);
+        $router->get('/admin/mot-de-passe-oublie', [PasswordResetController::class, 'showRequest']);
+        $router->post('/admin/mot-de-passe-oublie', [PasswordResetController::class, 'sendLink']);
+        $router->get('/admin/lien-envoye', [PasswordResetController::class, 'sent']);
+        $router->get('/admin/nouveau-mot-de-passe/{token:[a-f0-9]{64}}', [PasswordResetController::class, 'showNew']);
+        $router->post('/admin/nouveau-mot-de-passe/{token:[a-f0-9]{64}}', [PasswordResetController::class, 'saveNew']);
 
         $router->group([RequireAdmin::class], function (Router $router): void {
             $router->post('/admin/deconnexion', [AuthController::class, 'logout'], 'admin.logout');

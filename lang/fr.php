@@ -331,6 +331,15 @@ return [
                 'password' => 'Nouveau mot de passe',
                 'confirm' => 'Confirmer le mot de passe',
                 'submit' => 'Enregistrer',
+                // Ajouté pour le site (absent de la spec)
+                'tooShort' => '{n} caractères minimum.',
+                'mismatch' => 'Les deux mots de passe sont différents.',
+                'invalid' => 'Ce lien n’est plus valable (déjà utilisé ou expiré). Demandez-en un nouveau.',
+                'done' => 'Mot de passe enregistré. Vous pouvez vous connecter.',
+            ],
+            'mail' => [
+                'subject' => 'Réinitialisation de votre mot de passe',
+                'body' => "Bonjour,\n\nPour choisir un nouveau mot de passe pour le back-office, ouvrez ce lien (valable {minutes} minutes, utilisable une seule fois) :\n\n{link}\n\nSi vous n’êtes pas à l’origine de cette demande, ignorez cet e-mail : votre mot de passe reste inchangé.",
             ],
         ],
     ],
