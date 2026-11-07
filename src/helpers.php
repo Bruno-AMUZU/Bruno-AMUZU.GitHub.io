@@ -61,6 +61,27 @@ function url(string $name, array $params = [], ?string $lang = null): string
     return App\Core\App::get(App\Core\UrlGenerator::class)->to($name, $params, $lang);
 }
 
+/**
+ * Réglage du site (e-mail de contact, liens réseaux…). Valeur par défaut tant que le réglage
+ * n'est pas enregistré depuis le back-office.
+ */
+function setting(string $key, string $default = ''): string
+{
+    $class = 'App\Model\Repository\SettingRepository';
+    if (!class_exists($class)) {
+        return $default;
+    }
+    $value = App\Core\App::get($class)->get($key);
+
+    return $value !== null && $value !== '' ? $value : $default;
+}
+
+/** La page existe-t-elle ? Pour ne pas afficher de lien vers une page pas encore construite. */
+function has_route(string $name): bool
+{
+    return App\Core\App::get(App\Core\UrlGenerator::class)->has($name);
+}
+
 /** La page en cours dans l'autre langue (sélecteur FR · EN). */
 function switch_lang_url(string $lang): string
 {

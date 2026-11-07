@@ -60,3 +60,10 @@ $section = fn (string $title) => '<h2 class="t-heading-2">' . e($title) . '</h2>
         ['label' => 'IA', 'href' => '#'],
     ]]) ?>
 </div>
+
+<div class="container sg">
+    <h2 class="t-heading-2">PageHeader · SectionHeader · LangSwitch · Marque</h2>
+    <?= component('page-header', ['title' => t('projectsPage.title'), 'intro' => t('projectsPage.intro')]) ?>
+    <?= component('section-header', ['title' => t('home.projects.title'), 'linkLabel' => t('home.projects.link'), 'linkHref' => '#']) ?>
+    <div class="sg-row"><?= component('lang-switch') ?> <?= component('marque') ?></div>
+</div>

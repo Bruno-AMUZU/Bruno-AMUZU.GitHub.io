@@ -58,6 +58,14 @@ final class UrlGenerator
         return $url === '' ? '/' : $url;
     }
 
+    /** La page existe-t-elle (dans cette langue) ? Sert à n'afficher que les liens vers des pages déjà en ligne. */
+    public function has(string $name, ?string $lang = null): bool
+    {
+        $lang ??= $this->translator->lang();
+
+        return isset($this->routes[$name][$lang]) || isset($this->routes[$name]['*']);
+    }
+
     /** La page en cours dans une autre langue (accueil de cette langue si la page n'existe pas). */
     public function switchTo(string $lang): string
     {

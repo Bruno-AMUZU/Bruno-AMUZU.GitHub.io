@@ -30,15 +30,16 @@
         try { const t = localStorage.getItem('theme'); if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t; } catch (e) {}
     </script>
     <script src="/assets/js/theme.js" defer></script>
+    <script src="/assets/js/menu.js" defer></script>
 </head>
 <body>
     <a class="skip-link t-label" href="#contenu"><?= e(t('common.skip')) ?></a>
     <div class="page">
-        <?php /* Header : composant à venir */ ?>
+        <?= component('header') ?>
         <main id="contenu" class="page-main">
             <?= $content ?>
         </main>
-        <?php /* Footer : composant à venir */ ?>
+        <?= component('footer') ?>
     </div>
 </body>
 </html>
