@@ -56,3 +56,158 @@
     padding: var(--space-6);
   }
 }
+
+/* ── Mise en page : barre latérale + zone principale ───── */
+
+.admin {
+  display: grid;
+  grid-template-columns: 240px minmax(0, 1fr);
+  min-height: 100vh;
+}
+
+.admin-main {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+  min-width: 0;
+  padding: var(--space-8);
+}
+
+.admin-flash {
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  box-shadow: inset 4px 0 0 var(--color-success);
+}
+
+/* ── AdminSidebar ──────────────────────────────────────── */
+
+.admin-sidebar {
+  position: sticky;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+  height: 100vh;
+  padding: var(--space-6) var(--space-4);
+  background: var(--color-inv);
+  color: var(--color-inv-ink);
+  overflow-y: auto;
+}
+
+.admin-sidebar__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-inline: var(--space-2);
+}
+
+.admin-sidebar__panel {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: var(--space-6);
+}
+
+.admin-sidebar__list,
+.admin-sidebar__bottom {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.admin-sidebar__link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+  width: 100%;
+  min-height: var(--size-touch-min);
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-sm);
+  color: var(--color-inv-muted); /* entrées inactives en invMuted */
+  text-align: left;
+}
+
+.admin-sidebar__link:hover {
+  color: var(--color-inv-ink);
+}
+
+.admin-sidebar__link.is-active {
+  background: var(--color-accent);
+  color: var(--color-on-accent);
+}
+
+.admin-sidebar__count {
+  display: inline-grid;
+  place-items: center;
+  min-width: 24px;
+  height: 24px;
+  padding-inline: var(--space-2);
+  border-radius: var(--radius-pill);
+  background: var(--color-accent);
+  color: var(--color-on-accent);
+}
+
+.admin-sidebar__link.is-active .admin-sidebar__count {
+  background: var(--color-on-accent);
+  color: var(--color-accent);
+}
+
+@media (max-width: 767px) {
+  .admin {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  /* Barre haute fond inv ; le menu déplie les mêmes entrées. */
+  .admin-sidebar {
+    position: sticky;
+    z-index: 20;
+    height: auto;
+    gap: 0;
+    padding: var(--space-3) var(--space-4);
+    overflow: visible;
+  }
+
+  .admin-sidebar__panel {
+    display: none;
+    justify-content: flex-start;
+    padding-top: var(--space-4);
+  }
+
+  .admin-sidebar.is-open .admin-sidebar__panel {
+    display: flex;
+  }
+
+  .admin-main {
+    padding: var(--space-6) var(--space-4);
+  }
+}
+
+/* ── AdminTopbar ───────────────────────────────────────── */
+
+.admin-topbar {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+}
+
+.admin-topbar__titles {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  min-width: 0;
+}
+
+.admin-topbar__back:hover {
+  color: var(--color-ink);
+}
+
+.admin-topbar__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}

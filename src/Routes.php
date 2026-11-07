@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App;
 
 use App\Controller\Admin\AuthController;
+use App\Controller\Admin\DashboardController;
 use App\Controller\Admin\PasswordResetController;
 use App\Controller\Site\HomeController;
 use App\Controller\Site\StyleguideController;
@@ -50,7 +51,7 @@ final class Routes
 
         $router->group([RequireAdmin::class], function (Router $router): void {
             $router->post('/admin/deconnexion', [AuthController::class, 'logout'], 'admin.logout');
-            $router->get('/admin', fn () => Response::html('Connecté.'), 'admin.dashboard');
+            $router->get('/admin', [DashboardController::class, 'index'], 'admin.dashboard');
         });
     }
 }

@@ -76,6 +76,14 @@ function setting(string $key, string $default = ''): string
     return $value !== null && $value !== '' ? $value : $default;
 }
 
+/** Nombre de messages non lus (compteur de la barre latérale du back-office). */
+function admin_unread_count(): int
+{
+    $class = 'App\Model\Repository\MessageRepository';
+
+    return class_exists($class) ? App\Core\App::get($class)->countUnread() : 0;
+}
+
 /** La page existe-t-elle ? Pour ne pas afficher de lien vers une page pas encore construite. */
 function has_route(string $name): bool
 {
