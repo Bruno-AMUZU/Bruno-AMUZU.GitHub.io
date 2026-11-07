@@ -19,3 +19,6 @@ vendor/
 # Cache de PHPUnit
 .phpunit.cache/
 .phpunit.result.cache
+
+# Sauvegardes (bin/backup.sh) : à copier hors du serveur, jamais dans git
+backups/
