@@ -75,6 +75,68 @@ final class Request
         return $this->body;
     }
 
+    /**
+     * Champ texte imbriqué : nested('tr', 'fr', 'title') lit tr[fr][title].
+     */
+    public function nested(string ...$path): ?string
+    {
+        $value = $this->body;
+        foreach ($path as $key) {
+            if (!is_array($value) || !array_key_exists($key, $value)) {
+                return null;
+            }
+            $value = $value[$key];
+        }
+
+        return is_string($value) ? trim($value) : null;
+    }
+
+    /**
+     * Liste imbriquée : nestedList('keep', 'gallery') lit keep[gallery][].
+     *
+     * @return list<string>
+     */
+    public function nestedList(string ...$path): array
+    {
+        $value = $this->body;
+        foreach ($path as $key) {
+            if (!is_array($value) || !array_key_exists($key, $value)) {
+                return [];
+            }
+            $value = $value[$key];
+        }
+
+        return is_array($value) ? array_values(array_map('trim', array_filter($value, 'is_string'))) : [];
+    }
+
+    /**
+     * Fichiers d'un champ multiple (<input type="file" name="gallery[]" multiple>), un tableau par fichier.
+     *
+     * @return list<array<string, mixed>>
+     */
+    public function files(string $key): array
+    {
+        $raw = $this->files[$key] ?? null;
+        if (!is_array($raw) || !is_array($raw['name'] ?? null)) {
+            $single = $this->file($key);
+
+            return $single !== null ? [$single] : [];
+        }
+
+        $files = [];
+        foreach (array_keys($raw['name']) as $i) {
+            $file = [];
+            foreach (['name', 'type', 'tmp_name', 'error', 'size'] as $attribute) {
+                $file[$attribute] = $raw[$attribute][$i] ?? null;
+            }
+            if ((int) $file['error'] !== UPLOAD_ERR_NO_FILE) {
+                $files[] = $file;
+            }
+        }
+
+        return $files;
+    }
+
     /** @return array<string, mixed>|null fichier envoyé (structure de $_FILES), null si absent */
     public function file(string $key): ?array
     {

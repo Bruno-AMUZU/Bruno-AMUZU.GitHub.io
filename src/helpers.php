@@ -76,6 +76,42 @@ function setting(string $key, string $default = ''): string
     return $value !== null && $value !== '' ? $value : $default;
 }
 
+/** « Atelier Brume & Cie » → « atelier-brume-cie » (adresse d'une page). */
+function slugify(string $text): string
+{
+    $ascii = iconv('UTF-8', 'ASCII//TRANSLIT//IGNORE', $text) ?: $text;
+    $slug = strtolower(trim((string) preg_replace('/[^a-zA-Z0-9]+/', '-', $ascii), '-'));
+
+    return substr($slug, 0, 80);
+}
+
+/** Date lisible : « 7 nov. 2026 » / « Nov 7, 2026 ». */
+function format_date(?string $date, ?string $lang = null, string $pattern = 'medium'): string
+{
+    if ($date === null || $date === '') {
+        return '';
+    }
+    $lang ??= lang();
+    $timestamp = strtotime($date);
+    if ($timestamp === false) {
+        return $date;
+    }
+    $months = $lang === 'fr'
+        ? ['janv.', 'févr.', 'mars', 'avr.', 'mai', 'juin', 'juil.', 'août', 'sept.', 'oct.', 'nov.', 'déc.']
+        : ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    $longMonths = $lang === 'fr'
+        ? ['janvier', 'février', 'mars', 'avril', 'mai', 'juin', 'juillet', 'août', 'septembre', 'octobre', 'novembre', 'décembre']
+        : ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+    $day = (int) date('j', $timestamp);
+    $month = (int) date('n', $timestamp) - 1;
+    $year = date('Y', $timestamp);
+
+    return match ($pattern) {
+        'month' => ($lang === 'fr' ? $longMonths[$month] : $longMonths[$month]) . ' ' . $year,
+        default => $lang === 'fr' ? "{$day} {$months[$month]} {$year}" : "{$months[$month]} {$day}, {$year}",
+    };
+}
+
 /** Nombre de messages non lus (compteur de la barre latérale du back-office). */
 function admin_unread_count(): int
 {
