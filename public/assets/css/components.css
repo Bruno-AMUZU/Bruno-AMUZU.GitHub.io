@@ -333,22 +333,42 @@
 
 /* ── Header ────────────────────────────────────────────── */
 
+/*
+ * Bandeau pleine largeur, collé en haut et fixé pendant le défilement.
+ * Fond translucide flouté porté par ::before : un backdrop-filter sur le header lui-même
+ * enfermerait le menu mobile (position: fixed) dans le bandeau.
+ */
 .site-header {
-  padding-top: var(--space-5);
+  position: sticky;
+  top: 0;
+  z-index: 40;
 }
 
+.site-header::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: color-mix(in srgb, var(--color-bg) 88%, transparent);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+}
+
+/* Logo à gauche, liens au centre, actions à droite. */
 .site-header__bar {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
   align-items: center;
-  justify-content: space-between;
   gap: var(--space-4);
-  padding: var(--space-2) var(--space-2) var(--space-2) var(--space-6);
-  border-radius: var(--radius-pill);
-  background: var(--color-surface);
+  padding: var(--space-3) var(--gutter);
 }
 
-.site-header__nav {
-  margin-left: auto; /* spec : liens à droite, avant le sélecteur de langue */
+.site-header__bar > :first-child {
+  justify-self: start;
+}
+
+.site-header__actions {
+  justify-self: end;
 }
 
 .site-header__links {
@@ -380,7 +400,7 @@
 
 @media (max-width: 767px) {
   .site-header__bar {
-    padding-left: var(--space-4);
+    grid-template-columns: 1fr auto;
   }
 
   .site-header__actions > .desktop-only {
@@ -527,5 +547,259 @@
   .site-footer__inner {
     flex-direction: column;
     align-items: flex-start;
+  }
+}
+
+/* ── SectionNav ────────────────────────────────────────── */
+/*
+ * Navigation entre les sections de l'accueil (components/section-nav.php, assets/js/section-nav.js).
+ * ≥ 1520 px : la marge du conteneur (1240 px) suffit. Rail à droite, nom de la section en cours affiché
+ *   à droite de son trait, les autres au survol.
+ * 1024–1519 px : traits seuls ; au survol ou au focus, le rail s'ouvre en panneau avec tous les noms
+ *   (comme la table des matières de Notion). Le conteneur se resserre de 72 px de chaque côté pour les traits.
+ * Animation au survol : le fond du panneau se déploie depuis la droite, les traits s'allongent,
+ *   puis les noms glissent en place l'un après l'autre (désactivée si prefers-reduced-motion).
+ * < 1024 px : pastille flottante en bas, centrée, qui ouvre la liste des sections.
+ * Attention : avec la mise à l'échelle de Windows, un écran 1920 px à 150 % ne fait que 1280 px CSS.
+ */
+
+/* Hors du flux : le rail et la pastille sont fixés à l'écran ; sans cela, la nav vide compte comme
+   un bloc de .page-main et ajoute un écart de section au-dessus du hero. */
+.section-nav {
+  position: absolute;
+}
+
+@media (min-width: 1024px) and (max-width: 1519px) {
+  .page:has(.section-nav) .container {
+    max-width: min(var(--container-max), calc(100% - 2 * 72px));
+  }
+}
+
+/* .section-nav devant : plus précis que la remise à zéro ul[role="list"] { padding: 0 } de base.css. */
+.section-nav .section-rail {
+  --rail-ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+  position: fixed;
+  top: 50%;
+  right: var(--space-4);
+  z-index: 30;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  padding: var(--space-3);
+  transform: translateY(-50%);
+}
+
+/* Fond du panneau : se déploie depuis la droite au survol. */
+.section-rail::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-float);
+  opacity: 0;
+  transform: scaleX(0.6);
+  transform-origin: right center;
+  transition: opacity 0.2s var(--rail-ease), transform 0.3s var(--rail-ease);
+}
+
+.section-rail__link {
+  display: flex;
+  align-items: center;
+  min-height: var(--space-8);
+  padding-right: var(--space-1);
+  color: var(--color-muted);
+  text-decoration: none;
+}
+
+.section-rail__dash {
+  flex: none;
+  width: 20px;
+  height: 4px;
+  margin-right: 12px; /* trait + marge = 32 px : les noms restent alignés quand le trait s'allonge */
+  border-radius: var(--radius-pill);
+  background: var(--color-line);
+  transition: width 0.3s var(--rail-ease), margin 0.3s var(--rail-ease), background-color 0.2s;
+}
+
+.section-rail__link[aria-current] .section-rail__dash {
+  width: var(--space-8);
+  margin-right: 0;
+  background: var(--color-accent);
+}
+
+/* Les noms : repliés (largeur 0) au repos, ils glissent en place au survol. */
+.section-rail__label {
+  max-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  opacity: 0;
+  transform: translateX(-8px);
+  transition: max-width 0.3s var(--rail-ease), margin 0.3s var(--rail-ease), opacity 0.2s, transform 0.3s var(--rail-ease), color 0.15s;
+}
+
+.section-rail__link[aria-current] .section-rail__label {
+  color: var(--color-ink);
+}
+
+.section-rail:is(:hover, :focus-within)::before {
+  opacity: 1;
+  transform: none;
+}
+
+.section-rail:is(:hover, :focus-within) .section-rail__dash {
+  width: 24px;
+  margin-right: 8px;
+}
+
+.section-rail:is(:hover, :focus-within) .section-rail__link[aria-current] .section-rail__dash {
+  width: var(--space-8);
+  margin-right: 0;
+}
+
+.section-rail:is(:hover, :focus-within) .section-rail__label {
+  max-width: 12em;
+  margin-left: var(--space-3);
+  opacity: 1;
+  transform: none;
+}
+
+/* Les noms arrivent l'un après l'autre. */
+.section-rail li:nth-child(2) .section-rail__label { transition-delay: 30ms; }
+.section-rail li:nth-child(3) .section-rail__label { transition-delay: 60ms; }
+.section-rail li:nth-child(4) .section-rail__label { transition-delay: 90ms; }
+.section-rail li:nth-child(5) .section-rail__label { transition-delay: 120ms; }
+.section-rail li:nth-child(6) .section-rail__label { transition-delay: 150ms; }
+.section-rail li:nth-child(7) .section-rail__label { transition-delay: 180ms; }
+.section-rail li:nth-child(n + 8) .section-rail__label { transition-delay: 210ms; }
+
+@media (prefers-reduced-motion: reduce) {
+  .section-rail__label {
+    transition-delay: 0s !important;
+  }
+}
+
+/* Lien survolé dans le panneau : trait et nom se renforcent. */
+.section-rail__link:is(:hover, :focus-visible) {
+  color: var(--color-ink);
+}
+
+.section-rail__link:is(:hover, :focus-visible) .section-rail__dash {
+  background: var(--color-ink);
+}
+
+.section-rail__link[aria-current]:is(:hover, :focus-visible) .section-rail__dash {
+  background: var(--color-accent);
+}
+
+/* Grand écran : la marge suffit, la section en cours reste nommée même au repos. */
+@media (min-width: 1520px) {
+  .section-rail__link[aria-current] .section-rail__label {
+    max-width: 12em;
+    margin-left: var(--space-3);
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.section-pill {
+  position: fixed;
+  left: 50%;
+  bottom: calc(var(--space-4) + env(safe-area-inset-bottom, 0px));
+  z-index: 30;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+  transform: translateX(-50%);
+  transition: opacity 0.2s, transform 0.2s;
+}
+
+/* Arrivé au pied de page, la pastille s'efface pour ne pas couvrir ses liens. */
+.section-nav.is-at-end .section-pill {
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, var(--space-4));
+}
+
+.section-pill__button {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-height: 44px;
+  padding: var(--space-2) var(--space-4);
+  border: 0;
+  border-radius: var(--radius-pill);
+  background: var(--color-inv);
+  color: var(--color-inv-ink);
+  box-shadow: var(--shadow-float);
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.section-pill__button .icon {
+  transition: transform 0.2s;
+}
+
+.section-pill__button[aria-expanded="true"] .icon {
+  transform: rotate(180deg);
+}
+
+.section-pill__dot {
+  width: var(--space-2);
+  height: var(--space-2);
+  border-radius: 50%;
+  background: var(--color-accent);
+}
+
+.section-nav .section-pill__list {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 220px;
+  padding: var(--space-2);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-float);
+}
+
+.section-nav .section-pill__list[hidden] {
+  display: none;
+}
+
+.section-pill__link {
+  display: flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0 var(--space-3);
+  border-radius: var(--radius-md);
+  color: var(--color-muted);
+  text-decoration: none;
+}
+
+.section-pill__link:hover {
+  color: var(--color-ink);
+}
+
+.section-pill__link[aria-current] {
+  background: var(--color-soft);
+  color: var(--color-ink);
+}
+
+@media (min-width: 1024px) {
+  .section-pill {
+    display: none;
+  }
+}
+
+@media (max-width: 1023px) {
+  .section-nav .section-rail { /* même précision que la règle d'affichage du rail */
+    display: none;
+  }
+
+  /* Place sous le dernier contenu pour que la pastille ne le recouvre pas. */
+  .page-main:has(.section-nav) {
+    padding-bottom: var(--space-16);
   }
 }

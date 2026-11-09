@@ -48,6 +48,7 @@ final class HomeController
             'stack' => $this->skills->byCategory($lang),
             'projects' => $this->projects->published($lang, limit: 3),
             'articles' => $this->articles->published($lang, limit: 3),
+            'scripts' => ['/assets/js/section-nav.js'],
         ]);
     }
 

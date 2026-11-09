@@ -9,10 +9,10 @@
 $home = url('home');
 $current = App\Core\App::get(App\Core\UrlGenerator::class)->currentName();
 
-// Une entrée n'apparaît que si sa page existe déjà ; Services et Stack sont des sections de l'accueil.
+// Une entrée n'apparaît que si sa page existe déjà. Les sections de l'accueil (Services, Stack…)
+// ne sont plus dans le menu : elles ont leur propre navigation sur l'accueil (components/section-nav.php).
 $items = array_filter([
-    ['label' => t('common.nav.services'), 'href' => $home . '#services', 'name' => null],
-    ['label' => t('common.nav.stack'), 'href' => $home . '#stack', 'name' => null],
+    ['label' => t('common.nav.home'), 'href' => $home, 'name' => 'home'],
     has_route('projects') ? ['label' => t('common.nav.projects'), 'href' => url('projects'), 'name' => 'projects'] : null,
     has_route('lab') ? ['label' => t('common.nav.lab'), 'href' => url('lab'), 'name' => 'lab'] : null,
     has_route('about') ? ['label' => t('common.nav.about'), 'href' => url('about'), 'name' => 'about'] : null,
@@ -20,7 +20,7 @@ $items = array_filter([
 $isActive = fn (array $item): bool => $item['name'] !== null && ($current === $item['name'] || str_starts_with((string) $current, $item['name'] . '.'));
 $contact = has_route('contact') ? url('contact') : 'mailto:' . setting('contact_email', 'amuzuelbruno@gmail.com');
 ?>
-<header class="site-header container">
+<header class="site-header">
     <div class="site-header__bar">
         <?= component('marque') ?>
 

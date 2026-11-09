@@ -167,6 +167,14 @@ Le back-office gère des **types de contenu définis** : projets, certifications
 | 2026-11-07 | À propos : la présentation devient un récit de 14 paragraphes écrit par Bruno (la tablette, la découverte du code, l'IA), au lieu de 3-4 phrases ; première phrase en `heading-3`, photo qui reste visible pendant la lecture (desktop). Écart assumé à la maquette | [V] |
 | 2026-11-07 | Lab : ne traite plus seulement d'IA. Catégories Back-end, Front-end, IA, Outils (au lieu de Context engineering, Harness engineering, RAG) ; intro « Je vous montre ce que j'expérimente. » | [V] |
 | 2026-11-07 | Messages de contact supprimés automatiquement après 12 mois, comme l'annonce la mention RGPD | [V] |
+| 2026-11-08 | Menu : Accueil · Projets · Lab · À propos. Services et Stack quittent le menu (ce sont des sections de l'accueil) ; Projets reste, il mène à la page `/projets`. Écart assumé à la maquette | [V] |
+| 2026-11-08 | Header fixé en haut pendant le défilement | [V] |
+| 2026-11-08 | Header : bandeau pleine largeur collé en haut, fond translucide flouté, liens centrés, au lieu de la pilule dans le conteneur. Écart assumé à la maquette FigCraft | [V] |
+| 2026-11-08 | Accueil : navigation de section (SectionNav). Grand écran : rail de traits à droite, façon table des matières de Notion, la section en cours garde son nom affiché (variante « libellé actif » choisie parmi 3). Petit écran : pastille flottante centrée en bas, qui ouvre la liste des sections ; la bulle de l'assistant (V2.2) reste séparée, à droite. Écart assumé à la maquette, qui n'est pas mise à jour | [V] |
+| 2026-11-08 | SectionNav : seuils dictés par la marge du conteneur (rail dès 1340 px) | [R] trop haut : un portable 1920 px à 150 % fait 1280 px CSS et voyait la pastille |
+| 2026-11-08 | SectionNav : conteneur resserré de 136 px de chaque côté pour afficher les noms en permanence dès 1024 px | [R] tout le contenu rétrécissait trop |
+| 2026-11-08 | SectionNav adaptatif (option A) : ≥ 1520 px, rail « libellé actif » dans la marge, sans toucher au contenu ; 1024–1519 px, traits seuls et panneau des noms au survol (façon Notion), conteneur resserré de 56 px de chaque côté ; < 1024 px, pastille | [V] |
+| 2026-11-08 | SectionNav plus grand (traits 20 × 4 px, 32 px pour la section en cours, lignes de 32 px, noms en `label`) et animation au survol : le panneau se déploie depuis la droite, les noms arrivent l'un après l'autre. Conteneur resserré de 72 px (au lieu de 56) entre 1024 et 1519 px | [V] |
 | 2026-11-03 | Modèle séparé en **entités** (`src/Model/Entity/`, uniquement les données) et **repositories** (`src/Model/Repository/`, uniquement le SQL) | [V] |
 | 2026-11-03 | Modèle « Active Record » (une classe qui porte données et SQL) | [R] |
 | 2026-11-03 | **Composer** : chargement automatique PSR-4 (`App\` → `src/`), PHPMailer (envoi SMTP), PHPUnit (tests) ; pas de framework. `vendor/` non suivi par git | [V] |

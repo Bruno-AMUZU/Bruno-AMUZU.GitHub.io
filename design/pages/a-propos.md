@@ -12,6 +12,7 @@
    - Carte `surface`, rayon `2xl`, deux colonnes (mobile : empilées, photo en premier).
    - Gauche : titre `display-l` `about.intro.title`, texte `body-l` `about.intro.text`, Button `primary` `about.intro.cv` (téléchargement du CV) + Button `secondary` `about.intro.contact` → page `/contact`.
    - Droite : photo de Bruno, rayon `xl`, ratio 4:5. Tant qu'elle n'est pas fournie : bloc `soft` « [Photo à fournir] ». [V]
+   - Desktop : la photo reste collée sous le header fixe pendant la lecture (`header + space.6`), et sa largeur est limitée pour qu'elle tienne entièrement en hauteur à l'écran. [V 2026-11-09]
 3. **Parcours** [V]
    - SectionHeader `about.timeline.title`.
    - Frise verticale : chaque entrée de `timeline` = carte `surface` rayon `xl` avec période (`small`, `muted`), intitulé (`heading-2`), structure + lieu (`body`), description (`body`, `muted`). Pill indiquant le type (Formation / Expérience).

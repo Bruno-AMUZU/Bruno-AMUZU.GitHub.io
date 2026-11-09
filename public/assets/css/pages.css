@@ -93,11 +93,19 @@
   max-width: 65ch;
 }
 
-/* Photo : rayon xl, ratio 4:5 ; bloc soft tant qu'elle n'est pas fournie. Reste visible pendant la lecture. */
+/*
+ * Photo : rayon xl, ratio 4:5 ; bloc soft tant qu'elle n'est pas fournie. Reste visible pendant la lecture,
+ * collée sous le header fixe. Sa largeur est limitée pour que toute sa hauteur (4:5) tienne entre le header
+ * et le bas de l'écran.
+ */
 .about-intro__photo {
+  --photo-top: calc(var(--header-height) + var(--space-6));
   position: sticky;
-  top: var(--space-6);
+  top: var(--photo-top);
   align-self: start;
+  justify-self: center;
+  width: min(100%, (100vh - var(--photo-top) - var(--space-6)) * 4 / 5);
+  width: min(100%, (100dvh - var(--photo-top) - var(--space-6)) * 4 / 5);
   display: grid;
   place-items: center;
   aspect-ratio: 4 / 5;
@@ -121,6 +129,7 @@
 
   .about-intro__photo {
     position: static;
+    width: 100%; /* empilée : pleine largeur, plus de limite de hauteur */
     order: -1; /* photo en premier en mobile */
   }
 }

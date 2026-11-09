@@ -12,12 +12,17 @@ return [
         'logo' => 'bruno amuzu',
         'skip' => 'Skip to content',
         'nav' => [
+            'home' => 'Home',
             'services' => 'Services',
             'stack' => 'Stack',
             'projects' => 'Projects',
             'lab' => 'Lab',
             'about' => 'About',
             'contact' => 'Contact',
+        ],
+        'sectionNav' => [
+            'label' => 'On this page',
+            'pick' => 'Jump to a section',
         ],
         'cta' => 'Contact me',
         'lang' => [

@@ -45,10 +45,21 @@ Chaque composant existe en thème clair et sombre via les variables de couleur, 
 ## Structure
 
 ### Header [V]
-- Barre en pilule, fond `surface`, rayon `pill`, padding `space.2` + `space.6` à gauche, dans le conteneur (marge haute `space.5`).
+- ~~Barre en pilule, fond `surface`, rayon `pill`, padding `space.2` + `space.6` à gauche, dans le conteneur (marge haute `space.5`).~~ [R 2026-11-08]
+- Bandeau pleine largeur collé en haut (aucune marge), fond `bg` à 88 % flouté, padding `space.3` + `gutter` sur les côtés. Logo à gauche, liens centrés, actions à droite. [V 2026-11-08]
 - Gauche : logo = symbole « terminal » 28 px (`public/assets/img/logo.svg` : carré rayon 7 `#111111`, chevron `>` et curseur `_` `accent`, « b » `#F4F4F2` ; curseur clignotant, figé si `prefers-reduced-motion`) + « bruno amuzu » typo `logo`. En thème sombre, liseré 1 px `line` autour du carré. [V]
-- Droite (desktop) : liens Services, Stack, Projets, Lab, À propos (typo `nav`) · sélecteur FR · EN · IconButton thème · Button `inverse` « Me contacter ».
+- Droite (desktop) : liens Accueil, Projets, Lab, À propos (typo `nav`) · sélecteur FR · EN · IconButton thème · Button `inverse` « Me contacter ». [V 2026-11-08 : Services et Stack retirés, Accueil ajouté]
+- Fixé en haut de l'écran pendant le défilement (`position: sticky`). [V]
 - Mobile [V] : logo + IconButton thème + IconButton menu ; le menu ouvre un panneau plein écran (fond `surface`) listant les mêmes liens, le sélecteur de langue et le CTA.
+
+### SectionNav [V]
+- Navigation entre les sections d'une page longue (pour l'instant : l'accueil). `nav` « Sur cette page », vrais liens d'ancre : fonctionne sans JavaScript.
+- **Rail** (≥ 1024 px) : fixé à droite, centré verticalement, lignes de 32 px. Un trait par section (20 × 4 px, `line`, rayon `pill`) ; section en cours : trait 32 px `accent`. Nom de la section (typo `label`) à droite du trait, noms alignés à gauche. [V]
+  - Au survol / focus : le fond du panneau (`surface`, rayon `lg`, ombre `float`) se déploie depuis la droite, les traits s'allongent, puis les noms glissent en place l'un après l'autre (30 ms d'écart). Sans animation si `prefers-reduced-motion`. [V]
+  - ≥ 1520 px : nom de la section en cours affiché en permanence. Le contenu n'est pas touché (la marge suffit).
+  - 1024–1519 px : traits seuls au repos. Le conteneur se resserre de 72 px de chaque côté.
+- **Pastille** (< 1024 px) : fixée en bas, centrée. Fond `inv`, texte `invInk`, rayon `pill`, hauteur 44 px, ombre `float`, point `accent` + nom de la section en cours + chevron. Ouvre au-dessus une liste (fond `surface`, rayon `lg`, liens de 44 px, section en cours sur fond `soft`). S'efface quand le pied de page est visible. La ChatBubble reste séparée, à droite. [V]
+- Seuils : 1024 px et 1520 px (voir journal du 2026-11-08). [V]
 
 ### LangSwitch [V]
 - « FR · EN », langue active en `ink`, l'autre en `muted` (distinction par la couleur). Typo `small`. [V]

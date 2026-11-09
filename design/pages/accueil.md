@@ -32,6 +32,8 @@ Le CTA « Me contacter » (header et hero) mène à la page `/contact`.
 
 ## Éléments flottants
 
+- SectionNav : rail à droite (grand écran) ou pastille centrée en bas (petit écran), entrées Accueil, Services, Stack, Projets, Lab — seulement les sections affichées. [V 2026-11-08, écart à la maquette]
+
 - ChatBubble en bas à droite. [V]
 - Sur un cadre dédié par format (« Accueil — chat ouvert ») : ChatPanel ouvert avec la conversation `chat.demo`. [V]
 

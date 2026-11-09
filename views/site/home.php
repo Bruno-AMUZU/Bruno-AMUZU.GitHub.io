@@ -1,6 +1,6 @@
 <?php
 /**
- * Accueil (design/pages/accueil.md) : Hero, Services, Stack, Projets.
+ * Accueil (design/pages/accueil.md) : Hero, Services, Stack, Projets, Lab, et la navigation de section.
  * Interdits : carte back-office, carte « Pour qui », projet vedette, section Contact, CV, téléphone, photo.
  *
  * @var array{status: string, title: string, subtitle: string} $hero
@@ -10,8 +10,19 @@
  * @var list<App\Model\Entity\Project> $projects
  * @var list<App\Model\Entity\Article> $articles
  */
+
+// Navigation de section : seulement les sections affichées (une section vide n'est pas rendue).
+$sections = array_values(array_filter([
+    ['id' => 'accueil', 'label' => t('common.nav.home'), 'shown' => true],
+    ['id' => 'services', 'label' => t('common.nav.services'), 'shown' => $services !== []],
+    ['id' => 'stack', 'label' => t('common.nav.stack'), 'shown' => $stack !== []],
+    ['id' => 'projets', 'label' => t('common.nav.projects'), 'shown' => $projects !== []],
+    ['id' => 'lab', 'label' => t('common.nav.lab'), 'shown' => $articles !== []],
+], fn (array $section): bool => $section['shown']));
 ?>
-<section class="container" aria-labelledby="hero-title">
+<?= component('section-nav', ['items' => $sections]) ?>
+
+<section class="container" id="accueil" aria-labelledby="hero-title">
     <div class="hero">
         <?php if ($available && $hero['status'] !== ''): ?>
             <?= component('pill', ['text' => $hero['status'], 'variant' => 'status']) ?>
