@@ -13,6 +13,7 @@ $tag = $headingLevel ?? 'h3';
 ?>
 <article class="project-card">
     <div class="project-card__visual">
+        <?= component('pixel-burst') ?>
         <?php if (!empty($image)): ?>
             <img src="<?= e($image) ?>" alt="" loading="lazy" decoding="async">
         <?php else: ?>

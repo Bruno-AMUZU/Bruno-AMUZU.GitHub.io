@@ -99,10 +99,18 @@ Chaque composant existe en thème clair et sombre via les variables de couleur, 
 - Visuel 240 px de haut, rayon `lg`. Projets fictifs (`image: null`) : bloc `inv` avec « [Visuel du projet] ».
 - Bas (padding `space.3`) : titre `heading-2` + rond 40 px `soft` avec flèche → ; dessous, Tags.
 - **Toutes les cartes projet sont identiques en taille.** Pas de variante « vedette ».
+- Survol / focus [V 2026-11-09] : la carte monte de 4 px avec l'ombre `float`, un voile `accent` (35 % → transparent, en diagonale) passe sur le visuel, le rond de la flèche passe en `accent` et la flèche avance de 3 px, le PixelBurst s'allume dans le coin du visuel.
 
 ### LabCard [V]
 - Dans une section inversée : fond `invSoft`, rayon `lg`, padding `space.6`.
 - Pill `accent` (catégorie) puis titre `heading-3`.
+- Survol / focus [V 2026-11-09] : la carte monte de 4 px avec l'ombre `float`, le PixelBurst s'allume dans le coin.
+
+### PixelField [V]
+- Fond de pixels du site public (`assets/js/pixel-field.js`) : canvas fixé derrière toute la page (`.page` au-dessus). Grille de 16 px, pixels `accent` de 12 px, opacité 50 % au plus, extinction douce ; densité proportionnelle à la surface de l'écran (peu de pixels). À la souris, des pixels s'allument dans un rayon de 3 cases autour du curseur ; sans souris, scintillement seul. Pause quand l'onglet est caché ; absent si `prefers-reduced-motion` et sur la 404.
+
+### PixelBurst [V]
+- Motif décoratif de 5 pixels `accent` de 6 px (grille 3 × 2, case du milieu bas vide, écart 2 px), en haut à droite des cartes cliquables (ProjectCard, LabCard). Les pixels apparaissent un à un (ressort, 40 ms d'écart) au survol ou au focus.
 
 ### TimelineCard [V]
 - Entrée de la frise Parcours (page À propos) : repère à gauche (point 12 px `accent` + trait 2 px `line`), puis carte `surface` rayon `xl`, padding `space.7`, gap `space.2`.

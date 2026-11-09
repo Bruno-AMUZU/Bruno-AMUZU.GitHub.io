@@ -37,6 +37,8 @@
     </script>
     <script src="<?= e(asset('/assets/js/theme.js')) ?>" defer></script>
     <script src="<?= e(asset('/assets/js/menu.js')) ?>" defer></script>
+    <script src="<?= e(asset('/assets/js/reveal.js')) ?>" defer></script>
+    <script src="<?= e(asset('/assets/js/pixel-field.js')) ?>" defer></script>
     <?php foreach ($scripts ?? [] as $script): ?>
         <script src="<?= e(asset($script)) ?>" defer></script>
     <?php endforeach ?>

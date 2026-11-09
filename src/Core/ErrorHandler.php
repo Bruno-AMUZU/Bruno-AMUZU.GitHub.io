@@ -57,6 +57,7 @@ final class ErrorHandler
                 'status' => $status,
                 'title' => (string) $status,
                 'exception' => $this->debug && $status >= 500 ? $e : null,
+                'scripts' => $status === 404 ? ['/assets/js/error-pixels.js'] : [],
             ]);
         } catch (Throwable) {
             $body = "Erreur {$status}"; // la page d'erreur elle-même a échoué : texte brut

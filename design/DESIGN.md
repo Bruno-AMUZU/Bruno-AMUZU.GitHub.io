@@ -176,6 +176,11 @@ Le back-office gère des **types de contenu définis** : projets, certifications
 | 2026-11-08 | SectionNav adaptatif (option A) : ≥ 1520 px, rail « libellé actif » dans la marge, sans toucher au contenu ; 1024–1519 px, traits seuls et panneau des noms au survol (façon Notion), conteneur resserré de 56 px de chaque côté ; < 1024 px, pastille | [V] |
 | 2026-11-08 | SectionNav plus grand (traits 20 × 4 px, 32 px pour la section en cours, lignes de 32 px, noms en `label`) et animation au survol : le panneau se déploie depuis la droite, les noms arrivent l'un après l'autre. Conteneur resserré de 72 px (au lieu de 56) entre 1024 et 1519 px | [V] |
 | 2026-11-09 | StackCard : le compteur d'outils (« 4 outils ») est retiré | [V] |
+| 2026-11-09 | Animations retenues (parmi 9 proposées) : champ de pixels du hero (version avec peu de pixels), apparition des cartes au défilement, survol des cartes cliquables (soulèvement, voile accent, PixelBurst), pixels qui tombent sur la 404. Écarts assumés à la maquette | [V] |
+| 2026-11-09 | Règles des animations : désactivées si `prefers-reduced-motion` ; aucun contenu masqué sans JavaScript (seules les cartes encore sous l'écran sont préparées) ; ni bibliothèque ni dépendance ; courbe commune `motion.outSoft` | [V] |
+| 2026-11-09 | Titres pixelisés, traînée de pixels, bascule de thème en pixels, curseur du terminal sur le titre, transition entre les pages | [R] non retenus |
+| 2026-11-09 | Champ de pixels dans la carte du hero | [R] remplacé par le fond de pixels |
+| 2026-11-09 | Fond de pixels sur tout le site public (choisi parmi : dans la carte, autour du hero, toute la page, hero sans carte) : canvas fixé derrière la page, quelques pixels `accent` (12 px dans une grille de 16 px, opacité 50 % au plus) s'allument au hasard et réagissent à la souris ; les cartes opaques glissent par-dessus. Absent de la 404 (elle a ses pixels qui tombent) | [V] |
 | 2026-11-03 | Modèle séparé en **entités** (`src/Model/Entity/`, uniquement les données) et **repositories** (`src/Model/Repository/`, uniquement le SQL) | [V] |
 | 2026-11-03 | Modèle « Active Record » (une classe qui porte données et SQL) | [R] |
 | 2026-11-03 | **Composer** : chargement automatique PSR-4 (`App\` → `src/`), PHPMailer (envoi SMTP), PHPUnit (tests) ; pas de framework. `vendor/` non suivi par git | [V] |

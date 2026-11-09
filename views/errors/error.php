@@ -11,7 +11,7 @@ $is404 = $status === 404;
 $heading = $is404 ? t('notFound.title') : t('errors.' . (in_array($status, [403, 405], true) ? $status : 500));
 ?>
 <div class="container page-top">
-    <section class="error-page" aria-labelledby="error-title">
+    <section class="<?= e(classes('error-page', $is404 ? 'error-page--404' : null)) ?>" aria-labelledby="error-title">
         <div class="error-page__code t-display-xl" aria-hidden="true"><?= e($status) ?></div>
         <h1 class="t-heading-1" id="error-title"><?= e($heading) ?></h1>
         <?php if ($is404): ?>

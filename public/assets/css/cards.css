@@ -225,14 +225,18 @@
   flex-direction: column;
   gap: var(--space-5);
   padding: var(--space-3);
-  transition: transform 0.2s ease;
+  transition: transform 0.35s var(--ease-out-soft), box-shadow 0.35s var(--ease-out-soft);
 }
 
-.project-card:hover {
-  transform: translateY(-2px);
+/* Survol (et focus clavier) : la carte se soulève, un voile accent passe sur le visuel,
+   la flèche avance et le motif de pixels s'allume. */
+.project-card:is(:hover, :focus-within) {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-float);
 }
 
 .project-card__visual {
+  position: relative;
   display: grid;
   place-items: center;
   height: 240px;
@@ -246,6 +250,20 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+.project-card__visual::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, color-mix(in srgb, var(--color-accent) 35%, transparent), transparent 60%);
+  opacity: 0;
+  transition: opacity 0.35s var(--ease-out-soft);
+  pointer-events: none;
+}
+
+.project-card:is(:hover, :focus-within) .project-card__visual::after {
+  opacity: 1;
 }
 
 .project-card__body {
@@ -286,6 +304,20 @@
   height: 40px;
   border-radius: var(--radius-pill);
   background: var(--color-soft);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.project-card__arrow .icon {
+  transition: transform 0.3s var(--ease-out-soft);
+}
+
+.project-card:is(:hover, :focus-within) .project-card__arrow {
+  background: var(--color-accent);
+  color: var(--color-on-accent);
+}
+
+.project-card:is(:hover, :focus-within) .project-card__arrow .icon {
+  transform: translateX(3px);
 }
 
 /* ── LabCard ───────────────────────────────────────────── */
@@ -301,7 +333,7 @@
   border-radius: var(--radius-lg);
   background: var(--color-surface);
   color: var(--color-ink);
-  transition: transform 0.2s ease;
+  transition: transform 0.35s var(--ease-out-soft), box-shadow 0.35s var(--ease-out-soft);
 }
 
 .lab-card--inv {
@@ -309,8 +341,9 @@
   color: var(--color-inv-ink);
 }
 
-.lab-card:hover {
-  transform: translateY(-2px);
+.lab-card:is(:hover, :focus-within) {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-float);
 }
 
 .lab-card__link::after {
@@ -518,3 +551,36 @@
     min-height: 220px;
   }
 }
+
+/* ── PixelBurst ────────────────────────────────────────── */
+/* Motif de 5 pixels (3 × 2, case du milieu bas vide) dans le coin des cartes cliquables. */
+
+.pixel-burst {
+  position: absolute;
+  top: var(--space-4);
+  right: var(--space-4);
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(3, 6px);
+  gap: 2px;
+  pointer-events: none;
+}
+
+.pixel-burst i {
+  width: 6px;
+  height: 6px;
+  background: var(--color-accent);
+  transform: scale(0);
+  transition: transform 0.25s cubic-bezier(0.3, 1.6, 0.5, 1);
+}
+
+.pixel-burst i:nth-child(2) { transition-delay: 40ms; }
+.pixel-burst i:nth-child(3) { transition-delay: 80ms; }
+.pixel-burst i:nth-child(5) { transition-delay: 100ms; visibility: hidden; }
+.pixel-burst i:nth-child(4) { transition-delay: 60ms; }
+.pixel-burst i:nth-child(6) { transition-delay: 140ms; }
+
+:is(.project-card, .lab-card):is(:hover, :focus-within) .pixel-burst i {
+  transform: scale(1);
+}
+

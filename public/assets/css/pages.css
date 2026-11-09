@@ -17,6 +17,14 @@
 
 .hero__title {
   max-width: 1000px;
+/* Pixels de la 404 (assets/js/error-pixels.js) : derrière le texte, sans capter la souris. */
+.error-page__pixels {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
 }
 
 /* Ligne de séparation, puis sous-titre à gauche et boutons à droite. */
@@ -365,6 +373,9 @@
 /* ── Page d'erreur (404) ───────────────────────────────── */
 
 .error-page {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
   align-items: center;
