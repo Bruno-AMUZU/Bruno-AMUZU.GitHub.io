@@ -4,19 +4,27 @@
 
 /* ── Accueil : Hero ────────────────────────────────────── */
 
-/* Une seule carte surface, texte uniquement : aucune image, aucune carte annexe. */
+/*
+ * Hero sans carte (2026-11-09) : le texte est posé directement sur le fond de pixels.
+ * Texte uniquement : aucune image, aucune carte annexe.
+ */
 .hero {
   display: flex;
   flex-direction: column;
   gap: var(--space-8);
   margin-top: var(--space-4);
-  padding: var(--space-24) var(--space-16) var(--space-16);
-  border-radius: var(--radius-2xl);
+  padding: var(--space-24) var(--space-2) var(--space-8); /* côtés alignés sur les titres de section */
+}
+
+/* Sans carte, la pastille de statut garde un fond surface pour se détacher des pixels. */
+.hero .pill {
   background: var(--color-surface);
 }
 
 .hero__title {
   max-width: 1000px;
+}
+
 /* Pixels de la 404 (assets/js/error-pixels.js) : derrière le texte, sans capter la souris. */
 .error-page__pixels {
   position: absolute;
@@ -47,7 +55,7 @@
 @media (max-width: 767px) {
   .hero {
     gap: var(--space-6);
-    padding: var(--space-8);
+    padding: var(--space-12) 0 var(--space-6);
   }
 
   .hero__bottom {

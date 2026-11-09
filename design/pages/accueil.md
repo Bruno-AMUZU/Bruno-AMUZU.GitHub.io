@@ -7,8 +7,9 @@
 ## Sections — liste fermée, dans cet ordre
 
 1. **Header** — composant Header. [V]
-2. **Hero** [V]
-   - Une seule carte `surface`, rayon `2xl`, padding `space.24` haut / `space.16` côtés et bas (mobile : `space.8`).
+2. **Hero** (`#accueil`) [V]
+   - ~~Une seule carte `surface`, rayon `2xl`, padding `space.24` haut / `space.16` côtés et bas (mobile : `space.8`).~~ [R 2026-11-09]
+   - Sans carte [V 2026-11-09] : contenu posé directement sur le fond de pixels (PixelField). Padding `space.24` haut / `space.2` côtés (alignés sur les titres de section) / `space.8` bas ; mobile : `space.12` haut / 0 / `space.6` bas. La Pill `status` garde un fond `surface` pour se détacher des pixels.
    - Pill `status` : `home.hero.status`.
    - Titre `display-xl` : `home.hero.title` (largeur max 1000 px).
    - Ligne de séparation `line`, puis sur une ligne : `home.hero.subtitle` (`body-l`, `muted`) à gauche ; Button `primary` `home.hero.ctaPrimary` + Button `secondary` `home.hero.ctaSecondary` à droite.
