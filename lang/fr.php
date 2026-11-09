@@ -61,7 +61,7 @@ return [
         'hero' => [
             'status' => 'En recherche d’un stage ou d’une alternance',
             'title' => 'Des sites et des outils web qui font avancer votre activité.',
-            'subtitle' => 'Développeur web · PHP · IA appliquée',
+            'subtitle' => 'Développeur full-stack',
             'ctaPrimary' => 'Me contacter',
             'ctaSecondary' => 'Voir les projets',
         ],
@@ -125,7 +125,7 @@ return [
         'intro' => [
             'title' => 'Développeur full‑stack, je construis des outils qui vous simplifient la vie.',
             'text' => [
-                'Tout a commencé avec une tablette et beaucoup de curiosité.',
+                'Voici mon histoire.',
                 'Quand j’étais petit, j’adorais jouer aux jeux mobiles. Mais au-delà du plaisir de jouer, une question revenait souvent : comment est-ce qu’on fait pour créer un jeu comme celui-là ? Je voulais comprendre ce qui se cachait derrière l’écran et, surtout, savoir si je pouvais un jour en créer un moi-même.',
                 'C’est comme ça que j’ai découvert la programmation.',
                 'Au début, je ne savais pas vraiment par où commencer. Quel langage apprendre ? Comment fonctionnait le développement ? J’ai passé des heures à regarder des vidéos, à découvrir différents langages et à explorer cet univers. Petit à petit, j’ai compris que le développement était bien plus qu’une question de code.',
