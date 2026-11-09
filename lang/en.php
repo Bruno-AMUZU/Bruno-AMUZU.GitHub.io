@@ -129,7 +129,7 @@ return [
         'intro' => [
             'title' => 'Full‑stack developer, I build tools that make your life easier.',
             'text' => [
-                'Here is how it all started .',
+                'Here is how it all started.',
                 'As a kid, I loved playing mobile games. But beyond the fun of playing, one question kept coming back: how do you make a game like this? I wanted to understand what was hiding behind the screen and, above all, whether I could one day build one myself.',
                 'That’s how I discovered programming.',
                 'At first, I didn’t really know where to start. Which language should I learn? How did development work? I spent hours watching videos, trying different languages and exploring this world. Little by little, I understood that development was about much more than code.',
