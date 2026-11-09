@@ -167,6 +167,7 @@ Le back-office gère des **types de contenu définis** : projets, certifications
 | 2026-11-07 | À propos : la présentation devient un récit de 14 paragraphes écrit par Bruno (la tablette, la découverte du code, l'IA), au lieu de 3-4 phrases ; première phrase en `heading-3`, photo qui reste visible pendant la lecture (desktop). Écart assumé à la maquette | [V] |
 | 2026-11-07 | Lab : ne traite plus seulement d'IA. Catégories Back-end, Front-end, IA, Outils (au lieu de Context engineering, Harness engineering, RAG) ; intro « Je vous montre ce que j'expérimente. » | [V] |
 | 2026-11-07 | Messages de contact supprimés automatiquement après 12 mois, comme l'annonce la mention RGPD | [V] |
+| 2026-11-07 | Parcours : frise unique Formation + Expérience conservée pour l'instant ; séparation en deux blocs envisagée plus tard (le champ `kind` le permet sans toucher à la base) | [V] |
 | 2026-11-08 | Menu : Accueil · Projets · Lab · À propos. Services et Stack quittent le menu (ce sont des sections de l'accueil) ; Projets reste, il mène à la page `/projets`. Écart assumé à la maquette | [V] |
 | 2026-11-08 | Header fixé en haut pendant le défilement | [V] |
 | 2026-11-08 | Header : bandeau pleine largeur collé en haut, fond translucide flouté, liens centrés, au lieu de la pilule dans le conteneur. Écart assumé à la maquette FigCraft | [V] |
@@ -185,6 +186,9 @@ Le back-office gère des **types de contenu définis** : projets, certifications
 | 2026-11-09 | Formulaire de contact : types Stage, Alternance, Autre (au lieu de Site vitrine, Application, IA, Autre), cohérent avec la recherche de stage ou d'alternance. Anciens messages passés en « Autre » (migration 012) | [V] |
 | 2026-11-09 | Formulaire de contact : « Vous me contactez pour » (au lieu de « Type de projet ») et « Présentez-moi votre besoin… » (au lieu de « Parlez-moi de votre projet… ») | [V] |
 | 2026-11-09 | Logos de technologies : les 473 logos Devicon 2.16.0 importés (`bin/logos.php`), nettoyés et classés par ton (mono, dark, color) pour rester lisibles en thème sombre. Back-office : choix du logo dans une liste avec recherche (nom et noms alternatifs) et aperçu de chaque logo | [V] |
+| 2026-11-09 | Parcours, plus tard : deux blocs séparés (Expériences à gauche, plus large ; Formations à droite ; empilés en mobile, Expériences d'abord), triés par date de début, le plus récent en haut. Une expérience faite pendant une formation porte « Pendant ma formation », la formation indique « Inclut n stages » (rattachement à ajouter en base). En attendant, la frise unique reste | [P] |
+| 2026-11-09 | Fond de pixels conservé aussi sur les articles du Lab | [V] |
+| 2026-11-09 | Ajouts faits pendant le développement, validés : league/commonmark (Markdown des articles du Lab), page /dev/composants (catalogue des composants, en développement uniquement), Dockerfile multi-stage | [V] |
 | 2026-11-03 | Modèle séparé en **entités** (`src/Model/Entity/`, uniquement les données) et **repositories** (`src/Model/Repository/`, uniquement le SQL) | [V] |
 | 2026-11-03 | Modèle « Active Record » (une classe qui porte données et SQL) | [R] |
 | 2026-11-03 | **Composer** : chargement automatique PSR-4 (`App\` → `src/`), PHPMailer (envoi SMTP), PHPUnit (tests) ; pas de framework. `vendor/` non suivi par git | [V] |
