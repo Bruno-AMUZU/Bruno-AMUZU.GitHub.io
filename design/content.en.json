@@ -100,15 +100,10 @@
     "namePlaceholder": "Your name",
     "email": "Email",
     "emailPlaceholder": "you@example.com",
-    "type": "Project type",
-    "types": [
-      "Website",
-      "Application",
-      "AI",
-      "Other"
-    ],
+    "type": "You are contacting me for",
+    "types": ["Internship", "Apprenticeship", "Other"],
     "message": "Message",
-    "messagePlaceholder": "Tell me about your project…",
+    "messagePlaceholder": "Tell me what you need…",
     "submit": "Send message",
     "privacy": "[À FOURNIR] Short privacy notice (how form data is used).",
     "errors": {

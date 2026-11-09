@@ -7,8 +7,8 @@ namespace App\Model\Entity;
 /** Message envoyé par le formulaire de contact. */
 final class Message
 {
-    /** Types de projet du formulaire, dans l'ordre de form.types (Site vitrine, Application, IA, Autre). */
-    public const TYPES = ['site', 'app', 'ia', 'other'];
+    /** Types de demande du formulaire, dans l'ordre de form.types (Stage, Alternance, Autre). */
+    public const TYPES = ['internship', 'apprenticeship', 'other'];
 
     public function __construct(
         public readonly int $id,
@@ -40,7 +40,7 @@ final class Message
     {
         $index = array_search($this->type, self::TYPES, true);
 
-        return (string) (t_list('form.types')[$index === false ? 3 : $index] ?? $this->type);
+        return (string) (t_list('form.types')[$index === false ? array_key_last(self::TYPES) : $index] ?? $this->type);
     }
 
     public function excerpt(int $length = 90): string

@@ -100,15 +100,10 @@
     "namePlaceholder": "Votre nom",
     "email": "Email",
     "emailPlaceholder": "vous@exemple.fr",
-    "type": "Type de projet",
-    "types": [
-      "Site vitrine",
-      "Application",
-      "IA",
-      "Autre"
-    ],
+    "type": "Vous me contactez pour",
+    "types": ["Stage", "Alternance", "Autre"],
     "message": "Message",
-    "messagePlaceholder": "Parlez-moi de votre projet…",
+    "messagePlaceholder": "Présentez-moi votre besoin…",
     "submit": "Envoyer le message",
     "privacy": "[À FOURNIR] Mention RGPD courte (usage des données du formulaire).",
     "errors": {

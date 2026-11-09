@@ -95,15 +95,14 @@ return [
         'namePlaceholder' => 'Votre nom',
         'email' => 'Email',
         'emailPlaceholder' => 'vous@exemple.fr',
-        'type' => 'Type de projet',
+        'type' => 'Vous me contactez pour',
         'types' => [
-            'Site vitrine',
-            'Application',
-            'IA',
+            'Stage',
+            'Alternance',
             'Autre',
         ],
         'message' => 'Message',
-        'messagePlaceholder' => 'Parlez-moi de votre projet…',
+        'messagePlaceholder' => 'Présentez-moi votre besoin…',
         'submit' => 'Envoyer le message',
         'privacy' => 'Vos nom, e-mail et message servent uniquement à vous répondre. Ils sont conservés 12 mois au maximum et ne sont jamais transmis à des tiers. Vous pouvez demander leur suppression à tout moment.',
         'errors' => [
@@ -501,7 +500,7 @@ return [
             'demo' => [
                 'name' => '[Nom]',
                 'email' => '[email]',
-                'type' => 'Site vitrine',
+                'type' => 'Stage',
                 'message' => '[Message]',
                 'date' => '[DATE]',
             ],

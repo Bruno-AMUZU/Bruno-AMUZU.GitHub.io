@@ -182,6 +182,8 @@ Le back-office gère des **types de contenu définis** : projets, certifications
 | 2026-11-09 | Champ de pixels dans la carte du hero | [R] remplacé par le fond de pixels |
 | 2026-11-09 | Fond de pixels sur tout le site public (choisi parmi : dans la carte, autour du hero, toute la page, hero sans carte) : canvas fixé derrière la page, quelques pixels `accent` (12 px dans une grille de 16 px, opacité 50 % au plus) s'allument au hasard et réagissent à la souris ; les cartes opaques glissent par-dessus. Absent de la 404 (elle a ses pixels qui tombent) | [V] |
 | 2026-11-09 | Hero sans carte : titre, sous-titre et boutons posés directement sur le fond de pixels (comparé dans une maquette aux options « dans la carte », « autour du hero » et « toute la page », puis essayé sur le site). Écart assumé à la maquette | [V] |
+| 2026-11-09 | Formulaire de contact : types Stage, Alternance, Autre (au lieu de Site vitrine, Application, IA, Autre), cohérent avec la recherche de stage ou d'alternance. Anciens messages passés en « Autre » (migration 012) | [V] |
+| 2026-11-09 | Formulaire de contact : « Vous me contactez pour » (au lieu de « Type de projet ») et « Présentez-moi votre besoin… » (au lieu de « Parlez-moi de votre projet… ») | [V] |
 | 2026-11-03 | Modèle séparé en **entités** (`src/Model/Entity/`, uniquement les données) et **repositories** (`src/Model/Repository/`, uniquement le SQL) | [V] |
 | 2026-11-03 | Modèle « Active Record » (une classe qui porte données et SQL) | [R] |
 | 2026-11-03 | **Composer** : chargement automatique PSR-4 (`App\` → `src/`), PHPMailer (envoi SMTP), PHPUnit (tests) ; pas de framework. `vendor/` non suivi par git | [V] |

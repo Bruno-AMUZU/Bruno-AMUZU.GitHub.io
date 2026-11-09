@@ -9,9 +9,9 @@ declare(strict_types=1);
 
 return function (PDO $db): void {
     $demo = [
-        ['type' => 'site', 'status' => 'unread', 'ago' => '2 hours'],
-        ['type' => 'app', 'status' => 'unread', 'ago' => '1 day'],
-        ['type' => 'ia', 'status' => 'read', 'ago' => '3 days'],
+        ['type' => 'internship', 'status' => 'unread', 'ago' => '2 hours'],
+        ['type' => 'apprenticeship', 'status' => 'unread', 'ago' => '1 day'],
+        ['type' => 'apprenticeship', 'status' => 'read', 'ago' => '3 days'],
         ['type' => 'other', 'status' => 'archived', 'ago' => '10 days'],
     ];
     foreach ($demo as $i => $message) {
