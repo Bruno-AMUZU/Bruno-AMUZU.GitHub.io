@@ -89,6 +89,9 @@ foreach ($tokens['radius'] as $name => $value) {
 }
 $shadow = $tokens['shadow']['float'];
 $common['shadow-float'] = sprintf('%s %s %s %s', $px($shadow['x']), $px($shadow['y']), $px($shadow['blur']), $rgba($shadow['color'], $shadow['opacity']));
+foreach ($tokens['motion'] ?? [] as $name => $value) {
+    $common['ease-' . $kebab($name)] = $value['value'];
+}
 foreach ($tokens['size'] as $name => $value) {
     $common['size-' . $kebab($name)] = $px($value);
 }
