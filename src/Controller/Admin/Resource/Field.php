@@ -59,6 +59,20 @@ final class Field
         return new self($name, $label, 'select', $options);
     }
 
+    /**
+     * Choix d'un logo de technologie (public/assets/img/tech/) : liste avec recherche et aperçu des logos.
+     * Les options viennent du catalogue tech_logos() ; sans JavaScript, c'est une liste déroulante classique.
+     */
+    public static function logo(string $name, string $label): self
+    {
+        $options = [];
+        foreach (array_keys(tech_logos()) as $key) {
+            $options[$key] = $key;
+        }
+
+        return new self($name, $label, 'logo', $options);
+    }
+
     public function translated(): self { $this->translated = true; return $this; }
     public function required(): self { $this->required = true; return $this; }
     public function help(string $help): self { $this->help = $help; return $this; }

@@ -168,6 +168,15 @@
   height: 24px;
 }
 
+/*
+ * Logo mêlant noir et couleurs (Next.js…, ton « dark » de bin/logos.php) : posé sur une pastille claire fixe,
+ * pour rester lisible sur les fonds sombres (thème sombre, carte inversée). Les logos entièrement noirs
+ * (ton « mono ») n'en ont pas besoin : ils prennent la couleur du texte.
+ */
+.tech-logo--backdrop {
+  padding: 2px;
+  border-radius: var(--radius-xs);
+  background: var(--color-brand-fg);
 }
 
 .tech-chip__mono {

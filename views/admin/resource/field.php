@@ -32,6 +32,23 @@ $common = ['help' => $field->help, 'placeholder' => $field->placeholder, 'requir
         </div>
         <?php break ?>
 
+    <?php case 'logo':
+        $catalog = tech_logos(); ?>
+        <div class="<?= e(classes('field', 'logo-field', $error ? 'field--error' : null)) ?>" data-logo-picker
+             data-search-label="<?= e(t('admin.form.logoSearch')) ?>" data-empty-label="<?= e(t('admin.form.noLogo')) ?>" data-no-results="<?= e(t('admin.form.noLogoResults')) ?>">
+            <label class="field__label t-small" for="<?= e($inputId) ?>"><?= e($field->label) ?></label>
+            <?php // Sans JavaScript : liste déroulante classique. admin.js la remplace par une liste avec recherche et logos. ?>
+            <select class="field__input t-body" id="<?= e($inputId) ?>" name="<?= e($inputName) ?>"<?= $field->required ? ' required' : '' ?>>
+                <?php if (!$field->required): ?><option value=""><?= e(t('admin.form.noLogo')) ?></option><?php endif ?>
+                <?php foreach ($field->options as $optionValue => $optionLabel): ?>
+                    <option value="<?= e($optionValue) ?>" data-aliases="<?= e(implode(' ', $catalog[$optionValue]['aliases'] ?? [])) ?>"<?= (string) $optionValue === (string) $value ? ' selected' : '' ?>><?= e($optionLabel) ?></option>
+                <?php endforeach ?>
+            </select>
+            <?php if ($field->help): ?><p class="field__help t-caption muted"><?= e($field->help) ?></p><?php endif ?>
+            <?php if ($error): ?><p class="field__error t-caption"><?= e($error) ?></p><?php endif ?>
+        </div>
+        <?php break ?>
+
     <?php case 'toggle': ?>
         <label class="admin-toggle t-body">
             <input type="hidden" name="<?= e($inputName) ?>" value="0">

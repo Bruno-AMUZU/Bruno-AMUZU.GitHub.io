@@ -1,0 +1,2330 @@
+{
+    "aarch64": {
+        "tone": "dark",
+        "aliases": [
+            "arm64"
+        ]
+    },
+    "adonisjs": {
+        "tone": "color",
+        "aliases": [
+            "adonis"
+        ]
+    },
+    "aftereffects": {
+        "tone": "dark",
+        "aliases": [
+            "adobeaftereffects",
+            "ae"
+        ]
+    },
+    "akka": {
+        "tone": "color",
+        "aliases": [
+            "akka-framework"
+        ]
+    },
+    "algolia": {
+        "tone": "color",
+        "aliases": []
+    },
+    "alpinejs": {
+        "tone": "color",
+        "aliases": [
+            "alpine"
+        ]
+    },
+    "amazonwebservices": {
+        "tone": "color",
+        "aliases": [
+            "aws"
+        ]
+    },
+    "anaconda": {
+        "tone": "color",
+        "aliases": []
+    },
+    "android": {
+        "tone": "color",
+        "aliases": []
+    },
+    "androidstudio": {
+        "tone": "color",
+        "aliases": []
+    },
+    "angular": {
+        "tone": "color",
+        "aliases": []
+    },
+    "angularjs": {
+        "tone": "color",
+        "aliases": []
+    },
+    "angularmaterial": {
+        "tone": "color",
+        "aliases": []
+    },
+    "ansible": {
+        "tone": "dark",
+        "aliases": []
+    },
+    "antdesign": {
+        "tone": "color",
+        "aliases": []
+    },
+    "apache": {
+        "tone": "color",
+        "aliases": [
+            "the apache software foundation"
+        ]
+    },
+    "apacheairflow": {
+        "tone": "color",
+        "aliases": [
+            "airflow"
+        ]
+    },
+    "apachekafka": {
+        "tone": "mono",
+        "aliases": []
+    },
+    "apachespark": {
+        "tone": "color",
+        "aliases": []
+    },
+    "apl": {
+        "tone": "color",
+        "aliases": [
+            "a programming language"
+        ]
+    },
+    "appcelerator": {
+        "tone": "color",
+        "aliases": []
+    },
+    "apple": {
+        "tone": "mono",
+        "aliases": []
+    },
+    "appwrite": {
+        "tone": "color",
+        "aliases": []
+    },
+    "archlinux": {
+        "tone": "color",
+        "aliases": []
+    },
+    "arduino": {
+        "tone": "color",
+        "aliases": []
+    },
+    "argocd": {
+        "tone": "dark",
+        "aliases": []
+    },
+    "astro": {
+        "tone": "dark",
+        "aliases": []
+    },
+    "atom": {
+        "tone": "color",
+        "aliases": []
+    },
+    "awk": {
+        "tone": "dark",
+        "aliases": [
+            "the awk programming language"
+        ]
+    },
+    "axios": {
+        "tone": "color",
+        "aliases": []
+    },
+    "azure": {
+        "tone": "color",
+        "aliases": [
+            "microsoftazure"
+        ]
+    },
+    "azuredevops": {
+        "tone": "color",
+        "aliases": [
+            "azure-devops"
+        ]
+    },
+    "azuresqldatabase": {
+        "tone": "color",
+        "aliases": [
+            "azure-sql-database"
+        ]
+    },
+    "babel": {
+        "tone": "dark",
+        "aliases": [
+            "babeljs"
+        ]
+    },
+    "backbonejs": {
+        "tone": "dark",
+        "aliases": []
+    },
+    "ballerina": {
+        "tone": "color",
+        "aliases": [
+            "bal"
+        ]
+    },
+    "bamboo": {
+        "tone": "color",
+        "aliases": [
+            "atlassianbamboo"
+        ]
+    },
+    "bash": {
+        "tone": "color",
+        "aliases": [
+            "bourneagainshell"
+        ]
+    },
+    "beats": {
+        "tone": "color",
+        "aliases": []
+    },
+    "behance": {
+        "tone": "color",
+        "aliases": []
+    },
+    "bitbucket": {
+        "tone": "color",
+        "aliases": [
+            "atlassianbitbucket"
+        ]
+    },
+    "blazor": {
+        "tone": "color",
+        "aliases": []
+    },
+    "blender": {
+        "tone": "color",
+        "aliases": []
+    },
+    "bootstrap": {
+        "tone": "color",
+        "aliases": []
+    },
+    "bower": {
+        "tone": "color",
+        "aliases": []
+    },
+    "browserstack": {
+        "tone": "dark",
+        "aliases": []
+    },
+    "bulma": {
+        "tone": "color",
+        "aliases": [
+            "bulmacss"
+        ]
+    },
+    "bun": {
+        "tone": "dark",
+        "aliases": []
+    },
+    "c": {
+        "tone": "color",
+        "aliases": []
+    },
+    "cairo": {
+        "tone": "color",
+        "aliases": [
+            "cairographics"
+        ]
+    },
+    "cakephp": {
+        "tone": "color",
+        "aliases": []
+    },
+    "canva": {
+        "tone": "color",
+        "aliases": []
+    },
+    "capacitor": {
+        "tone": "dark",
+        "aliases": [
+            "capacitorjs"
+        ]
+    },
+    "carbon": {
+        "tone": "mono",
+        "aliases": [
+            "carbon language"
+        ]
+    },
+    "cassandra": {
+        "tone": "color",
+        "aliases": [
+            "apache cassandra"
+        ]
+    },
+    "centos": {
+        "tone": "color",
+        "aliases": []
+    },
+    "ceylon": {
+        "tone": "color",
+        "aliases": [
+            "eclipseceylon",
+            "ceylonlang"
+        ]
+    },
+    "chrome": {
+        "tone": "dark",
+        "aliases": [
+            "googlechrome"
+        ]
+    },
+    "circleci": {
+        "tone": "color",
+        "aliases": []
+    },
+    "clarity": {
+        "tone": "dark",
+        "aliases": [
+            "clarity-lang"
+        ]
+    },
+    "clion": {
+        "tone": "dark",
+        "aliases": []
+    },
+    "clojure": {
+        "tone": "color",
+        "aliases": []
+    },
+    "clojurescript": {
+        "tone": "color",
+        "aliases": []
+    },
+    "cloudflare": {
+        "tone": "color",
+        "aliases": []
+    },
+    "cloudflareworkers": {
+        "tone": "color",
+        "aliases": [
+            "cloudflare workers"
+        ]
+    },
+    "cmake": {
+        "tone": "color",
+        "aliases": []
+    },
+    "codeac": {
+        "tone": "color",
+        "aliases": [
+            "codeacio"
+        ]
+    },
+    "codecov": {
+        "tone": "color",
+        "aliases": []
+    },
+    "codeigniter": {
+        "tone": "color",
+        "aliases": []
+    },
+    "codepen": {
+        "tone": "mono",
+        "aliases": []
+    },
+    "coffeescript": {
+        "tone": "color",
+        "aliases": []
+    },
+    "composer": {
+        "tone": "dark",
+        "aliases": []
+    },
+    "confluence": {
+        "tone": "color",
+        "aliases": [
+            "atlassianconfluence"
+        ]
+    },
+    "consul": {
+        "tone": "color",
+        "aliases": [
+            "hashicorp consul"
+        ]
+    },
+    "contao": {
+        "tone": "color",
+        "aliases": []
+    },
+    "corejs": {
+        "tone": "mono",
+        "aliases": [
+            "core-js",
+            "core.js"
+        ]
+    },
+    "cosmosdb": {
+        "tone": "dark",
+        "aliases": [
+            "azurecosmosdb"
+        ]
+    },
+    "couchbase": {
+        "tone": "color",
+        "aliases": []
+    },
+    "couchdb": {
+        "tone": "color",
+        "aliases": [
+            "apachecouchdb"
+        ]
+    },
+    "cplusplus": {
+        "tone": "color",
+        "aliases": [
+            "c++",
+            "cpp"
+        ]
+    },
+    "crystal": {
+        "tone": "mono",
+        "aliases": [
+            "crystallang"
+        ]
+    },
+    "csharp": {
+        "tone": "color",
+        "aliases": [
+            "c#"
+        ]
+    },
+    "css": {
+        "tone": "color",
+        "aliases": [
+            "cascadingstylesheets3",
+            "css3"
+        ]
+    },
+    "cucumber": {
+        "tone": "color",
+        "aliases": [
+            "cucumberjs"
+        ]
+    },
+    "cypressio": {
+        "tone": "dark",
+        "aliases": [
+            "cypress"
+        ]
+    },
+    "d3js": {
+        "tone": "color",
+        "aliases": []
+    },
+    "dart": {
+        "tone": "color",
+        "aliases": [
+            "googledart"
+        ]
+    },
+    "datagrip": {
+        "tone": "dark",
+        "aliases": []
+    },
+    "dataspell": {
+        "tone": "color",
+        "aliases": []
+    },
+    "dbeaver": {
+        "tone": "color",
+        "aliases": []
+    },
+    "debian": {
+        "tone": "color",
+        "aliases": []
+    },
+    "denojs": {
+        "tone": "mono",
+        "aliases": []
+    },
+    "devicon": {
+        "tone": "color",
+        "aliases": []
+    },
+    "digitalocean": {
+        "tone": "color",
+        "aliases": []
+    },
+    "discordjs": {
+        "tone": "color",
+        "aliases": []
+    },
+    "django": {
+        "tone": "mono",
+        "aliases": []
+    },
+    "djangorest": {
+        "tone": "dark",
+        "aliases": [
+            "django rest framework"
+        ]
+    },
+    "docker": {
+        "tone": "color",
+        "aliases": []
+    },
+    "doctrine": {
+        "tone": "color",
+        "aliases": []
+    },
+    "dot-net": {
+        "tone": "color",
+        "aliases": [
+            "dotnet",
+            ".net"
+        ]
+    },
+    "dotnetcore": {
+        "tone": "color",
+        "aliases": [
+            ".netcore"
+        ]
+    },
+    "dreamweaver": {
+        "tone": "dark",
+        "aliases": [
+            "adobe dreamweaver"
+        ]
+    },
+    "dropwizard": {
+        "tone": "color",
+        "aliases": []
+    },
+    "drupal": {
+        "tone": "color",
+        "aliases": []
+    },
+    "dynamodb": {
+        "tone": "color",
+        "aliases": []
+    },
+    "eclipse": {
+        "tone": "color",
+        "aliases": [
+            "eclipse ide"
+        ]
+    },
+    "ecto": {
+        "tone": "color",
+        "aliases": []
+    },
+    "elasticsearch": {
+        "tone": "color",
+        "aliases": []
+    },
+    "electron": {
+        "tone": "color",
+        "aliases": [
+            "electronjs"
+        ]
+    },
+    "eleventy": {
+        "tone": "dark",
+        "aliases": [
+            "11ty"
+        ]
+    },
+    "elixir": {
+        "tone": "dark",
+        "aliases": [
+            "elexirlang"
+        ]
+    },
+    "elm": {
+        "tone": "color",
+        "aliases": [
+            "elmlang"
+        ]
+    },
+    "emacs": {
+        "tone": "color",
+        "aliases": [
+            "editingmacros"
+        ]
+    },
+    "embeddedc": {
+        "tone": "dark",
+        "aliases": []
+    },
+    "ember": {
+        "tone": "color",
+        "aliases": [
+            "ember.js",
+            "emberjs"
+        ]
+    },
+    "envoy": {
+        "tone": "color",
+        "aliases": [
+            "envoyproxy"
+        ]
+    },
+    "erlang": {
+        "tone": "color",
+        "aliases": []
+    },
+    "eslint": {
+        "tone": "color",
+        "aliases": []
+    },
+    "express": {
+        "tone": "mono",
+        "aliases": [
+            "expressjs"
+        ]
+    },
+    "facebook": {
+        "tone": "color",
+        "aliases": []
+    },
+    "fastapi": {
+        "tone": "color",
+        "aliases": []
+    },
+    "fastify": {
+        "tone": "dark",
+        "aliases": []
+    },
+    "faunadb": {
+        "tone": "color",
+        "aliases": [
+            "fauna"
+        ]
+    },
+    "feathersjs": {
+        "tone": "color",
+        "aliases": []
+    },
+    "fedora": {
+        "tone": "color",
+        "aliases": []
+    },
+    "figma": {
+        "tone": "color",
+        "aliases": []
+    },
+    "filezilla": {
+        "tone": "dark",
+        "aliases": []
+    },
+    "firebase": {
+        "tone": "color",
+        "aliases": []
+    },
+    "firefox": {
+        "tone": "dark",
+        "aliases": [
+            "mozillafirefox"
+        ]
+    },
+    "flask": {
+        "tone": "mono",
+        "aliases": []
+    },
+    "flutter": {
+        "tone": "color",
+        "aliases": []
+    },
+    "fortran": {
+        "tone": "color",
+        "aliases": []
+    },
+    "foundation": {
+        "tone": "dark",
+        "aliases": []
+    },
+    "framermotion": {
+        "tone": "mono",
+        "aliases": [
+            "framer-motion",
+            "framer"
+        ]
+    },
+    "framework7": {
+        "tone": "color",
+        "aliases": []
+    },
+    "fsharp": {
+        "tone": "color",
+        "aliases": [
+            "f#"
+        ]
+    },
+    "gatling": {
+        "tone": "color",
+        "aliases": []
+    },
+    "gatsby": {
+        "tone": "color",
+        "aliases": [
+            "gatsbyjs"
+        ]
+    },
+    "gazebo": {
+        "tone": "dark",
+        "aliases": []
+    },
+    "gcc": {
+        "tone": "dark",
+        "aliases": [
+            "gnucompilercollection"
+        ]
+    },
+    "gentoo": {
+        "tone": "color",
+        "aliases": []
+    },
+    "ghost": {
+        "tone": "color",
+        "aliases": []
+    },
+    "gimp": {
+        "tone": "dark",
+        "aliases": []
+    },
+    "git": {
+        "tone": "color",
+        "aliases": []
+    },
+    "gitbook": {
+        "tone": "color",
+        "aliases": []
+    },
+    "github": {
+        "tone": "mono",
+        "aliases": []
+    },
+    "githubactions": {
+        "tone": "color",
+        "aliases": [
+            "github actions"
+        ]
+    },
+    "githubcodespaces": {
+        "tone": "color",
+        "aliases": [
+            "github codespaces"
+        ]
+    },
+    "gitlab": {
+        "tone": "color",
+        "aliases": []
+    },
+    "gitpod": {
+        "tone": "color",
+        "aliases": [
+            "gitpod-io"
+        ]
+    },
+    "gitter": {
+        "tone": "mono",
+        "aliases": []
+    },
+    "go": {
+        "tone": "dark",
+        "aliases": [
+            "golang"
+        ]
+    },
+    "godot": {
+        "tone": "color",
+        "aliases": []
+    },
+    "goland": {
+        "tone": "dark",
+        "aliases": []
+    },
+    "google": {
+        "tone": "color",
+        "aliases": []
+    },
+    "googlecloud": {
+        "tone": "color",
+        "aliases": []
+    },
+    "gradle": {
+        "tone": "color",
+        "aliases": [
+            "apachegradle",
+            "gradlebuildtool"
+        ]
+    },
+    "grafana": {
+        "tone": "color",
+        "aliases": []
+    },
+    "grails": {
+        "tone": "color",
+        "aliases": [
+            "grails framework"
+        ]
+    },
+    "graphql": {
+        "tone": "color",
+        "aliases": []
+    },
+    "groovy": {
+        "tone": "dark",
+        "aliases": [
+            "groovylang",
+            "apachegroovy"
+        ]
+    },
+    "grpc": {
+        "tone": "color",
+        "aliases": [
+            "grpcio",
+            "google remote procedure call"
+        ]
+    },
+    "grunt": {
+        "tone": "color",
+        "aliases": [
+            "gruntjs"
+        ]
+    },
+    "gulp": {
+        "tone": "color",
+        "aliases": [
+            "gulpjs"
+        ]
+    },
+    "hadoop": {
+        "tone": "dark",
+        "aliases": [
+            "apache hadoop"
+        ]
+    },
+    "handlebars": {
+        "tone": "mono",
+        "aliases": [
+            "handlebarsjs"
+        ]
+    },
+    "hardhat": {
+        "tone": "dark",
+        "aliases": []
+    },
+    "harvester": {
+        "tone": "color",
+        "aliases": [
+            "harvesterhci"
+        ]
+    },
+    "haskell": {
+        "tone": "color",
+        "aliases": []
+    },
+    "haxe": {
+        "tone": "color",
+        "aliases": []
+    },
+    "helm": {
+        "tone": "mono",
+        "aliases": []
+    },
+    "heroku": {
+        "tone": "color",
+        "aliases": []
+    },
+    "hibernate": {
+        "tone": "color",
+        "aliases": []
+    },
+    "homebrew": {
+        "tone": "dark",
+        "aliases": []
+    },
+    "html": {
+        "tone": "color",
+        "aliases": [
+            "hypertextmarkdownlanguage5",
+            "html5"
+        ]
+    },
+    "hugo": {
+        "tone": "color",
+        "aliases": [
+            "gohugo"
+        ]
+    },
+    "ie10": {
+        "tone": "color",
+        "aliases": [
+            "internetexplorer10"
+        ]
+    },
+    "ifttt": {
+        "tone": "mono",
+        "aliases": [
+            "ifthisthenthat"
+        ]
+    },
+    "illustrator": {
+        "tone": "color",
+        "aliases": [
+            "adobeillustrator"
+        ]
+    },
+    "influxdb": {
+        "tone": "mono",
+        "aliases": []
+    },
+    "inkscape": {
+        "tone": "dark",
+        "aliases": []
+    },
+    "insomnia": {
+        "tone": "dark",
+        "aliases": [
+            "insomnia rest client"
+        ]
+    },
+    "intellij": {
+        "tone": "dark",
+        "aliases": [
+            "intellijidea"
+        ]
+    },
+    "ionic": {
+        "tone": "color",
+        "aliases": []
+    },
+    "jaegertracing": {
+        "tone": "dark",
+        "aliases": [
+            "jaeger"
+        ]
+    },
+    "jamstack": {
+        "tone": "color",
+        "aliases": []
+    },
+    "jasmine": {
+        "tone": "color",
+        "aliases": [
+            "jasminejs"
+        ]
+    },
+    "java": {
+        "tone": "color",
+        "aliases": []
+    },
+    "javascript": {
+        "tone": "color",
+        "aliases": [
+            "js",
+            "ecmascript"
+        ]
+    },
+    "jeet": {
+        "tone": "color",
+        "aliases": []
+    },
+    "jekyll": {
+        "tone": "color",
+        "aliases": [
+            "jestjs"
+        ]
+    },
+    "jenkins": {
+        "tone": "dark",
+        "aliases": [
+            "hudson"
+        ]
+    },
+    "jest": {
+        "tone": "color",
+        "aliases": [
+            "jestjs"
+        ]
+    },
+    "jetbrains": {
+        "tone": "dark",
+        "aliases": [
+            "intellijsoftware"
+        ]
+    },
+    "jetpackcompose": {
+        "tone": "dark",
+        "aliases": []
+    },
+    "jira": {
+        "tone": "color",
+        "aliases": [
+            "atlassianjira"
+        ]
+    },
+    "jiraalign": {
+        "tone": "color",
+        "aliases": [
+            "jira align"
+        ]
+    },
+    "jquery": {
+        "tone": "color",
+        "aliases": [
+            "jqueryjs"
+        ]
+    },
+    "json": {
+        "tone": "color",
+        "aliases": [
+            "javascript object notation"
+        ]
+    },
+    "jule": {
+        "tone": "color",
+        "aliases": [
+            "julelang"
+        ]
+    },
+    "julia": {
+        "tone": "color",
+        "aliases": [
+            "julialang"
+        ]
+    },
+    "junit": {
+        "tone": "color",
+        "aliases": []
+    },
+    "jupyter": {
+        "tone": "color",
+        "aliases": [
+            "jupyternotebook"
+        ]
+    },
+    "k3os": {
+        "tone": "color",
+        "aliases": []
+    },
+    "k3s": {
+        "tone": "color",
+        "aliases": []
+    },
+    "k6": {
+        "tone": "color",
+        "aliases": []
+    },
+    "kaggle": {
+        "tone": "color",
+        "aliases": []
+    },
+    "karatelabs": {
+        "tone": "dark",
+        "aliases": [
+            "karate"
+        ]
+    },
+    "karma": {
+        "tone": "color",
+        "aliases": [
+            "karmarunner",
+            "karmajs"
+        ]
+    },
+    "kdeneon": {
+        "tone": "color",
+        "aliases": []
+    },
+    "keras": {
+        "tone": "color",
+        "aliases": []
+    },
+    "kibana": {
+        "tone": "color",
+        "aliases": []
+    },
+    "knexjs": {
+        "tone": "color",
+        "aliases": []
+    },
+    "knockout": {
+        "tone": "color",
+        "aliases": [
+            "knockoutjs"
+        ]
+    },
+    "kotlin": {
+        "tone": "color",
+        "aliases": [
+            "kotlinlang"
+        ]
+    },
+    "krakenjs": {
+        "tone": "color",
+        "aliases": [
+            "kraken"
+        ]
+    },
+    "ktor": {
+        "tone": "dark",
+        "aliases": []
+    },
+    "kubernetes": {
+        "tone": "color",
+        "aliases": []
+    },
+    "labview": {
+        "tone": "color",
+        "aliases": []
+    },
+    "laravel": {
+        "tone": "color",
+        "aliases": []
+    },
+    "latex": {
+        "tone": "mono",
+        "aliases": []
+    },
+    "less": {
+        "tone": "color",
+        "aliases": [
+            "lesscss"
+        ]
+    },
+    "linkedin": {
+        "tone": "color",
+        "aliases": []
+    },
+    "linux": {
+        "tone": "dark",
+        "aliases": []
+    },
+    "liquibase": {
+        "tone": "color",
+        "aliases": []
+    },
+    "livewire": {
+        "tone": "dark",
+        "aliases": [
+            "laravel-livewire"
+        ]
+    },
+    "llvm": {
+        "tone": "dark",
+        "aliases": [
+            "low level virtual machine"
+        ]
+    },
+    "lodash": {
+        "tone": "dark",
+        "aliases": []
+    },
+    "logstash": {
+        "tone": "color",
+        "aliases": []
+    },
+    "lua": {
+        "tone": "dark",
+        "aliases": [
+            "lualang"
+        ]
+    },
+    "lumen": {
+        "tone": "color",
+        "aliases": [
+            "laravel lumen",
+            "lumen laravel",
+            "laravel lumen framework",
+            "laravel.lumen"
+        ]
+    },
+    "magento": {
+        "tone": "color",
+        "aliases": []
+    },
+    "mariadb": {
+        "tone": "color",
+        "aliases": []
+    },
+    "markdown": {
+        "tone": "mono",
+        "aliases": [
+            "md"
+        ]
+    },
+    "materializecss": {
+        "tone": "color",
+        "aliases": [
+            "materialize",
+            "materialize-css",
+            "materialize css"
+        ]
+    },
+    "materialui": {
+        "tone": "color",
+        "aliases": [
+            "mui"
+        ]
+    },
+    "matlab": {
+        "tone": "dark",
+        "aliases": []
+    },
+    "matplotlib": {
+        "tone": "color",
+        "aliases": []
+    },
+    "maven": {
+        "tone": "dark",
+        "aliases": [
+            "apachemaven",
+            "mvn"
+        ]
+    },
+    "maya": {
+        "tone": "color",
+        "aliases": []
+    },
+    "meteor": {
+        "tone": "color",
+        "aliases": [
+            "meteorjs"
+        ]
+    },
+    "microsoftsqlserver": {
+        "tone": "color",
+        "aliases": [
+            "msql",
+            "mssql",
+            "microsoft sql server"
+        ]
+    },
+    "minitab": {
+        "tone": "color",
+        "aliases": []
+    },
+    "mithril": {
+        "tone": "mono",
+        "aliases": [
+            "mithril.js"
+        ]
+    },
+    "mobx": {
+        "tone": "color",
+        "aliases": [
+            "mobxjs"
+        ]
+    },
+    "mocha": {
+        "tone": "color",
+        "aliases": []
+    },
+    "modx": {
+        "tone": "color",
+        "aliases": []
+    },
+    "moleculer": {
+        "tone": "color",
+        "aliases": [
+            "moleculerjs",
+            "moleculer.js"
+        ]
+    },
+    "mongodb": {
+        "tone": "color",
+        "aliases": []
+    },
+    "mongoose": {
+        "tone": "mono",
+        "aliases": [
+            "mongoosejs"
+        ]
+    },
+    "moodle": {
+        "tone": "dark",
+        "aliases": []
+    },
+    "msdos": {
+        "tone": "dark",
+        "aliases": [
+            "microsoftdiskoperatingsystem"
+        ]
+    },
+    "mysql": {
+        "tone": "color",
+        "aliases": [
+            "mystructuredquerylanguage"
+        ]
+    },
+    "nano": {
+        "tone": "color",
+        "aliases": [
+            "gnu-nano",
+            "gnu nano"
+        ]
+    },
+    "neo4j": {
+        "tone": "dark",
+        "aliases": []
+    },
+    "neovim": {
+        "tone": "dark",
+        "aliases": []
+    },
+    "nestjs": {
+        "tone": "color",
+        "aliases": []
+    },
+    "netlify": {
+        "tone": "color",
+        "aliases": []
+    },
+    "networkx": {
+        "tone": "color",
+        "aliases": []
+    },
+    "nextjs": {
+        "tone": "dark",
+        "aliases": []
+    },
+    "nginx": {
+        "tone": "color",
+        "aliases": []
+    },
+    "ngrx": {
+        "tone": "color",
+        "aliases": []
+    },
+    "nhibernate": {
+        "tone": "color",
+        "aliases": []
+    },
+    "nim": {
+        "tone": "color",
+        "aliases": [
+            "nimlang"
+        ]
+    },
+    "nimble": {
+        "tone": "dark",
+        "aliases": []
+    },
+    "nixos": {
+        "tone": "color",
+        "aliases": []
+    },
+    "nodejs": {
+        "tone": "color",
+        "aliases": []
+    },
+    "nodemon": {
+        "tone": "color",
+        "aliases": [
+            "nodemonjs"
+        ]
+    },
+    "nodewebkit": {
+        "tone": "color",
+        "aliases": [
+            "nwjs"
+        ]
+    },
+    "nomad": {
+        "tone": "color",
+        "aliases": [
+            "hashicorp nomad"
+        ]
+    },
+    "norg": {
+        "tone": "color",
+        "aliases": [
+            "neorg"
+        ]
+    },
+    "notion": {
+        "tone": "dark",
+        "aliases": []
+    },
+    "npm": {
+        "tone": "color",
+        "aliases": [
+            "npmjs",
+            "nodepackagemanager"
+        ]
+    },
+    "nuget": {
+        "tone": "color",
+        "aliases": []
+    },
+    "numpy": {
+        "tone": "color",
+        "aliases": []
+    },
+    "nuxtjs": {
+        "tone": "color",
+        "aliases": []
+    },
+    "oauth": {
+        "tone": "dark",
+        "aliases": []
+    },
+    "objectivec": {
+        "tone": "color",
+        "aliases": []
+    },
+    "ocaml": {
+        "tone": "color",
+        "aliases": []
+    },
+    "ohmyzsh": {
+        "tone": "dark",
+        "aliases": [
+            "omz",
+            "ohmyz.sh",
+            "oh my zsh"
+        ]
+    },
+    "okta": {
+        "tone": "color",
+        "aliases": [
+            "okta developer"
+        ]
+    },
+    "openal": {
+        "tone": "dark",
+        "aliases": []
+    },
+    "openapi": {
+        "tone": "color",
+        "aliases": []
+    },
+    "opencl": {
+        "tone": "dark",
+        "aliases": []
+    },
+    "opencv": {
+        "tone": "color",
+        "aliases": []
+    },
+    "opengl": {
+        "tone": "color",
+        "aliases": [
+            "opengraphicslibrary"
+        ]
+    },
+    "openstack": {
+        "tone": "color",
+        "aliases": []
+    },
+    "opensuse": {
+        "tone": "color",
+        "aliases": []
+    },
+    "opentelemetry": {
+        "tone": "color",
+        "aliases": []
+    },
+    "opera": {
+        "tone": "dark",
+        "aliases": []
+    },
+    "oracle": {
+        "tone": "color",
+        "aliases": [
+            "oracledatabase"
+        ]
+    },
+    "ory": {
+        "tone": "color",
+        "aliases": []
+    },
+    "p5js": {
+        "tone": "color",
+        "aliases": [
+            "p5.js"
+        ]
+    },
+    "packer": {
+        "tone": "color",
+        "aliases": []
+    },
+    "pandas": {
+        "tone": "dark",
+        "aliases": []
+    },
+    "perl": {
+        "tone": "color",
+        "aliases": []
+    },
+    "pfsense": {
+        "tone": "mono",
+        "aliases": []
+    },
+    "phalcon": {
+        "tone": "dark",
+        "aliases": []
+    },
+    "phoenix": {
+        "tone": "color",
+        "aliases": [
+            "phoenix framework"
+        ]
+    },
+    "photonengine": {
+        "tone": "color",
+        "aliases": [
+            "photon"
+        ]
+    },
+    "photoshop": {
+        "tone": "dark",
+        "aliases": [
+            "adobephotoshop"
+        ]
+    },
+    "php": {
+        "tone": "dark",
+        "aliases": [
+            "php hypertext preprocessor",
+            "personal home page"
+        ]
+    },
+    "phpstorm": {
+        "tone": "dark",
+        "aliases": []
+    },
+    "playwright": {
+        "tone": "color",
+        "aliases": []
+    },
+    "plotly": {
+        "tone": "color",
+        "aliases": []
+    },
+    "pnpm": {
+        "tone": "color",
+        "aliases": [
+            "performant npm"
+        ]
+    },
+    "podman": {
+        "tone": "dark",
+        "aliases": []
+    },
+    "poetry": {
+        "tone": "dark",
+        "aliases": [
+            "python-poetry"
+        ]
+    },
+    "polygon": {
+        "tone": "color",
+        "aliases": []
+    },
+    "portainer": {
+        "tone": "color",
+        "aliases": []
+    },
+    "postcss": {
+        "tone": "color",
+        "aliases": []
+    },
+    "postgresql": {
+        "tone": "dark",
+        "aliases": []
+    },
+    "postman": {
+        "tone": "color",
+        "aliases": []
+    },
+    "powershell": {
+        "tone": "dark",
+        "aliases": [
+            "ps"
+        ]
+    },
+    "premierepro": {
+        "tone": "dark",
+        "aliases": [
+            "adobepremierepro"
+        ]
+    },
+    "prisma": {
+        "tone": "color",
+        "aliases": []
+    },
+    "processing": {
+        "tone": "dark",
+        "aliases": [
+            "processingpy"
+        ]
+    },
+    "prolog": {
+        "tone": "dark",
+        "aliases": [
+            "swi-prolog"
+        ]
+    },
+    "prometheus": {
+        "tone": "color",
+        "aliases": []
+    },
+    "protractor": {
+        "tone": "color",
+        "aliases": [
+            "protractorjs",
+            "protractortest"
+        ]
+    },
+    "pulsar": {
+        "tone": "color",
+        "aliases": [
+            "pulsar edit"
+        ]
+    },
+    "pulumi": {
+        "tone": "color",
+        "aliases": []
+    },
+    "puppeteer": {
+        "tone": "dark",
+        "aliases": []
+    },
+    "purescript": {
+        "tone": "mono",
+        "aliases": []
+    },
+    "putty": {
+        "tone": "dark",
+        "aliases": []
+    },
+    "pycharm": {
+        "tone": "dark",
+        "aliases": []
+    },
+    "pypi": {
+        "tone": "color",
+        "aliases": [
+            "python package index"
+        ]
+    },
+    "pyscript": {
+        "tone": "color",
+        "aliases": []
+    },
+    "pytest": {
+        "tone": "color",
+        "aliases": []
+    },
+    "python": {
+        "tone": "color",
+        "aliases": []
+    },
+    "pytorch": {
+        "tone": "color",
+        "aliases": []
+    },
+    "qodana": {
+        "tone": "dark",
+        "aliases": []
+    },
+    "qt": {
+        "tone": "color",
+        "aliases": []
+    },
+    "quarkus": {
+        "tone": "dark",
+        "aliases": []
+    },
+    "quasar": {
+        "tone": "dark",
+        "aliases": []
+    },
+    "qwik": {
+        "tone": "color",
+        "aliases": []
+    },
+    "r": {
+        "tone": "color",
+        "aliases": [
+            "rlang"
+        ]
+    },
+    "rabbitmq": {
+        "tone": "color",
+        "aliases": []
+    },
+    "rails": {
+        "tone": "color",
+        "aliases": [
+            "rubyonrails"
+        ]
+    },
+    "railway": {
+        "tone": "color",
+        "aliases": []
+    },
+    "rancher": {
+        "tone": "color",
+        "aliases": []
+    },
+    "raspberrypi": {
+        "tone": "dark",
+        "aliases": [
+            "rpi"
+        ]
+    },
+    "reach": {
+        "tone": "color",
+        "aliases": [
+            "reach lang"
+        ]
+    },
+    "react": {
+        "tone": "color",
+        "aliases": [
+            "reactjs"
+        ]
+    },
+    "reactbootstrap": {
+        "tone": "color",
+        "aliases": [
+            "react-bootstrap",
+            "react bootstrap"
+        ]
+    },
+    "reactnavigation": {
+        "tone": "color",
+        "aliases": []
+    },
+    "reactrouter": {
+        "tone": "dark",
+        "aliases": []
+    },
+    "readthedocs": {
+        "tone": "color",
+        "aliases": [
+            "read the docs"
+        ]
+    },
+    "realm": {
+        "tone": "color",
+        "aliases": []
+    },
+    "rect": {
+        "tone": "dark",
+        "aliases": [
+            "rectlang"
+        ]
+    },
+    "redhat": {
+        "tone": "dark",
+        "aliases": []
+    },
+    "redis": {
+        "tone": "dark",
+        "aliases": [
+            "remotedictionaryserver"
+        ]
+    },
+    "redux": {
+        "tone": "color",
+        "aliases": [
+            "reduxjs"
+        ]
+    },
+    "renpy": {
+        "tone": "dark",
+        "aliases": [
+            "ren'py"
+        ]
+    },
+    "replit": {
+        "tone": "color",
+        "aliases": []
+    },
+    "rider": {
+        "tone": "dark",
+        "aliases": []
+    },
+    "rocksdb": {
+        "tone": "dark",
+        "aliases": []
+    },
+    "rockylinux": {
+        "tone": "color",
+        "aliases": [
+            "rocky"
+        ]
+    },
+    "rollup": {
+        "tone": "color",
+        "aliases": [
+            "rollupjs",
+            "rollup.js"
+        ]
+    },
+    "ros": {
+        "tone": "color",
+        "aliases": [
+            "robotoperatingsystem"
+        ]
+    },
+    "rspec": {
+        "tone": "color",
+        "aliases": []
+    },
+    "rstudio": {
+        "tone": "color",
+        "aliases": []
+    },
+    "ruby": {
+        "tone": "dark",
+        "aliases": [
+            "rubylang"
+        ]
+    },
+    "rubymine": {
+        "tone": "dark",
+        "aliases": []
+    },
+    "rust": {
+        "tone": "mono",
+        "aliases": [
+            "rustlang"
+        ]
+    },
+    "rxjs": {
+        "tone": "color",
+        "aliases": [
+            "reactive extensions for javascript"
+        ]
+    },
+    "safari": {
+        "tone": "color",
+        "aliases": [
+            "applesafari"
+        ]
+    },
+    "salesforce": {
+        "tone": "color",
+        "aliases": []
+    },
+    "sanity": {
+        "tone": "color",
+        "aliases": []
+    },
+    "sass": {
+        "tone": "color",
+        "aliases": [
+            "scss"
+        ]
+    },
+    "scala": {
+        "tone": "dark",
+        "aliases": [
+            "scalalang"
+        ]
+    },
+    "scalingo": {
+        "tone": "color",
+        "aliases": []
+    },
+    "scikitlearn": {
+        "tone": "dark",
+        "aliases": [
+            "scikit-learn",
+            "scikit",
+            "sklearn"
+        ]
+    },
+    "sdl": {
+        "tone": "color",
+        "aliases": [
+            "simpledirectmedialayer"
+        ]
+    },
+    "selenium": {
+        "tone": "color",
+        "aliases": []
+    },
+    "sema": {
+        "tone": "mono",
+        "aliases": [
+            "sema software"
+        ]
+    },
+    "sentry": {
+        "tone": "color",
+        "aliases": []
+    },
+    "sequelize": {
+        "tone": "color",
+        "aliases": [
+            "sequelizejs"
+        ]
+    },
+    "shopware": {
+        "tone": "color",
+        "aliases": []
+    },
+    "shotgrid": {
+        "tone": "dark",
+        "aliases": []
+    },
+    "sketch": {
+        "tone": "color",
+        "aliases": []
+    },
+    "slack": {
+        "tone": "color",
+        "aliases": []
+    },
+    "socketio": {
+        "tone": "mono",
+        "aliases": []
+    },
+    "solidity": {
+        "tone": "mono",
+        "aliases": [
+            "soliditylang"
+        ]
+    },
+    "solidjs": {
+        "tone": "color",
+        "aliases": []
+    },
+    "sonarqube": {
+        "tone": "color",
+        "aliases": [
+            "sonar"
+        ]
+    },
+    "sourcetree": {
+        "tone": "color",
+        "aliases": []
+    },
+    "spack": {
+        "tone": "color",
+        "aliases": []
+    },
+    "splunk": {
+        "tone": "mono",
+        "aliases": []
+    },
+    "spring": {
+        "tone": "color",
+        "aliases": [
+            "springframework"
+        ]
+    },
+    "spss": {
+        "tone": "color",
+        "aliases": [
+            "ibmspss"
+        ]
+    },
+    "spyder": {
+        "tone": "dark",
+        "aliases": []
+    },
+    "sqlalchemy": {
+        "tone": "color",
+        "aliases": []
+    },
+    "sqldeveloper": {
+        "tone": "color",
+        "aliases": []
+    },
+    "sqlite": {
+        "tone": "color",
+        "aliases": []
+    },
+    "ssh": {
+        "tone": "mono",
+        "aliases": [
+            "secureshell"
+        ]
+    },
+    "stackoverflow": {
+        "tone": "color",
+        "aliases": [
+            "stack overflow"
+        ]
+    },
+    "stata": {
+        "tone": "color",
+        "aliases": []
+    },
+    "storybook": {
+        "tone": "color",
+        "aliases": [
+            "storybookjs"
+        ]
+    },
+    "streamlit": {
+        "tone": "color",
+        "aliases": []
+    },
+    "stylus": {
+        "tone": "color",
+        "aliases": [
+            "styluslang"
+        ]
+    },
+    "subversion": {
+        "tone": "color",
+        "aliases": [
+            "apachesubversion"
+        ]
+    },
+    "supabase": {
+        "tone": "color",
+        "aliases": []
+    },
+    "svelte": {
+        "tone": "color",
+        "aliases": [
+            "sveltejs"
+        ]
+    },
+    "swagger": {
+        "tone": "color",
+        "aliases": []
+    },
+    "swift": {
+        "tone": "color",
+        "aliases": []
+    },
+    "swiper": {
+        "tone": "mono",
+        "aliases": []
+    },
+    "symfony": {
+        "tone": "mono",
+        "aliases": []
+    },
+    "tailwindcss": {
+        "tone": "color",
+        "aliases": []
+    },
+    "tauri": {
+        "tone": "color",
+        "aliases": []
+    },
+    "tensorflow": {
+        "tone": "color",
+        "aliases": []
+    },
+    "terraform": {
+        "tone": "color",
+        "aliases": []
+    },
+    "tex": {
+        "tone": "mono",
+        "aliases": []
+    },
+    "thealgorithms": {
+        "tone": "color",
+        "aliases": []
+    },
+    "threedsmax": {
+        "tone": "color",
+        "aliases": [
+            "autodesk 3ds max",
+            "3dsmax"
+        ]
+    },
+    "threejs": {
+        "tone": "mono",
+        "aliases": []
+    },
+    "titaniumsdk": {
+        "tone": "color",
+        "aliases": []
+    },
+    "tomcat": {
+        "tone": "dark",
+        "aliases": []
+    },
+    "tortoisegit": {
+        "tone": "dark",
+        "aliases": []
+    },
+    "towergit": {
+        "tone": "dark",
+        "aliases": [
+            "towergitclient"
+        ]
+    },
+    "traefikmesh": {
+        "tone": "color",
+        "aliases": []
+    },
+    "traefikproxy": {
+        "tone": "color",
+        "aliases": []
+    },
+    "travis": {
+        "tone": "color",
+        "aliases": [
+            "travisci"
+        ]
+    },
+    "trello": {
+        "tone": "color",
+        "aliases": [
+            "atlassiantrello"
+        ]
+    },
+    "trpc": {
+        "tone": "color",
+        "aliases": [
+            "typescript remote procedure call"
+        ]
+    },
+    "twitter": {
+        "tone": "mono",
+        "aliases": [
+            "x"
+        ]
+    },
+    "typescript": {
+        "tone": "color",
+        "aliases": [
+            "ts"
+        ]
+    },
+    "typo3": {
+        "tone": "color",
+        "aliases": []
+    },
+    "ubuntu": {
+        "tone": "color",
+        "aliases": []
+    },
+    "unifiedmodelinglanguage": {
+        "tone": "color",
+        "aliases": [
+            "uml",
+            "unified modeling language"
+        ]
+    },
+    "unity": {
+        "tone": "dark",
+        "aliases": []
+    },
+    "unix": {
+        "tone": "color",
+        "aliases": []
+    },
+    "unrealengine": {
+        "tone": "mono",
+        "aliases": []
+    },
+    "uwsgi": {
+        "tone": "dark",
+        "aliases": [
+            "uwebservergatewayinterface"
+        ]
+    },
+    "v8": {
+        "tone": "color",
+        "aliases": [
+            "v8 engine"
+        ]
+    },
+    "vagrant": {
+        "tone": "color",
+        "aliases": []
+    },
+    "vala": {
+        "tone": "color",
+        "aliases": []
+    },
+    "vault": {
+        "tone": "color",
+        "aliases": [
+            "hashicorp vault"
+        ]
+    },
+    "vercel": {
+        "tone": "mono",
+        "aliases": []
+    },
+    "vertx": {
+        "tone": "color",
+        "aliases": [
+            "eclipsevertx"
+        ]
+    },
+    "vim": {
+        "tone": "dark",
+        "aliases": [
+            "viimproved"
+        ]
+    },
+    "visualbasic": {
+        "tone": "color",
+        "aliases": [
+            "vb"
+        ]
+    },
+    "visualstudio": {
+        "tone": "color",
+        "aliases": [
+            "vs"
+        ]
+    },
+    "vite": {
+        "tone": "color",
+        "aliases": []
+    },
+    "vitejs": {
+        "tone": "color",
+        "aliases": [
+            "vite.js",
+            "vite"
+        ]
+    },
+    "vitess": {
+        "tone": "color",
+        "aliases": []
+    },
+    "vitest": {
+        "tone": "color",
+        "aliases": []
+    },
+    "vscode": {
+        "tone": "color",
+        "aliases": [
+            "visualstudiocode"
+        ]
+    },
+    "vsphere": {
+        "tone": "color",
+        "aliases": [
+            "vmwarevsphere"
+        ]
+    },
+    "vuejs": {
+        "tone": "color",
+        "aliases": []
+    },
+    "vuestorefront": {
+        "tone": "color",
+        "aliases": []
+    },
+    "vuetify": {
+        "tone": "color",
+        "aliases": []
+    },
+    "vyper": {
+        "tone": "mono",
+        "aliases": [
+            "vyperlang"
+        ]
+    },
+    "wasm": {
+        "tone": "color",
+        "aliases": [
+            "webassembly"
+        ]
+    },
+    "webflow": {
+        "tone": "color",
+        "aliases": []
+    },
+    "weblate": {
+        "tone": "color",
+        "aliases": []
+    },
+    "webpack": {
+        "tone": "color",
+        "aliases": [
+            "webpackjs"
+        ]
+    },
+    "webstorm": {
+        "tone": "dark",
+        "aliases": []
+    },
+    "windows11": {
+        "tone": "color",
+        "aliases": []
+    },
+    "windows8": {
+        "tone": "color",
+        "aliases": []
+    },
+    "woocommerce": {
+        "tone": "color",
+        "aliases": []
+    },
+    "wordpress": {
+        "tone": "color",
+        "aliases": []
+    },
+    "xamarin": {
+        "tone": "color",
+        "aliases": []
+    },
+    "xcode": {
+        "tone": "dark",
+        "aliases": []
+    },
+    "xd": {
+        "tone": "dark",
+        "aliases": [
+            "adobexd"
+        ]
+    },
+    "xml": {
+        "tone": "color",
+        "aliases": [
+            "extensiblemarkuplanguage"
+        ]
+    },
+    "yaml": {
+        "tone": "dark",
+        "aliases": [
+            "yaml ain't markup language"
+        ]
+    },
+    "yarn": {
+        "tone": "color",
+        "aliases": []
+    },
+    "yii": {
+        "tone": "color",
+        "aliases": [
+            "yesitis"
+        ]
+    },
+    "yugabytedb": {
+        "tone": "color",
+        "aliases": []
+    },
+    "yunohost": {
+        "tone": "dark",
+        "aliases": []
+    },
+    "zend": {
+        "tone": "color",
+        "aliases": []
+    },
+    "zig": {
+        "tone": "color",
+        "aliases": [
+            "ziglang"
+        ]
+    }
+}

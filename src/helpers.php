@@ -227,21 +227,47 @@ function icon(string $name, ?string $label = null, int $size = 20): string
 }
 
 /**
- * Logo officiel d'une techno (Devicon), pour les TechChip.
- * Le logo GitHub est intégré à la page pour prendre la couleur du texte (lisible en thème sombre).
+ * Catalogue des logos de technologies (public/assets/img/tech/logos.json, écrit par bin/logos.php) :
+ * nom → ['tone' => 'mono'|'dark'|'color', 'aliases' => noms alternatifs].
+ *
+ * @return array<string, array{tone: string, aliases: list<string>}>
+ */
+function tech_logos(): array
+{
+    static $catalog = null;
+    if ($catalog === null) {
+        $json = @file_get_contents(ROOT_PATH . '/public/assets/img/tech/logos.json');
+        $catalog = is_string($json) ? (json_decode($json, true) ?: []) : [];
+    }
+
+    return $catalog;
+}
+
+/**
+ * Logo officiel d'une techno (Devicon), pour les TechChip. Selon son ton (bin/logos.php) :
+ * - mono (entièrement sombre, ex. GitHub) : intégré à la page pour prendre la couleur du texte ;
+ * - dark (noir mêlé à d'autres couleurs, ex. Next.js) : image posée sur une pastille claire en thème sombre ;
+ * - color : simple image.
  */
 function tech_logo(string $tech, int $size = 24): string
 {
     if (!preg_match('/^[a-z0-9-]+$/', $tech) || !is_file(ROOT_PATH . "/public/assets/img/tech/{$tech}.svg")) {
         return '';
     }
-    if ($tech === 'github') {
-        $svg = (string) file_get_contents(ROOT_PATH . '/public/assets/img/tech/github.svg');
+    $tone = tech_logos()[$tech]['tone'] ?? 'color';
 
-        return preg_replace('/^<svg/', sprintf('<svg width="%1$d" height="%1$d" aria-hidden="true" focusable="false"', $size), $svg, 1) ?? '';
+    if ($tone === 'mono') {
+        $svg = (string) file_get_contents(ROOT_PATH . "/public/assets/img/tech/{$tech}.svg");
+
+        return preg_replace('/^<svg/', sprintf('<svg class="tech-logo" width="%1$d" height="%1$d" aria-hidden="true" focusable="false"', $size), trim($svg), 1) ?? '';
     }
 
-    return sprintf('<img src="/assets/img/tech/%s.svg" width="%2$d" height="%2$d" alt="">', $tech, $size);
+    return sprintf(
+        '<img class="%s" src="/assets/img/tech/%s.svg" width="%3$d" height="%3$d" alt="" loading="lazy">',
+        $tone === 'dark' ? 'tech-logo tech-logo--backdrop' : 'tech-logo',
+        $tech,
+        $size,
+    );
 }
 
 /** Champ caché contenant le jeton CSRF, à placer dans chaque formulaire POST. */

@@ -101,7 +101,7 @@ final class ResourceForm
             'number' => preg_match('/^-?\d+$/', $value) ? [(int) $value, null] : [$value, 'number'],
             'date' => [$value, self::validDate($value, 'Y-m-d') ? null : 'date'],
             'month' => self::validDate($value . '-01', 'Y-m-d') ? [$value . '-01', null] : [$value, 'date'],
-            'select' => [$value, array_key_exists($value, $field->options) ? null : 'select'],
+            'select', 'logo' => [$value, array_key_exists($value, $field->options) ? null : 'select'],
             default => [$value, null],
         };
     }

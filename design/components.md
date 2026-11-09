@@ -29,7 +29,8 @@ Chaque composant existe en thème clair et sombre via les variables de couleur, 
 
 ### TechChip [V]
 - Ligne d'une carte Stack : fond `soft` (ou `invSoft` dans une carte inversée), rayon `md`, padding `space.3`, gap `space.3`.
-- Icône : **logo officiel** de la techno (jeu Devicon, composant `Logo`), 24 px, posé directement sur la pastille ; couleurs de marque = seule exception aux couleurs du thème ; le logo GitHub (noir) est lié à `ink` pour rester visible en sombre. [V]
+- Icône : **logo officiel** de la techno (jeu Devicon, composant `Logo`), 24 px, posé directement sur la pastille ; couleurs de marque = seule exception aux couleurs du thème. [V]
+- Logos sombres [V 2026-11-09] : un logo entièrement noir (GitHub, Vercel…) prend la couleur du texte (`ink`, ou `invInk` dans une carte inversée) ; un logo mêlant noir et couleurs (Next.js, PHP…) est posé sur une pastille claire fixe (`brand.fg`, rayon `xs`, 2 px). Le ton de chaque logo est calculé à l'import (`bin/logos.php`).
 - Carte IA (pas de logo officiel) : carré 34 px rayon `sm` fond `accent` + monogramme typo `caption` couleur `onAccent`. [V]
 - Libellé typo `body`.
 

@@ -184,6 +184,7 @@ Le back-office gère des **types de contenu définis** : projets, certifications
 | 2026-11-09 | Hero sans carte : titre, sous-titre et boutons posés directement sur le fond de pixels (comparé dans une maquette aux options « dans la carte », « autour du hero » et « toute la page », puis essayé sur le site). Écart assumé à la maquette | [V] |
 | 2026-11-09 | Formulaire de contact : types Stage, Alternance, Autre (au lieu de Site vitrine, Application, IA, Autre), cohérent avec la recherche de stage ou d'alternance. Anciens messages passés en « Autre » (migration 012) | [V] |
 | 2026-11-09 | Formulaire de contact : « Vous me contactez pour » (au lieu de « Type de projet ») et « Présentez-moi votre besoin… » (au lieu de « Parlez-moi de votre projet… ») | [V] |
+| 2026-11-09 | Logos de technologies : les 473 logos Devicon 2.16.0 importés (`bin/logos.php`), nettoyés et classés par ton (mono, dark, color) pour rester lisibles en thème sombre. Back-office : choix du logo dans une liste avec recherche (nom et noms alternatifs) et aperçu de chaque logo | [V] |
 | 2026-11-03 | Modèle séparé en **entités** (`src/Model/Entity/`, uniquement les données) et **repositories** (`src/Model/Repository/`, uniquement le SQL) | [V] |
 | 2026-11-03 | Modèle « Active Record » (une classe qui porte données et SQL) | [R] |
 | 2026-11-03 | **Composer** : chargement automatique PSR-4 (`App\` → `src/`), PHPMailer (envoi SMTP), PHPUnit (tests) ; pas de framework. `vendor/` non suivi par git | [V] |
