@@ -80,7 +80,6 @@ return [
         ],
         'stack' => [
             'title' => 'Stack',
-            'count' => '{n} outils',
         ],
         'projects' => [
             'title' => 'Projets',

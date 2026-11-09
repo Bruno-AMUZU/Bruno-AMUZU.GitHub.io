@@ -91,7 +91,7 @@ Chaque composant existe en thème clair et sombre via les variables de couleur, 
 
 ### StackCard [V]
 - Fond `surface` (catégorie IA : `inv`), rayon `xl`, padding `space.7`, gap `space.5`.
-- En-tête : titre `heading-2` + compteur (« 4 outils ») typo `caption` couleur `muted`.
+- En-tête : titre `heading-2` seul. [V 2026-11-09 : compteur « 4 outils » retiré]
 - Liste verticale de TechChip, gap `space.2`.
 
 ### ProjectCard [V]

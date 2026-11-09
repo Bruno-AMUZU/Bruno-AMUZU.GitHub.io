@@ -8,7 +8,7 @@ namespace App\Core;
  * Textes de l'interface dans la langue de la page, lus dans lang/fr.php et lang/en.php.
  *
  *   t('home.hero.title')                 → « Des sites et des outils web… »
- *   t('home.stack.count', ['n' => 4])    → remplace {n} dans le texte
+ *   t('cle.du.texte', ['n' => 4])    → remplace {n} dans le texte
  *
  * Une clé absente en anglais est cherchée en français ; absente partout, la clé elle-même
  * est affichée, ce qui rend l'oubli visible.

@@ -175,6 +175,7 @@ Le back-office gère des **types de contenu définis** : projets, certifications
 | 2026-11-08 | SectionNav : conteneur resserré de 136 px de chaque côté pour afficher les noms en permanence dès 1024 px | [R] tout le contenu rétrécissait trop |
 | 2026-11-08 | SectionNav adaptatif (option A) : ≥ 1520 px, rail « libellé actif » dans la marge, sans toucher au contenu ; 1024–1519 px, traits seuls et panneau des noms au survol (façon Notion), conteneur resserré de 56 px de chaque côté ; < 1024 px, pastille | [V] |
 | 2026-11-08 | SectionNav plus grand (traits 20 × 4 px, 32 px pour la section en cours, lignes de 32 px, noms en `label`) et animation au survol : le panneau se déploie depuis la droite, les noms arrivent l'un après l'autre. Conteneur resserré de 72 px (au lieu de 56) entre 1024 et 1519 px | [V] |
+| 2026-11-09 | StackCard : le compteur d'outils (« 4 outils ») est retiré | [V] |
 | 2026-11-03 | Modèle séparé en **entités** (`src/Model/Entity/`, uniquement les données) et **repositories** (`src/Model/Repository/`, uniquement le SQL) | [V] |
 | 2026-11-03 | Modèle « Active Record » (une classe qui porte données et SQL) | [R] |
 | 2026-11-03 | **Composer** : chargement automatique PSR-4 (`App\` → `src/`), PHPMailer (envoi SMTP), PHPUnit (tests) ; pas de framework. `vendor/` non suivi par git | [V] |

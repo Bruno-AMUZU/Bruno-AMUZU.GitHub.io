@@ -211,14 +211,6 @@
   gap: var(--space-3);
 }
 
-.stack-card__count {
-  color: var(--color-muted);
-}
-
-.stack-card--inv .stack-card__count {
-  color: var(--color-inv-muted);
-}
-
 .stack-card__list {
   display: flex;
   flex-direction: column;
