@@ -1,0 +1,75 @@
+# Production sur le VPS, derrière le reverse proxy commun Caddy (dépôt side-projects/caddy).
+#
+# Le site ne publie aucun port : il rejoint le réseau Docker externe « proxy », où Caddy le
+# joint sous le nom « portfolio », termine HTTPS et gère le certificat de brunoamuzu.fr.
+#
+# Sur le serveur, le .env contient COMPOSE_FILE=compose.prod.yaml : `docker compose …`,
+# bin/backup.sh et bin/restore.sh utilisent alors ce fichier sans option supplémentaire.
+# Ne pas renommer en compose.yaml : il remplacerait docker-compose.yml en développement.
+#
+# Mise à jour : sh bin/deploy-docker.sh
+
+name: portfolio
+
+x-logging: &logging
+  driver: json-file
+  options:
+    max-size: "10m"
+    max-file: "3"
+
+services:
+  # Le site : Apache + PHP, image « prod » (code copié dans l'image, OPcache, sans outils de dev).
+  app:
+    build:
+      context: .
+      dockerfile: docker/php/Dockerfile
+      target: prod
+    image: portfolio:prod
+    env_file: .env
+    environment:
+      DB_HOST: db
+      DB_PORT: "5432"
+    volumes:
+      # Fichiers envoyés et journaux sur le disque du serveur, à côté du code : bin/backup.sh
+      # et bin/restore.sh les lisent et les remplacent directement.
+      - ./storage:/var/www/html/storage
+    networks:
+      default:
+      proxy:
+        aliases: [portfolio]
+    depends_on:
+      db:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD-SHELL", "curl -fsS -o /dev/null http://127.0.0.1/fr || exit 1"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+    restart: unless-stopped
+    logging: *logging
+
+  # PostgreSQL 17 avec l'extension pgvector déjà disponible (assistant IA, V2.2).
+  db:
+    image: pgvector/pgvector:pg17
+    environment:
+      POSTGRES_DB: ${DB_NAME:?DB_NAME manquant dans .env}
+      POSTGRES_USER: ${DB_USER:?DB_USER manquant dans .env}
+      POSTGRES_PASSWORD: ${DB_PASSWORD:?DB_PASSWORD manquant dans .env}
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+    restart: unless-stopped
+    logging: *logging
+
+networks:
+  # Réseau du reverse proxy, créé une fois sur le serveur : docker network create proxy
+  proxy:
+    external: true
+
+volumes:
+  pgdata:

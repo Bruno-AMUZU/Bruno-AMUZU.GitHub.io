@@ -38,6 +38,14 @@ FROM base AS prod
 RUN mv "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini"
 COPY docker/php/php.prod.ini "$PHP_INI_DIR/conf.d/portfolio.ini"
 
+# Derrière le reverse proxy (Caddy), REMOTE_ADDR serait toujours l'adresse de Caddy : les limites
+# de tentatives (connexion, contact) seraient communes à tous les visiteurs. mod_remoteip remplace
+# REMOTE_ADDR par l'adresse transmise dans X-Forwarded-For, uniquement si la requête vient des
+# réseaux Docker : un visiteur ne peut pas se forger une adresse.
+RUN a2enmod remoteip \
+    && printf 'RemoteIPHeader X-Forwarded-For\nRemoteIPInternalProxy 10.0.0.0/8 172.16.0.0/12 192.168.0.0/16\n' > /etc/apache2/conf-available/remoteip.conf \
+    && a2enconf remoteip
+
 # Dépendances d'abord (couche mise en cache tant que composer.lock ne change pas), sans PHPUnit.
 COPY composer.json composer.lock ./
 RUN composer install --no-dev --no-scripts --no-autoloader --prefer-dist --no-interaction

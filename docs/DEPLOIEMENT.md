@@ -1,7 +1,11 @@
 # Mise en ligne et exploitation
 
-Ce guide décrit comment mettre le site en production et le maintenir. L'hébergeur n'est pas encore
-choisi (issue #44) : les deux cas courants sont décrits.
+Ce guide décrit comment mettre le site en production et le maintenir.
+
+**Hébergement retenu (issue #44)** : VPS en Docker (cas B), derrière le reverse proxy commun Caddy
+(dépôt `side-projects/caddy`, installé dans `/opt/caddy`), qui reçoit les ports 80 et 443, gère HTTPS
+et transmet les requêtes au site sur le réseau Docker `proxy`. VPS KVM1 Hostinger jusqu'au 17 janvier
+2027, puis VPS-1 OVHcloud (voir « Changer de serveur »). Le cas A reste décrit pour mémoire.
 
 ## 1. Prérequis de l'hébergeur
 
@@ -34,27 +38,36 @@ php bin/create-admin.php vous@exemple.fr "Bruno Amuzu"
 - Utiliser les réglages de `docker/php/php.prod.ini` (erreurs masquées, cookies sécurisés, envois de 12 Mo).
 - `storage/` doit être accessible en écriture par PHP.
 
-### B. VPS avec Docker
+### B. VPS avec Docker (retenu)
 
-L'image de production se construit avec la cible `prod` du Dockerfile :
+Fichiers : `compose.prod.yaml` (site + PostgreSQL avec pgvector), `bin/deploy-docker.sh`. Le site ne
+publie aucun port : Caddy le joint sous le nom `portfolio`. Les fichiers envoyés et les journaux sont dans
+`storage/`, sur le disque du serveur ; la base dans le volume Docker `portfolio_pgdata`.
+
+En root, sur le serveur (le réseau `proxy` et Caddy existent déjà) :
 
 ```sh
-docker build --target prod -t portfolio:prod -f docker/php/Dockerfile .
-docker run -d --name portfolio --env-file .env \
-  -v portfolio_uploads:/var/www/html/storage/uploads \
-  -v portfolio_logs:/var/www/html/storage/logs \
-  -p 127.0.0.1:8080:80 portfolio:prod
-docker exec portfolio php bin/migrate.php
-docker exec -it portfolio php bin/create-admin.php vous@exemple.fr "Bruno Amuzu"
+git clone -b v2 https://github.com/Bruno-AMUZU/Bruno-AMUZU.GitHub.io.git /opt/portfolio && cd /opt/portfolio
+cp .env.production.example .env && chmod 600 .env
+openssl rand -hex 24                   # → DB_PASSWORD
+nano .env                              # remplir chaque valeur
+sh bin/deploy-docker.sh                # image, base, migrations, vérification
+docker compose exec app php bin/create-admin.php vous@exemple.fr "Bruno Amuzu"
 ```
 
-Un reverse proxy (Caddy, Traefik ou nginx) placé devant gère le HTTPS. **Ni Mailpit ni Adminer en production.**
+Puis activer le bloc `brunoamuzu.fr` dans le Caddyfile et recharger Caddy
+(`docker exec caddy caddy reload --config /etc/caddy/Caddyfile`). **Ni Mailpit ni Adminer en production.**
+
+Derrière Caddy, Apache (`mod_remoteip`) reprend l'adresse du visiteur dans `X-Forwarded-For`, seulement si
+la requête vient des réseaux Docker : les limites de tentatives restent propres à chaque visiteur.
 
 ## 3. Domaine brunoamuzu.fr et HTTPS (issue #46)
 
-1. Chez le registrar : enregistrement `A` (et `AAAA`) vers l'adresse IP du serveur, ou les DNS de l'hébergeur.
-2. Activer le certificat HTTPS (Let's Encrypt) dans le panneau, ou via le reverse proxy.
-3. Rediriger `http://` vers `https://` et `www.` vers le domaine nu (règle de l'hébergeur).
+Domaine acheté chez OVH, zone DNS chez OVH.
+
+1. Zone DNS : `A` sur `@` vers l'adresse IP du VPS, `CNAME` `www` vers `brunoamuzu.fr.`.
+2. HTTPS : Caddy obtient et renouvelle le certificat dès que le bloc `brunoamuzu.fr` est actif.
+3. `http://` vers `https://` : automatique avec Caddy ; `www.` vers le domaine nu : bloc `redir` du Caddyfile.
 4. Vérifier : `APP_URL=https://brunoamuzu.fr` dans `.env` ; l'en-tête HSTS est envoyé automatiquement en production.
 
 ## 4. E-mails : SMTP, SPF, DKIM (issue #47)
@@ -80,7 +93,14 @@ sh bin/deploy.sh          # code, dépendances, sauvegarde, migrations, vérific
 
 Puis vider OPcache (redémarrer PHP depuis le panneau), car `opcache.validate_timestamps = 0`.
 
-Avec Docker : reconstruire l'image, remplacer le conteneur, puis `docker exec portfolio php bin/migrate.php`.
+Avec Docker (VPS) :
+
+```sh
+cd /opt/portfolio && sh bin/deploy-docker.sh   # code, image, sauvegarde, migrations, redémarrage, vérification
+```
+
+Le script déploie la branche en place (`v2` jusqu'à la fusion dans `main`). Le conteneur est recréé :
+OPcache repart à neuf, rien à vider.
 
 ## 6. Sauvegardes (issue #48)
 
@@ -88,13 +108,21 @@ Avec Docker : reconstruire l'image, remplacer le conteneur, puis `docker exec po
 - Planifier chaque nuit : `0 3 * * * cd /chemin/du/site && sh bin/backup.sh >> storage/logs/backup.log 2>&1`
 - Planifier aussi la suppression des messages de plus de 12 mois (durée annoncée par la mention RGPD) :
   `30 3 * * * cd /chemin/du/site && php bin/purge-messages.php >> storage/logs/purge.log 2>&1`
+  (avec Docker : `30 3 * * * cd /opt/portfolio && docker compose exec -T app php bin/purge-messages.php >> storage/logs/purge.log 2>&1`)
   (le site la fait déjà à chaque message reçu et à l'ouverture des Messages ; la tâche la garantit sans activité).
 - **Copier `backups/` hors du serveur** (autre machine, stockage externe) : une sauvegarde sur le même disque
   ne protège pas d'une panne.
 - Restaurer : `sh bin/restore.sh backups/AAAA-MM-JJ_HHMMSS` (confirmation demandée). Tester une restauration
   au moins une fois après la mise en ligne.
 
-## 7. Après la mise en ligne
+## 7. Changer de serveur (Hostinger → OVH, avant le 17 janvier 2027)
+
+1. Sur l'ancien serveur : `sh bin/backup.sh`, puis copier le dossier de sauvegarde et le `.env` sur le nouveau.
+2. Sur le nouveau : Docker, `docker network create proxy`, Caddy, puis l'installation du cas B (sans
+   `create-admin`) et `CONFIRM=oui sh bin/restore.sh backups/…`.
+3. La veille, baisser le TTL des enregistrements DNS (300 s) ; le jour J, remplacer l'adresse IP du `A @`.
+
+## 8. Après la mise en ligne
 
 - Renommer le dépôt et rediriger l'ancien site GitHub Pages vers brunoamuzu.fr (issue #51).
 - Déclarer le sitemap (`https://brunoamuzu.fr/sitemap.xml`) dans Google Search Console.

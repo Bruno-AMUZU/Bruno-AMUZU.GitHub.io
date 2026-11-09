@@ -198,6 +198,8 @@ Le back-office gère des **types de contenu définis** : projets, certifications
 | 2026-11-09 | **Domaine** : `brunoamuzu.fr`, acheté chez OVH (zone DNS gérée chez OVH, sans transfert à prévoir). Remplace `brunoamuzu.dev`, y compris pour le nom de dépôt pressenti du 2026-11-03 | [V] |
 | 2026-11-09 | `brunoamuzu.dev` | [R] plus cher à l'achat et au renouvellement ; le `.fr` convient à la cible (recruteurs en France et au Luxembourg) |
 | 2026-11-09 | **Hébergement** : VPS KVM1 Hostinger (déjà utilisé par une autre application, reverse proxy partagé) jusqu'au 17 janvier 2027, puis VPS-1 OVHcloud. Déploiement en Docker pour faciliter la migration | [V] |
+| 2026-11-09 | **Reverse proxy commun Caddy** (dépôt `side-projects/caddy`) devant tous les projets du VPS : il reçoit 80 et 443 et gère les certificats ; les projets rejoignent le réseau Docker `proxy` sans publier de port. ALERTMNS passe sur `alertmns.brunoamuzu.fr` | [V] |
+| 2026-11-09 | **Déploiement** : branche `v2` sur le VPS (`compose.prod.yaml`, `bin/deploy-docker.sh`) ; `main` garde la v1 sur GitHub Pages jusqu'à la fusion (#51). Base `pgvector/pgvector:pg17` dès maintenant pour l'assistant IA (V2.2). Adresse réelle des visiteurs par `mod_remoteip` | [V] |
 | 2026-11-02 | Les contenus `[À FOURNIR]` seront traités dans une discussion dédiée ; la maquette les affiche tels quels d'ici là | [V] |
 | 2026-10-30 | Téléphone affiché | [R] |
 | 2026-10-30 | Instagram | [R] |

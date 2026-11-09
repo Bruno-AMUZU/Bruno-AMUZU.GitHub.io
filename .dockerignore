@@ -19,3 +19,4 @@ phpunit.xml
 vendor
 docker-compose.yml
 backups
+compose.prod.yaml
