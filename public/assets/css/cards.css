@@ -305,6 +305,9 @@
   border-radius: var(--radius-pill);
   background: var(--color-soft);
   transition: background-color 0.3s, color 0.3s;
+  /* Décorative : au survol, la translation de l'icône la fait passer au-dessus du voile
+     du lien ; sans ceci, elle intercepterait le clic. */
+  pointer-events: none;
 }
 
 .project-card__arrow .icon {
