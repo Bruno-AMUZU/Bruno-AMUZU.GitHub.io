@@ -213,7 +213,7 @@ return [
             ],
             [
                 'title' => 'Hébergement',
-                'text' => '[À FOURNIR]',
+                'text' => 'Hostinger International Ltd — 61 Lordou Vironos Street, 6023 Larnaca, Chypre — www.hostinger.com',
             ],
             [
                 'title' => 'Données personnelles',

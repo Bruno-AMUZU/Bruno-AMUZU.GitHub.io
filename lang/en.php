@@ -214,7 +214,7 @@ return [
             ],
             [
                 'title' => 'Hosting',
-                'text' => '[À FOURNIR]',
+                'text' => 'Hostinger International Ltd — 61 Lordou Vironos Street, 6023 Larnaca, Cyprus — www.hostinger.com',
             ],
             [
                 'title' => 'Personal data',
