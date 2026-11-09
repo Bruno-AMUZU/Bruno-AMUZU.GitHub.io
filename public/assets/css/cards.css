@@ -164,6 +164,32 @@
   color: var(--color-on-accent);
 }
 
+/* Carte étroite (tablette, grille 3 colonnes serrée) : le schéma ne tient plus en ligne
+   (Contexte — Agent — Résultat ≈ 260 px) ; il passe à la verticale au lieu de déborder. */
+.service-art {
+  container-type: inline-size;
+}
+
+@container (max-width: 299px) {
+  .service-art__flow {
+    flex-direction: column;
+    height: 100%;
+  }
+
+  .service-art__link {
+    flex: 1;
+    width: 2px;
+    min-width: 0;
+    min-height: var(--space-2);
+    height: auto;
+  }
+
+  .service-art__agent {
+    width: 56px;
+    height: 56px;
+  }
+}
+
 /* ── StackCard ─────────────────────────────────────────── */
 
 .stack-card {
