@@ -195,6 +195,9 @@ Le back-office gère des **types de contenu définis** : projets, certifications
 | 2026-11-03 | **Docker (dev)** : Apache + PHP (image `php:apache`), PostgreSQL, Mailpit (capture des e-mails), Adminer (interface de la base) | [V] |
 | 2026-11-03 | nginx + php-fpm | [R] |
 | 2026-11-03 | **Production** : Mailpit et Adminer jamais déployés ; envoi des e-mails par un vrai SMTP (hébergeur ou service d'envoi) configuré dans `.env`, avec SPF/DKIM sur le domaine. Le message de contact est d'abord enregistré en base, l'e-mail n'est qu'une notification | [V] |
+| 2026-11-09 | **Domaine** : `brunoamuzu.fr`, acheté chez OVH (zone DNS gérée chez OVH, sans transfert à prévoir). Remplace `brunoamuzu.dev`, y compris pour le nom de dépôt pressenti du 2026-11-03 | [V] |
+| 2026-11-09 | `brunoamuzu.dev` | [R] plus cher à l'achat et au renouvellement ; le `.fr` convient à la cible (recruteurs en France et au Luxembourg) |
+| 2026-11-09 | **Hébergement** : VPS KVM1 Hostinger (déjà utilisé par une autre application, reverse proxy partagé) jusqu'au 17 janvier 2027, puis VPS-1 OVHcloud. Déploiement en Docker pour faciliter la migration | [V] |
 | 2026-11-02 | Les contenus `[À FOURNIR]` seront traités dans une discussion dédiée ; la maquette les affiche tels quels d'ici là | [V] |
 | 2026-10-30 | Téléphone affiché | [R] |
 | 2026-10-30 | Instagram | [R] |

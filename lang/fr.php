@@ -499,7 +499,7 @@ return [
             'deleted' => 'Message supprimé.',
             'empty' => 'Aucun message ici.',
             'select' => 'Sélectionnez un message pour le lire.',
-            'subject' => 'Votre message sur brunoamuzu.dev',
+            'subject' => 'Votre message sur brunoamuzu.fr',
             'demo' => [
                 'name' => '[Nom]',
                 'email' => '[email]',

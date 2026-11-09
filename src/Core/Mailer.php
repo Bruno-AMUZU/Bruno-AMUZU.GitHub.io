@@ -36,7 +36,7 @@ final class Mailer
             }
 
             $mail->CharSet = PHPMailer::CHARSET_UTF8;
-            $mail->setFrom(Env::get('MAIL_FROM', 'no-reply@brunoamuzu.dev') ?? '', Env::get('MAIL_FROM_NAME', 'Portfolio') ?? '');
+            $mail->setFrom(Env::get('MAIL_FROM', 'no-reply@brunoamuzu.fr') ?? '', Env::get('MAIL_FROM_NAME', 'Portfolio') ?? '');
             $mail->addAddress($to);
             if ($replyTo !== null) {
                 $mail->addReplyTo($replyTo, $replyName ?? '');

@@ -50,16 +50,16 @@ docker exec -it portfolio php bin/create-admin.php vous@exemple.fr "Bruno Amuzu"
 
 Un reverse proxy (Caddy, Traefik ou nginx) placé devant gère le HTTPS. **Ni Mailpit ni Adminer en production.**
 
-## 3. Domaine brunoamuzu.dev et HTTPS (issue #46)
+## 3. Domaine brunoamuzu.fr et HTTPS (issue #46)
 
 1. Chez le registrar : enregistrement `A` (et `AAAA`) vers l'adresse IP du serveur, ou les DNS de l'hébergeur.
 2. Activer le certificat HTTPS (Let's Encrypt) dans le panneau, ou via le reverse proxy.
 3. Rediriger `http://` vers `https://` et `www.` vers le domaine nu (règle de l'hébergeur).
-4. Vérifier : `APP_URL=https://brunoamuzu.dev` dans `.env` ; l'en-tête HSTS est envoyé automatiquement en production.
+4. Vérifier : `APP_URL=https://brunoamuzu.fr` dans `.env` ; l'en-tête HSTS est envoyé automatiquement en production.
 
 ## 4. E-mails : SMTP, SPF, DKIM (issue #47)
 
-1. Créer l'adresse d'envoi (`no-reply@brunoamuzu.dev`) chez l'hébergeur, ou un compte chez un service d'envoi (Brevo, Mailjet…).
+1. Créer l'adresse d'envoi (`no-reply@brunoamuzu.fr`) chez l'hébergeur, ou un compte chez un service d'envoi (Brevo, Mailjet…).
 2. Renseigner `MAIL_HOST`, `MAIL_PORT` (587), `MAIL_USER`, `MAIL_PASSWORD`, `MAIL_FROM` dans `.env`.
 3. Ajouter dans la zone DNS du domaine les enregistrements fournis par le service :
    - **SPF** : `TXT` sur `@`, du type `v=spf1 include:<service> ~all` (un seul enregistrement SPF par domaine) ;
@@ -96,6 +96,6 @@ Avec Docker : reconstruire l'image, remplacer le conteneur, puis `docker exec po
 
 ## 7. Après la mise en ligne
 
-- Renommer le dépôt et rediriger l'ancien site GitHub Pages vers brunoamuzu.dev (issue #51).
-- Déclarer le sitemap (`https://brunoamuzu.dev/sitemap.xml`) dans Google Search Console.
+- Renommer le dépôt et rediriger l'ancien site GitHub Pages vers brunoamuzu.fr (issue #51).
+- Déclarer le sitemap (`https://brunoamuzu.fr/sitemap.xml`) dans Google Search Console.
 - Supprimer les données de démonstration : en production, la base démarre vide (pas de `bin/seed.php`).

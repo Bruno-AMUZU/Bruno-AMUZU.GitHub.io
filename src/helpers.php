@@ -136,7 +136,7 @@ function admin_unread_count(): int
     return class_exists($class) ? App\Core\App::get($class)->countUnread() : 0;
 }
 
-/** Adresse complète (https://brunoamuzu.dev/fr/projets) à partir d'un chemin, pour le SEO et les e-mails. */
+/** Adresse complète (https://brunoamuzu.fr/fr/projets) à partir d'un chemin, pour le SEO et les e-mails. */
 function absolute_url(string $path): string
 {
     if (preg_match('#^https?://#', $path)) {
